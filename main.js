@@ -29,9 +29,9 @@ function diffNames() {
             var enmTopicNames        = getSortedTopicNamesFromScript( dom.window.document.querySelector( 'script' ).textContent ),
                 enmRelatedTopicNames = enmTopicNames.filter( name => {
                     return name !== tctTopicName;
-                } );
-            inTctButNotEnm           = _.difference( tctRelatedTopicNames, enmRelatedTopicNames );
-            inEnmButNotTct           = _.difference( enmRelatedTopicNames, tctRelatedTopicNames );
+                } ),
+                inTctButNotEnm       = _.difference( tctRelatedTopicNames, enmRelatedTopicNames ),
+                inEnmButNotTct       = _.difference( enmRelatedTopicNames, tctRelatedTopicNames );
 
             console.log( inTctButNotEnm );
             console.log( inEnmButNotTct );
