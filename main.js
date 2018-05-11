@@ -26,5 +26,6 @@ function getSortedTopicNamesFromEnm() {
 
 function getSortedTopicNamesFromScript( script ) {
     var visualizationData = JSON.parse( script.replace( /^var visualizationData = /, '' ) );
-    var topicNames = visualizationData.nodes.map( ( node ) => { return node.name; } ).sort();
+
+    return visualizationData.nodes.map( ( node ) => { return node.name; } ).sort();
 }
