@@ -9,6 +9,8 @@ const options = {
     runScripts : 'dangerously',
 };
 
+const reportsDir = __dirname + '/reports';
+
 // JSDOM.fromFile( './tct-7672.html', {} )
 //     .then( dom => {
 //         getSortedTopicNamesFromTct( dom );
@@ -45,11 +47,22 @@ var topicId              = process.argv[ 2 ],
     epubsInTctNotInEnm         = _.difference( tctEpubs, enmEpubs ),
     epubsInEnmNotInTct         = _.difference( enmEpubs, tctEpubs );
 
-    console.log( relatedTopicsInTctNotInEnm );
-    console.log( relatedTopicsInEnmNotTct );
 
-    console.log( epubsInTctNotInEnm );
-    console.log( epubsInEnmNotInTct );
+    if ( relatedTopicsInTctNotInEnm.length > 0 ) {
+        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-topics.json`, JSON.stringify( relatedTopicsInTctNotInEnm ) );
+    }
+
+    if ( relatedTopicsInEnmNotTct.length > 0 ) {
+        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-topics.json`, JSON.stringify( relatedTopicsInEnmNotTct ) );
+    }
+
+    if ( epubsInTctNotInEnm.length > 0 ) {
+        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-epubs.json`, JSON.stringify( epubsInTctNotInEnm ) );
+    }
+
+    if ( epubsInEnmNotInTct.length > 0 ) {
+        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-epubs.json`, JSON.stringify( epubsInEnmNotInTct ) );
+    }
 
 function getEnmTopicPageUrl( id ) {
     var zeroPaddedString = id.padStart( 10, "0" );
