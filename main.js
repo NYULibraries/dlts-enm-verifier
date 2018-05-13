@@ -15,12 +15,14 @@ const options = {
 //     } );
 
 var topicId              = process.argv[ 2 ],
+
     tctUrl               = `https://nyuapi.infoloom.nyc/api/hit/basket/${ topicId }/?format=json`,
     tctData              = JSON.parse( request( 'GET', tctUrl ).body, '' ),
     tctTopicName         = tctData.basket.display_name,
     tctRelatedTopicNames = tctData.relations.map( relation => {
         return relation.basket.display_name
     } ).sort(),
+
     enmTopicPageUrl      = getEnmTopicPageUrl( topicId ),
     enmTopicPage         = request( 'GET', enmTopicPageUrl ).body,
     dom                  = new JSDOM( enmTopicPage ),
@@ -28,6 +30,7 @@ var topicId              = process.argv[ 2 ],
     enmRelatedTopicNames = enmTopicNames.filter( name => {
         return name !== tctTopicName;
     } ),
+
     inTctButNotEnm       = _.difference( tctRelatedTopicNames, enmRelatedTopicNames ),
     inEnmButNotTct       = _.difference( enmRelatedTopicNames, tctRelatedTopicNames );
 
