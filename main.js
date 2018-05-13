@@ -4,11 +4,6 @@ const { JSDOM } = jsdom;
 const _         = require( 'lodash' );
 const request   = require( 'sync-request' );
 
-const options = {
-    resources  : 'usable',
-    runScripts : 'dangerously',
-};
-
 const reportsDir = __dirname + '/reports';
 
 // JSDOM.fromFile( './tct-7672.html', {} )
