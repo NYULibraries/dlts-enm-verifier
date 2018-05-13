@@ -7,12 +7,24 @@ const request   = require( 'sync-request' );
 const reportsDir     = __dirname + '/reports';
 const stringifySpace = '    ';
 
+const epubsAllTctResponse = require( __dirname + '/tct/epubsAll-2018-05-12.json' );
+
 // JSDOM.fromFile( './tct-7672.html', {} )
 //     .then( dom => {
 //         getSortedTopicNamesFromTct( dom );
 //     } );
 
-var topicIds = process.argv.slice( 2 );
+var topicIds = process.argv.slice( 2 ),
+    epubs = {};
+
+epubsAllTctResponse.forEach( epub => {
+    epubs[ epub.title ] = {
+        author: epub.author,
+        id: epub.id,
+        isbn: epub.isbn,
+        publisher: epub.publisher,
+    };
+} );
 
 topicIds.forEach( topicId => {
     writeDiffReport( topicId );
