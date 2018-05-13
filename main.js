@@ -40,6 +40,12 @@ function writeDiffReport( topicId ) {
         tctEpubs             = _.sortedUniq( tctData.basket.occurs.map( occurrence => {
             return occurrence.location.document.title;
         } ).sort( caseInsensitiveSort ) ),
+        tctAuthorPublishers  = tctEpubs.map( epubTitle => {
+            var author    = epubs[ epubTitle ].author,
+                publisher = epubs[ epubTitle ].publisher;
+
+            return `${ author }; ${ publisher }`;
+        } ).sort( caseInsensitiveSort ),
 
         enmTopicPageUrl      = getEnmTopicPageUrl( topicId ),
         enmTopicPage         = request( 'GET', enmTopicPageUrl ).body,
@@ -53,12 +59,20 @@ function writeDiffReport( topicId ) {
                 return epubNode.textContent.trim();
             } )
             .sort( caseInsensitiveSort ),
+        enmAuthorPublishers  = Array.from( dom.window.document.querySelectorAll( 'div.meta') )
+            .map( authorPublisherNode => {
+                return authorPublisherNode.textContent.trim();
+            } )
+            .sort( caseInsensitiveSort ),
 
         relatedTopicsInTctNotInEnm = _.difference( tctRelatedTopicNames, enmRelatedTopicNames ),
         relatedTopicsInEnmNotTct   = _.difference( enmRelatedTopicNames, tctRelatedTopicNames ),
 
         epubsInTctNotInEnm         = _.difference( tctEpubs, enmEpubs ),
-        epubsInEnmNotInTct         = _.difference( enmEpubs, tctEpubs );
+        epubsInEnmNotInTct         = _.difference( enmEpubs, tctEpubs ),
+
+        authorPublisherInTctNotInEnm = _.difference( tctAuthorPublishers, enmAuthorPublishers ),
+        authorPublisherInEnmNotInTct = _.difference( enmAuthorPublishers, tctAuthorPublishers );
 
 
     if ( relatedTopicsInTctNotInEnm.length > 0 ) {
@@ -79,6 +93,16 @@ function writeDiffReport( topicId ) {
     if ( epubsInEnmNotInTct.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-epubs.json`,
                           JSON.stringify( epubsInEnmNotInTct ), null, stringifySpace );
+    }
+
+    if ( authorPublisherInTctNotInEnm.length > 0 ) {
+        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-authorPublishers.json`,
+                          JSON.stringify( authorPublisherInTctNotInEnm ), null, stringifySpace );
+    }
+
+    if ( authorPublisherInEnmNotInTct.length > 0 ) {
+        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-authorPublishers.json`,
+                          JSON.stringify( authorPublisherInEnmNotInTct ), null, stringifySpace );
     }
 }
 
