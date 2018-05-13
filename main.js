@@ -9,11 +9,6 @@ const stringifySpace = '    ';
 
 const epubsAllTctResponse = require( __dirname + '/tct/epubsAll-2018-05-12.json' );
 
-// JSDOM.fromFile( './tct-7672.html', {} )
-//     .then( dom => {
-//         getSortedTopicNamesFromTct( dom );
-//     } );
-
 var topicIds = process.argv.slice( 2 ),
     epubs = {};
 
