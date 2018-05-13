@@ -22,6 +22,9 @@ var topicId              = process.argv[ 2 ],
     tctRelatedTopicNames = tctData.relations.map( relation => {
         return relation.basket.display_name
     } ).sort(),
+    tctEpubs             = _.sortedUniq( tctData.basket.occurs.map( occurrence => {
+        return occurrence.location.document.title;
+    } ).sort() ),
 
     enmTopicPageUrl      = getEnmTopicPageUrl( topicId ),
     enmTopicPage         = request( 'GET', enmTopicPageUrl ).body,
@@ -30,6 +33,11 @@ var topicId              = process.argv[ 2 ],
     enmRelatedTopicNames = enmTopicNames.filter( name => {
         return name !== tctTopicName;
     } ),
+    enmEpubs             = Array.from( dom.window.document.querySelectorAll( 'h3.title') )
+        .map( epubNode => {
+            return epubNode.textContent.trim();
+        } )
+        .sort(),
 
     inTctButNotEnm       = _.difference( tctRelatedTopicNames, enmRelatedTopicNames ),
     inEnmButNotTct       = _.difference( enmRelatedTopicNames, tctRelatedTopicNames );
