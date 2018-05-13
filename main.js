@@ -4,7 +4,8 @@ const { JSDOM } = jsdom;
 const _         = require( 'lodash' );
 const request   = require( 'sync-request' );
 
-const reportsDir = __dirname + '/reports';
+const reportsDir     = __dirname + '/reports';
+const stringifySpace = '    ';
 
 // JSDOM.fromFile( './tct-7672.html', {} )
 //     .then( dom => {
@@ -44,19 +45,23 @@ var topicId              = process.argv[ 2 ],
 
 
     if ( relatedTopicsInTctNotInEnm.length > 0 ) {
-        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-topics.json`, JSON.stringify( relatedTopicsInTctNotInEnm ) );
+        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-topics.json`,
+                          JSON.stringify( relatedTopicsInTctNotInEnm, null, stringifySpace ) );
     }
 
     if ( relatedTopicsInEnmNotTct.length > 0 ) {
-        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-topics.json`, JSON.stringify( relatedTopicsInEnmNotTct ) );
+        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-topics.json`,
+                          JSON.stringify( relatedTopicsInEnmNotTct, null, stringifySpace ) );
     }
 
     if ( epubsInTctNotInEnm.length > 0 ) {
-        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-epubs.json`, JSON.stringify( epubsInTctNotInEnm ) );
+        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-epubs.json`,
+                          JSON.stringify( epubsInTctNotInEnm ), null, stringifySpace );
     }
 
     if ( epubsInEnmNotInTct.length > 0 ) {
-        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-epubs.json`, JSON.stringify( epubsInEnmNotInTct ) );
+        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-epubs.json`,
+                          JSON.stringify( epubsInEnmNotInTct ), null, stringifySpace );
     }
 
 function getEnmTopicPageUrl( id ) {
