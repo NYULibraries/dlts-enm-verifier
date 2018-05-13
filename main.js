@@ -39,6 +39,15 @@ function diffNames() {
         .catch( error => {
             console.error( 'ERROR: ' + error )
         } );
+function getEnmTopicPageUrl( id ) {
+    var zeroPaddedString = id.padStart( 10, "0" );
+
+    return 'http://dlib.nyu.edu/enm/enm-web/prototypes/topic-pages/' +
+               zeroPaddedString.substring( 0, 2 ) + "/" +
+               zeroPaddedString.substring( 2, 4 ) + "/" +
+               zeroPaddedString.substring( 4, 6 ) + "/" +
+               zeroPaddedString.substring( 6, 8 ) + "/" +
+               zeroPaddedString + '.html';
 }
 
 function getSortedTopicNamesFromScript( script ) {
