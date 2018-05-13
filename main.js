@@ -39,11 +39,17 @@ var topicId              = process.argv[ 2 ],
         } )
         .sort(),
 
-    inTctButNotEnm       = _.difference( tctRelatedTopicNames, enmRelatedTopicNames ),
-    inEnmButNotTct       = _.difference( enmRelatedTopicNames, tctRelatedTopicNames );
+    relatedTopicsInTctNotInEnm = _.difference( tctRelatedTopicNames, enmRelatedTopicNames ),
+    relatedTopicsInEnmNotTct   = _.difference( enmRelatedTopicNames, tctRelatedTopicNames ),
 
-console.log( inTctButNotEnm );
-console.log( inEnmButNotTct );
+    epubsInTctNotInEnm         = _.difference( tctEpubs, enmEpubs ),
+    epubsInEnmNotInTct         = _.difference( enmEpubs, tctEpubs );
+
+    console.log( relatedTopicsInTctNotInEnm );
+    console.log( relatedTopicsInEnmNotTct );
+
+    console.log( epubsInTctNotInEnm );
+    console.log( epubsInEnmNotInTct );
 
 function getEnmTopicPageUrl( id ) {
     var zeroPaddedString = id.padStart( 10, "0" );
