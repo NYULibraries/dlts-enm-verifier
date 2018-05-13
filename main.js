@@ -12,36 +12,41 @@ const stringifySpace = '    ';
 //         getSortedTopicNamesFromTct( dom );
 //     } );
 
-var topicId              = process.argv[ 2 ],
+var topicIds = process.argv.slice( 2 );
 
-    tctUrl               = `https://nyuapi.infoloom.nyc/api/hit/basket/${ topicId }/?format=json`,
-    tctData              = JSON.parse( request( 'GET', tctUrl ).body, '' ),
-    tctTopicName         = tctData.basket.display_name,
-    tctRelatedTopicNames = tctData.relations.map( relation => {
-        return relation.basket.display_name
-    } ).sort(),
-    tctEpubs             = _.sortedUniq( tctData.basket.occurs.map( occurrence => {
-        return occurrence.location.document.title;
-    } ).sort() ),
+topicIds.forEach( topicId => {
+    writeDiffReport( topicId );
+} );
 
-    enmTopicPageUrl      = getEnmTopicPageUrl( topicId ),
-    enmTopicPage         = request( 'GET', enmTopicPageUrl ).body,
-    dom                  = new JSDOM( enmTopicPage ),
-    enmTopicNames        = getSortedTopicNamesFromScript( dom.window.document.querySelector( 'script' ).textContent ),
-    enmRelatedTopicNames = enmTopicNames.filter( name => {
-        return name !== tctTopicName;
-    } ),
-    enmEpubs             = Array.from( dom.window.document.querySelectorAll( 'h3.title') )
-        .map( epubNode => {
-            return epubNode.textContent.trim();
-        } )
-        .sort(),
+function writeDiffReport( topicId ) {
+    var tctUrl               = `https://nyuapi.infoloom.nyc/api/hit/basket/${ topicId }/?format=json`,
+        tctData              = JSON.parse( request( 'GET', tctUrl ).body, '' ),
+        tctTopicName         = tctData.basket.display_name,
+        tctRelatedTopicNames = tctData.relations.map( relation => {
+            return relation.basket.display_name
+        } ).sort( caseInsensitiveSort ),
+        tctEpubs             = _.sortedUniq( tctData.basket.occurs.map( occurrence => {
+            return occurrence.location.document.title;
+        } ).sort( caseInsensitiveSort ) ),
 
-    relatedTopicsInTctNotInEnm = _.difference( tctRelatedTopicNames, enmRelatedTopicNames ),
-    relatedTopicsInEnmNotTct   = _.difference( enmRelatedTopicNames, tctRelatedTopicNames ),
+        enmTopicPageUrl      = getEnmTopicPageUrl( topicId ),
+        enmTopicPage         = request( 'GET', enmTopicPageUrl ).body,
+        dom                  = new JSDOM( enmTopicPage ),
+        enmTopicNames        = getSortedTopicNamesFromScript( dom.window.document.querySelector( 'script' ).textContent ),
+        enmRelatedTopicNames = enmTopicNames.filter( name => {
+            return name !== tctTopicName;
+        } ),
+        enmEpubs             = Array.from( dom.window.document.querySelectorAll( 'h3.title') )
+            .map( epubNode => {
+                return epubNode.textContent.trim();
+            } )
+            .sort( caseInsensitiveSort ),
 
-    epubsInTctNotInEnm         = _.difference( tctEpubs, enmEpubs ),
-    epubsInEnmNotInTct         = _.difference( enmEpubs, tctEpubs );
+        relatedTopicsInTctNotInEnm = _.difference( tctRelatedTopicNames, enmRelatedTopicNames ),
+        relatedTopicsInEnmNotTct   = _.difference( enmRelatedTopicNames, tctRelatedTopicNames ),
+
+        epubsInTctNotInEnm         = _.difference( tctEpubs, enmEpubs ),
+        epubsInEnmNotInTct         = _.difference( enmEpubs, tctEpubs );
 
 
     if ( relatedTopicsInTctNotInEnm.length > 0 ) {
@@ -63,6 +68,11 @@ var topicId              = process.argv[ 2 ],
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-epubs.json`,
                           JSON.stringify( epubsInEnmNotInTct ), null, stringifySpace );
     }
+}
+
+function caseInsensitiveSort( a, b ) {
+    return a.toLowerCase().localeCompare( b.toLowerCase() );
+}
 
 function getEnmTopicPageUrl( id ) {
     var zeroPaddedString = id.padStart( 10, "0" );
@@ -80,5 +90,5 @@ function getSortedTopicNamesFromScript( script ) {
 
     return visualizationData.nodes.map( ( node ) => {
         return node.name;
-    } ).sort();
+    } ).sort( caseInsensitiveSort );
 }
