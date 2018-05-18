@@ -5,6 +5,7 @@ const _         = require( 'lodash' );
 const request   = require( 'sync-request' );
 
 const reportsDir     = __dirname + '/reports';
+const enmDir         = __dirname + '/enm';
 const tctDir         = __dirname + '/tct';
 const stringifySpace = '    ';
 
@@ -73,6 +74,8 @@ function writeDiffReport( topicId ) {
 
     // Cache TCT response body
     fs.writeFileSync( `${ tctDir }/${ topicId }.json` );
+    // Cache ENM response body
+    fs.writeFileSync( `${ enmDir }/${ topicId }.html` );
 
     if ( relatedTopicsInTctNotInEnm.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-topics.json`,
