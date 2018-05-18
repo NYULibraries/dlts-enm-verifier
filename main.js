@@ -11,7 +11,7 @@ const reportsDir     = __dirname + '/reports';
 
 const stringifySpace = '    ';
 
-const epubsAllTctResponse = require( __dirname + '/tct/EpubsAll.json' );
+const epubsAllTctResponse = require( __dirname + '/test/tct/EpubsAll.json' );
 
 var argv = require( 'minimist' )( process.argv.slice( 2 ) ),
     cache = argv[ 'cache' ] || true,
