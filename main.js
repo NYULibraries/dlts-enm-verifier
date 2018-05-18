@@ -9,7 +9,7 @@ const enmDir         = __dirname + '/enm';
 const tctDir         = __dirname + '/tct';
 const stringifySpace = '    ';
 
-const epubsAllTctResponse = require( __dirname + '/tct/epubsAll.json' );
+const epubsAllTctResponse = require( __dirname + '/tct/EpubsAll.json' );
 
 var topicIds = process.argv.slice( 2 ),
     epubs = {};
