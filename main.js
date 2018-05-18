@@ -14,13 +14,12 @@ const reportsDir     = __dirname + '/reports';
 
 const stringifySpace = '    ';
 
-const epubsAllTctResponse = require( __dirname + '/test/tct/EpubsAll.json' );
-
 var argv = require( 'minimist' )( process.argv.slice( 2 ), { string: '_' } ),
     cache = argv[ 'cache' ] || true,
     enmLocal = argv[ 'use-enm-local' ] ? normalizePath( argv[ 'use-enm-local' ] ) : false,
     tctLocal = argv[ 'use-tct-local' ] ? normalizePath( argv[ 'use-tct-local' ] ) : false,
     topicIds = argv._,
+    epubsAllTctResponse = getEpubsAllResponseBody(),
     epubs = {};
 
 epubsAllTctResponse.forEach( epub => {
@@ -131,6 +130,14 @@ function normalizePath( pathString ) {
         return pathString.replace( /\/+$/, '' );
     } else {
         return pathString;
+    }
+}
+
+function getEpubsAllResponseBody() {
+    if ( tctLocal ) {
+        return require( `${ tctLocal }/EpubsAll.json` );
+    } else {
+        return require( __dirname + '/test/tct/EpubsAll.json' );
     }
 }
 
