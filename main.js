@@ -4,14 +4,18 @@ const { JSDOM } = jsdom;
 const _         = require( 'lodash' );
 const request   = require( 'sync-request' );
 
+const cacheDir       = __dirname + '/cache';
+const enmCacheDir    = cacheDir + '/enm';
+
 const reportsDir     = __dirname + '/reports';
-const enmDir         = __dirname + '/enm';
-const tctDir         = __dirname + '/tct';
+
 const stringifySpace = '    ';
 
 const epubsAllTctResponse = require( __dirname + '/tct/EpubsAll.json' );
 
-var topicIds = process.argv.slice( 2 ),
+var argv = require( 'minimist' )( process.argv.slice( 2 ) ),
+    cache = argv[ 'cache' ] || true,
+    topicIds = argv._,
     epubs = {};
 
 epubsAllTctResponse.forEach( epub => {
@@ -72,10 +76,10 @@ function writeDiffReport( topicId ) {
         authorPublisherInTctNotInEnm = _.difference( tctAuthorPublishers, enmAuthorPublishers ),
         authorPublisherInEnmNotInTct = _.difference( enmAuthorPublishers, tctAuthorPublishers );
 
-    // Cache TCT response body
-    fs.writeFileSync( `${ tctDir }/${ topicId }.json` );
-    // Cache ENM response body
-    fs.writeFileSync( `${ enmDir }/${ topicId }.html` );
+    if ( cache ) {
+        // Cache ENM response body
+        fs.writeFileSync( `${ enmCacheDir }/${ topicId }.html` );
+    }
 
     if ( relatedTopicsInTctNotInEnm.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-topics.json`,
