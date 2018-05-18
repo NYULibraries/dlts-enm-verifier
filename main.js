@@ -8,7 +8,7 @@ const reportsDir     = __dirname + '/reports';
 const tctDir         = __dirname + '/tct';
 const stringifySpace = '    ';
 
-const epubsAllTctResponse = require( __dirname + '/tct/epubsAll-2018-05-12.json' );
+const epubsAllTctResponse = require( __dirname + '/tct/epubsAll.json' );
 
 var topicIds = process.argv.slice( 2 ),
     epubs = {};
