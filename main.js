@@ -8,6 +8,7 @@ const request   = require( 'sync-request' );
 
 const cacheDir       = __dirname + '/cache';
 const enmCacheDir    = cacheDir + '/enm';
+const tctCacheDir    = cacheDir + '/tct';
 
 const reportsDir     = __dirname + '/reports';
 
@@ -15,10 +16,10 @@ const stringifySpace = '    ';
 
 const epubsAllTctResponse = require( __dirname + '/test/tct/EpubsAll.json' );
 
-var argv = require( 'minimist' )( process.argv.slice( 2 ) ),
+var argv = require( 'minimist' )( process.argv.slice( 2 ), { string: '_' } ),
     cache = argv[ 'cache' ] || true,
-    enmLocal = normalizePath( argv[ 'use-enm-local' ] ) || false,
-    tctLocal = normalizePath( argv[ 'use-tct-local' ] ) || false,
+    enmLocal = argv[ 'use-enm-local' ] ? normalizePath( argv[ 'use-enm-local' ] ) : false,
+    tctLocal = argv[ 'use-tct-local' ] ? normalizePath( argv[ 'use-tct-local' ] ) : false,
     topicIds = argv._,
     epubs = {};
 
@@ -52,8 +53,7 @@ function writeDiffReport( topicId ) {
             return `${ author }; ${ publisher }`;
         } ).sort( caseInsensitiveSort ),
 
-        enmTopicPageUrl      = getEnmTopicPageUrl( topicId ),
-        enmTopicPage         = request( 'GET', enmTopicPageUrl ).body,
+        enmTopicPage         = getEnmResponseBody( topicId ),
         dom                  = new JSDOM( enmTopicPage ),
         enmTopicNames        = getSortedTopicNamesFromScript( dom.window.document.querySelector( 'script' ).textContent ),
         enmRelatedTopicNames = enmTopicNames.filter( name => {
@@ -80,8 +80,15 @@ function writeDiffReport( topicId ) {
         authorPublisherInEnmNotInTct = _.difference( enmAuthorPublishers, tctAuthorPublishers );
 
     if ( cache ) {
-        // Cache ENM response body
-        fs.writeFileSync( `${ enmCacheDir }/${ topicId }.html` );
+        if ( ! tctLocal ) {
+            // Cache TCT response body
+           fs.writeFileSync( `${ tctCacheDir }/${ topicId }.json`, tctResponseBody );
+        }
+
+        if ( ! enmLocal ) {
+            // Cache ENM response body
+            fs.writeFileSync( `${ enmCacheDir }/${ topicId }.html`, enmTopicPage );
+        }
     }
 
     if ( relatedTopicsInTctNotInEnm.length > 0 ) {
@@ -132,6 +139,14 @@ function getTctResponseBody( topicId ) {
         return fs.readFileSync( `${ tctLocal }/${ topicId }.json`, 'utf8' );
     } else {
         return request( 'GET', `https://nyuapi.infoloom.nyc/api/hit/basket/${ topicId }/?format=json` ).body;
+    }
+}
+
+function getEnmResponseBody( topicId ) {
+    if ( enmLocal ) {
+        return fs.readFileSync( `${ enmLocal }/${ topicId }.html`, 'utf8' );
+    } else {
+        return request( 'GET', getEnmTopicPageUrl( topicId ) ).body;
     }
 }
 
