@@ -5,6 +5,7 @@ const _         = require( 'lodash' );
 const request   = require( 'sync-request' );
 
 const reportsDir     = __dirname + '/reports';
+const tctDir         = __dirname + '/tct';
 const stringifySpace = '    ';
 
 const epubsAllTctResponse = require( __dirname + '/tct/epubsAll-2018-05-12.json' );
@@ -27,7 +28,8 @@ topicIds.forEach( topicId => {
 
 function writeDiffReport( topicId ) {
     var tctUrl               = `https://nyuapi.infoloom.nyc/api/hit/basket/${ topicId }/?format=json`,
-        tctData              = JSON.parse( request( 'GET', tctUrl ).body, '' ),
+        tctResponseBody      = request( 'GET', tctUrl ).body,
+        tctData              = JSON.parse( tctResponseBody, '' ),
         tctTopicName         = tctData.basket.display_name,
         tctRelatedTopicNames = tctData.relations.map( relation => {
             return relation.basket.display_name
@@ -69,6 +71,8 @@ function writeDiffReport( topicId ) {
         authorPublisherInTctNotInEnm = _.difference( tctAuthorPublishers, enmAuthorPublishers ),
         authorPublisherInEnmNotInTct = _.difference( enmAuthorPublishers, tctAuthorPublishers );
 
+    // Cache TCT response body
+    fs.writeFileSync( `${ tctDir }/${ topicId }.json` );
 
     if ( relatedTopicsInTctNotInEnm.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-topics.json`,
