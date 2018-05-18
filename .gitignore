@@ -1,4 +1,11 @@
 .idea/
+
+cache/enm/*
+!cache/enm/.commit-empty-directory
+cache/tct/*
+!cache/tct/.commit-empty-directory
+
 node_modules/
+
 reports/*
 !reports/.commit-empty-directory
