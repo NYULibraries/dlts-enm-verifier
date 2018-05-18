@@ -2,6 +2,8 @@ const fs        = require( 'fs' );
 const jsdom     = require( 'jsdom' );
 const { JSDOM } = jsdom;
 const _         = require( 'lodash' );
+const path      = require( 'path' );
+const process   = require( 'process' );
 const request   = require( 'sync-request' );
 
 const cacheDir       = __dirname + '/cache';
@@ -15,6 +17,8 @@ const epubsAllTctResponse = require( __dirname + '/test/tct/EpubsAll.json' );
 
 var argv = require( 'minimist' )( process.argv.slice( 2 ) ),
     cache = argv[ 'cache' ] || true,
+    enmLocal = normalizePath( argv[ 'use-enm-local' ] ) || false,
+    tctLocal = normalizePath( argv[ 'use-tct-local' ] ) || false,
     topicIds = argv._,
     epubs = {};
 
@@ -32,8 +36,7 @@ topicIds.forEach( topicId => {
 } );
 
 function writeDiffReport( topicId ) {
-    var tctUrl               = `https://nyuapi.infoloom.nyc/api/hit/basket/${ topicId }/?format=json`,
-        tctResponseBody      = request( 'GET', tctUrl ).body,
+    var tctResponseBody      = getTctResponseBody( topicId ),
         tctData              = JSON.parse( tctResponseBody, '' ),
         tctTopicName         = tctData.basket.display_name,
         tctRelatedTopicNames = tctData.relations.map( relation => {
@@ -109,6 +112,26 @@ function writeDiffReport( topicId ) {
     if ( authorPublisherInEnmNotInTct.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-authorPublishers.json`,
                           JSON.stringify( authorPublisherInEnmNotInTct ), null, stringifySpace );
+    }
+}
+
+function normalizePath( pathString ) {
+    if ( ! path.isAbsolute( pathString ) ) {
+        pathString = __dirname + '/' + pathString;
+    }
+
+    if ( pathString !== '/' ) {
+        return pathString.replace( /\/+$/, '' );
+    } else {
+        return pathString;
+    }
+}
+
+function getTctResponseBody( topicId ) {
+    if ( tctLocal ) {
+        return fs.readFileSync( `${ tctLocal }/${ topicId }.json`, 'utf8' );
+    } else {
+        return request( 'GET', `https://nyuapi.infoloom.nyc/api/hit/basket/${ topicId }/?format=json` ).body;
     }
 }
 
