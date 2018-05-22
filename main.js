@@ -16,6 +16,7 @@ const stringifySpace = '    ';
 
 var argv = require( 'minimist' )( process.argv.slice( 2 ), { string: '_' } ),
     cache = argv[ 'cache' ] || true,
+    countRelatedTopicsOccurrences = argv[ 'count-related-topics-occurrences' ] || false,
     enmLocal = argv[ 'use-enm-local' ] ? normalizePath( argv[ 'use-enm-local' ] ) : false,
     tctLocal = argv[ 'use-tct-local' ] ? normalizePath( argv[ 'use-tct-local' ] ) : false,
     topicIds = argv._,
