@@ -2,7 +2,7 @@
 
 ROOT=$(cd "$(dirname "$0")" ; pwd -P )
 
-topicIds=$( cat $ROOT/related-topics-ids.txt )
+topicIds=$( cat $ROOT/related-topics-ids-for-test-sample-tct-topics.txt )
 
 for topicId in $topicIds
 do
