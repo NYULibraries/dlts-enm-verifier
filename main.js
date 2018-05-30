@@ -55,7 +55,7 @@ function getTctData( topicId ) {
 
     tct.topicName = tct.json.basket.display_name;
     tct.topicOccurrenceCounts = {};
-    tct.topicOccurrenceCounts[ tct.json.basket.id ] = tct.json.basket.occurs.length;
+    tct.topicOccurrenceCounts[ tct.topicName ] = tct.json.basket.occurs.length;
 
     if ( tct.json.relations ) {
         tct.relatedTopicNames = [];
@@ -65,7 +65,7 @@ function getTctData( topicId ) {
             tct.relatedTopicNames.push( relatedTopicName );
 
             if ( countRelatedTopicsOccurrences ) {
-                tct.topicOccurrenceCounts[ relation.basket.id ] =
+                tct.topicOccurrenceCounts[ relatedTopicName ] =
                     getOccurrenceCounts( relation.basket.id );
             }
         } );
