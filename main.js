@@ -40,14 +40,16 @@ function writeDiffReport( topicId ) {
     var tct = getTctData( topicId ),
         enm = getEnmData( topicId, tct.topicName ),
 
-        relatedTopicsInTctNotInEnm = _.difference( tct.relatedTopicNames, enm.relatedTopicNames ),
-        relatedTopicsInEnmNotTct   = _.difference( enm.relatedTopicNames, tct.relatedTopicNames ),
+        diffs = {};
 
-        epubsInTctNotInEnm         = _.difference( tct.epubs, enm.epubs ),
-        epubsInEnmNotInTct         = _.difference( enm.epubs, tct.epubs ),
+    diffs.relatedTopicsInTctNotInEnm = _.difference( tct.relatedTopicNames, enm.relatedTopicNames );
+    diffs.relatedTopicsInEnmNotTct = _.difference( enm.relatedTopicNames, tct.relatedTopicNames );
 
-        authorPublisherInTctNotInEnm = _.difference( tct.authorPublishers, enm.authorPublishers ),
-        authorPublisherInEnmNotInTct = _.difference( enm.authorPublishers, tct.authorPublishers );
+    diffs.epubsInTctNotInEnm = _.difference( tct.epubs, enm.epubs );
+    diffs.epubsInEnmNotInTct = _.difference( enm.epubs, tct.epubs );
+
+    diffs.authorPublisherInTctNotInEnm = _.difference( tct.authorPublishers, enm.authorPublishers );
+    diffs.authorPublisherInEnmNotInTct = _.difference( enm.authorPublishers, tct.authorPublishers );
 
     if ( cache ) {
         if ( ! tctLocal ) {
@@ -61,34 +63,34 @@ function writeDiffReport( topicId ) {
         }
     }
 
-    if ( relatedTopicsInTctNotInEnm.length > 0 ) {
+    if ( diffs.relatedTopicsInTctNotInEnm.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-topics.json`,
-                          JSON.stringify( relatedTopicsInTctNotInEnm, null, stringifySpace ) );
+                          JSON.stringify( diffs.relatedTopicsInTctNotInEnm, null, stringifySpace ) );
     }
 
-    if ( relatedTopicsInEnmNotTct.length > 0 ) {
+    if ( diffs.relatedTopicsInEnmNotTct.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-topics.json`,
-                          JSON.stringify( relatedTopicsInEnmNotTct, null, stringifySpace ) );
+                          JSON.stringify( diffs.relatedTopicsInEnmNotTct, null, stringifySpace ) );
     }
 
-    if ( epubsInTctNotInEnm.length > 0 ) {
+    if ( diffs.epubsInTctNotInEnm.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-epubs.json`,
-                          JSON.stringify( epubsInTctNotInEnm ), null, stringifySpace );
+                          JSON.stringify( diffs.epubsInTctNotInEnm ), null, stringifySpace );
     }
 
-    if ( epubsInEnmNotInTct.length > 0 ) {
+    if ( diffs.epubsInEnmNotInTct.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-epubs.json`,
-                          JSON.stringify( epubsInEnmNotInTct ), null, stringifySpace );
+                          JSON.stringify( diffs.epubsInEnmNotInTct ), null, stringifySpace );
     }
 
-    if ( authorPublisherInTctNotInEnm.length > 0 ) {
+    if ( diffs.authorPublisherInTctNotInEnm.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-authorPublishers.json`,
-                          JSON.stringify( authorPublisherInTctNotInEnm ), null, stringifySpace );
+                          JSON.stringify( diffs.authorPublisherInTctNotInEnm ), null, stringifySpace );
     }
 
-    if ( authorPublisherInEnmNotInTct.length > 0 ) {
+    if ( diffs.authorPublisherInEnmNotInTct.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-authorPublishers.json`,
-                          JSON.stringify( authorPublisherInEnmNotInTct ), null, stringifySpace );
+                          JSON.stringify( diffs.authorPublisherInEnmNotInTct ), null, stringifySpace );
     }
 }
 
