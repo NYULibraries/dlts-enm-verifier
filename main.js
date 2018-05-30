@@ -34,10 +34,10 @@ epubsAllTctResponse.forEach( epub => {
 } );
 
 topicIds.forEach( topicId => {
-    writeDiffReport( topicId );
+    compareTctAndEnm( topicId );
 } );
 
-function writeDiffReport( topicId ) {
+function compareTctAndEnm( topicId ) {
     var tct = getTctData( topicId ),
         enm = getEnmData( topicId, tct.topicName ),
 
