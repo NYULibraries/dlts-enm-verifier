@@ -99,7 +99,9 @@ function getEnmData( topicId, topicName ) {
         enm.dom.window.document.querySelector( 'script' ).textContent
     );
 
-    enm.topicNames  = getSortedTopicNamesFromVisualizationData( visualizationData );
+    enm.topicNames = visualizationData.nodes.map( ( node ) => {
+        return node.name;
+    } ).sort( caseInsensitiveSort );
 
     enm.relatedTopicNames = enm.topicNames.filter( name => {
             return name !== topicName;
@@ -185,12 +187,6 @@ function getEnmTopicPageUrl( id ) {
                zeroPaddedString.substring( 4, 6 ) + "/" +
                zeroPaddedString.substring( 6, 8 ) + "/" +
                zeroPaddedString + '.html';
-}
-
-function getSortedTopicNamesFromVisualizationData( visualizationData ) {
-    return visualizationData.nodes.map( ( node ) => {
-        return node.name;
-    } ).sort( caseInsensitiveSort );
 }
 
 function getVisualizationDataFromScript( script ) {
