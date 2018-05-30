@@ -88,13 +88,18 @@ function getTctData( topicId ) {
 }
 
 function getEnmData( topicId, topicName ) {
-    var enm = {};
+    var enm = {},
+        visualizationData;
 
     enm.responseBody = getEnmResponseBody( topicId );
 
     enm.dom = new JSDOM( enm.responseBody );
 
-    enm.topicNames  = getSortedTopicNamesFromScript( enm.dom.window.document.querySelector( 'script' ).textContent ),
+    visualizationData = getVisualizationDataFromScript(
+        enm.dom.window.document.querySelector( 'script' ).textContent
+    );
+
+    enm.topicNames  = getSortedTopicNamesFromVisualizationData( visualizationData );
 
     enm.relatedTopicNames = enm.topicNames.filter( name => {
             return name !== topicName;
@@ -182,9 +187,7 @@ function getEnmTopicPageUrl( id ) {
                zeroPaddedString + '.html';
 }
 
-function getSortedTopicNamesFromScript( script ) {
-    var visualizationData = getVisualizationDataFromScript( script );
-
+function getSortedTopicNamesFromVisualizationData( visualizationData ) {
     return visualizationData.nodes.map( ( node ) => {
         return node.name;
     } ).sort( caseInsensitiveSort );
