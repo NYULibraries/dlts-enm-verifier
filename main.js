@@ -43,18 +43,6 @@ function compareTctAndEnm( topicId ) {
 
         diffs = generateDiffs( tct, enm );
 
-    if ( cache ) {
-        if ( ! tctLocal ) {
-            // Cache TCT response body
-            fs.writeFileSync( `${ tctCacheDir }/${ topicId }.json`, tct.responseBody );
-        }
-
-        if ( ! enmLocal ) {
-            // Cache ENM response body
-            fs.writeFileSync( `${ enmCacheDir }/${ topicId }.html`, enmTopicPage );
-        }
-    }
-
     writeDiffReports( topicId, diffs );
 }
 
@@ -134,19 +122,35 @@ function getEpubsAllResponseBody() {
 }
 
 function getTctResponseBody( topicId ) {
+    var responseBody;
+
     if ( tctLocal ) {
-        return fs.readFileSync( `${ tctLocal }/${ topicId }.json`, 'utf8' );
+        responseBody = fs.readFileSync( `${ tctLocal }/${ topicId }.json`, 'utf8' );
     } else {
-        return request( 'GET', `https://nyuapi.infoloom.nyc/api/hit/basket/${ topicId }/?format=json` ).body;
+        responseBody = request( 'GET', `https://nyuapi.infoloom.nyc/api/hit/basket/${ topicId }/?format=json` ).body;
+
+        if ( cache ) {
+            // Cache TCT response body
+            fs.writeFileSync( `${ tctCacheDir }/${ topicId }.json`, responseBody );
+        }
     }
+
+    return responseBody;
 }
 
 function getEnmResponseBody( topicId ) {
+    var responseBody;
+
     if ( enmLocal ) {
-        return fs.readFileSync( `${ enmLocal }/${ topicId }.html`, 'utf8' );
+        responseBody = fs.readFileSync( `${ enmLocal }/${ topicId }.html`, 'utf8' );
     } else {
-        return request( 'GET', getEnmTopicPageUrl( topicId ) ).body;
+        responseBody = request( 'GET', getEnmTopicPageUrl( topicId ) ).body;
+
+        // Cache ENM response body
+        fs.writeFileSync( `${ enmCacheDir }/${ topicId }.html`, responseBody );
     }
+
+    return responseBody;
 }
 
 function caseInsensitiveSort( a, b ) {
