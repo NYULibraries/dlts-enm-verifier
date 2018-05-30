@@ -37,33 +37,17 @@ topicIds.forEach( topicId => {
 } );
 
 function writeDiffReport( topicId ) {
-    var tct = getTctData( topicId );
+    var tct = getTctData( topicId ),
+        enm = getEnmData( topicId, tct.topicName ),
 
-        enmTopicPage         = getEnmResponseBody( topicId ),
-        dom                  = new JSDOM( enmTopicPage ),
-        enmTopicNames        = getSortedTopicNamesFromScript( dom.window.document.querySelector( 'script' ).textContent ),
-        enmRelatedTopicNames = enmTopicNames.filter( name => {
-            return name !== tct.topicName;
-        } ),
-        enmEpubs             = Array.from( dom.window.document.querySelectorAll( 'h3.title') )
-            .map( epubNode => {
-                return epubNode.textContent.trim();
-            } )
-            .sort( caseInsensitiveSort ),
-        enmAuthorPublishers  = Array.from( dom.window.document.querySelectorAll( 'div.meta') )
-            .map( authorPublisherNode => {
-                return authorPublisherNode.textContent.trim();
-            } )
-            .sort( caseInsensitiveSort ),
+        relatedTopicsInTctNotInEnm = _.difference( tct.relatedTopicNames, enm.relatedTopicNames ),
+        relatedTopicsInEnmNotTct   = _.difference( enm.relatedTopicNames, tct.relatedTopicNames ),
 
-        relatedTopicsInTctNotInEnm = _.difference( tct.relatedTopicNames, enmRelatedTopicNames ),
-        relatedTopicsInEnmNotTct   = _.difference( enmRelatedTopicNames, tct.relatedTopicNames ),
+        epubsInTctNotInEnm         = _.difference( tct.epubs, enm.epubs ),
+        epubsInEnmNotInTct         = _.difference( enm.epubs, tct.epubs ),
 
-        epubsInTctNotInEnm         = _.difference( tct.epubs, enmEpubs ),
-        epubsInEnmNotInTct         = _.difference( enmEpubs, tct.epubs ),
-
-        authorPublisherInTctNotInEnm = _.difference( tct.authorPublishers, enmAuthorPublishers ),
-        authorPublisherInEnmNotInTct = _.difference( enmAuthorPublishers, tct.authorPublishers );
+        authorPublisherInTctNotInEnm = _.difference( tct.authorPublishers, enm.authorPublishers ),
+        authorPublisherInEnmNotInTct = _.difference( enm.authorPublishers, tct.authorPublishers );
 
     if ( cache ) {
         if ( ! tctLocal ) {
@@ -133,6 +117,34 @@ function getTctData( topicId ) {
     } ).sort( caseInsensitiveSort );
 
     return tct;
+}
+
+function getEnmData( topicId, topicName ) {
+    var enm = {};
+
+    enm.responseBody = getEnmResponseBody( topicId );
+
+    enm.dom = new JSDOM( enm.responseBody );
+
+    enm.topicNames  = getSortedTopicNamesFromScript( enm.dom.window.document.querySelector( 'script' ).textContent ),
+
+    enm.relatedTopicNames = enm.topicNames.filter( name => {
+            return name !== topicName;
+    } );
+
+    enm.epubs = Array.from( enm.dom.window.document.querySelectorAll( 'h3.title') )
+            .map( epubNode => {
+                return epubNode.textContent.trim();
+            } )
+            .sort( caseInsensitiveSort );
+
+    enm.authorPublishers = Array.from( enm.dom.window.document.querySelectorAll( 'div.meta') )
+        .map( authorPublisherNode => {
+            return authorPublisherNode.textContent.trim();
+        } )
+        .sort( caseInsensitiveSort );
+
+    return enm;
 }
 
 function normalizePath( pathString ) {
