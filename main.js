@@ -41,21 +41,12 @@ function writeDiffReport( topicId ) {
     var tct = getTctData( topicId ),
         enm = getEnmData( topicId, tct.topicName ),
 
-        diffs = {};
-
-    diffs.relatedTopicsInTctNotInEnm = _.difference( tct.relatedTopicNames, enm.relatedTopicNames );
-    diffs.relatedTopicsInEnmNotTct = _.difference( enm.relatedTopicNames, tct.relatedTopicNames );
-
-    diffs.epubsInTctNotInEnm = _.difference( tct.epubs, enm.epubs );
-    diffs.epubsInEnmNotInTct = _.difference( enm.epubs, tct.epubs );
-
-    diffs.authorPublisherInTctNotInEnm = _.difference( tct.authorPublishers, enm.authorPublishers );
-    diffs.authorPublisherInEnmNotInTct = _.difference( enm.authorPublishers, tct.authorPublishers );
+        diffs = generateDiffs( tct, enm );
 
     if ( cache ) {
         if ( ! tctLocal ) {
             // Cache TCT response body
-           fs.writeFileSync( `${ tctCacheDir }/${ topicId }.json`, tct.responseBody );
+            fs.writeFileSync( `${ tctCacheDir }/${ topicId }.json`, tct.responseBody );
         }
 
         if ( ! enmLocal ) {
@@ -207,6 +198,21 @@ function getSortedTopicNamesFromScript( script ) {
     return visualizationData.nodes.map( ( node ) => {
         return node.name;
     } ).sort( caseInsensitiveSort );
+}
+
+function generateDiffs( tct, enm ) {
+    var diffs = {};
+
+    diffs.relatedTopicsInTctNotInEnm = _.difference( tct.relatedTopicNames, enm.relatedTopicNames );
+    diffs.relatedTopicsInEnmNotTct = _.difference( enm.relatedTopicNames, tct.relatedTopicNames );
+
+    diffs.epubsInTctNotInEnm = _.difference( tct.epubs, enm.epubs );
+    diffs.epubsInEnmNotInTct = _.difference( enm.epubs, tct.epubs );
+
+    diffs.authorPublisherInTctNotInEnm = _.difference( tct.authorPublishers, enm.authorPublishers );
+    diffs.authorPublisherInEnmNotInTct = _.difference( enm.authorPublishers, tct.authorPublishers );
+
+    return diffs;
 }
 
 function stableStringify( json ) {
