@@ -183,11 +183,17 @@ function getEnmTopicPageUrl( id ) {
 }
 
 function getSortedTopicNamesFromScript( script ) {
-    var visualizationData = JSON.parse( script.replace( /^var visualizationData = /, '' ) );
+    var visualizationData = getVisualizationDataFromScript( script );
 
     return visualizationData.nodes.map( ( node ) => {
         return node.name;
     } ).sort( caseInsensitiveSort );
+}
+
+function getVisualizationDataFromScript( script ) {
+    var visualizationData = JSON.parse( script.replace( /^var visualizationData = /, '' ) );
+
+    return visualizationData;
 }
 
 function generateDiffs( tct, enm ) {
