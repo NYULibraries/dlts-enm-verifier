@@ -66,7 +66,7 @@ function getTctData( topicId ) {
 
             if ( countRelatedTopicsOccurrences ) {
                 tct.topicOccurrenceCounts[ relatedTopicName ] =
-                    getOccurrenceCounts( relation.basket.id );
+                    getTctOccurrenceCounts( relation.basket.id );
             }
         } );
 
@@ -262,7 +262,7 @@ function stableStringify( json ) {
     return stringify( json, { space: '    ' } );
 }
 
-function getOccurrenceCounts( topicId ) {
+function getTctOccurrenceCounts( topicId ) {
     var responseBody = getTctResponseBody( topicId ),
         json         = JSON.parse( responseBody ).occurs.length;
 
