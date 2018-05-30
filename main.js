@@ -55,35 +55,7 @@ function writeDiffReport( topicId ) {
         }
     }
 
-    if ( diffs.relatedTopicsInTctNotInEnm.length > 0 ) {
-        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-topics.json`,
-                          stableStringify( diffs.relatedTopicsInTctNotInEnm ) );
-    }
-
-    if ( diffs.relatedTopicsInEnmNotTct.length > 0 ) {
-        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-topics.json`,
-                          stableStringify( diffs.relatedTopicsInEnmNotTct ) );
-    }
-
-    if ( diffs.epubsInTctNotInEnm.length > 0 ) {
-        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-epubs.json`,
-                          stableStringify( diffs.epubsInTctNotInEnm ) );
-    }
-
-    if ( diffs.epubsInEnmNotInTct.length > 0 ) {
-        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-epubs.json`,
-                          stableStringify( diffs.epubsInEnmNotInTct ) );
-    }
-
-    if ( diffs.authorPublisherInTctNotInEnm.length > 0 ) {
-        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-authorPublishers.json`,
-                          stableStringify( diffs.authorPublisherInTctNotInEnm ) );
-    }
-
-    if ( diffs.authorPublisherInEnmNotInTct.length > 0 ) {
-        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-authorPublishers.json`,
-                          stableStringify( diffs.authorPublisherInEnmNotInTct ) );
-    }
+    writeDiffReports( topicId, diffs );
 }
 
 function getTctData( topicId ) {
@@ -213,6 +185,38 @@ function generateDiffs( tct, enm ) {
     diffs.authorPublisherInEnmNotInTct = _.difference( enm.authorPublishers, tct.authorPublishers );
 
     return diffs;
+}
+
+function writeDiffReports( topicId, diffs ) {
+    if ( diffs.relatedTopicsInTctNotInEnm.length > 0 ) {
+        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-topics.json`,
+                          stableStringify( diffs.relatedTopicsInTctNotInEnm ) );
+    }
+
+    if ( diffs.relatedTopicsInEnmNotTct.length > 0 ) {
+        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-topics.json`,
+                          stableStringify( diffs.relatedTopicsInEnmNotTct ) );
+    }
+
+    if ( diffs.epubsInTctNotInEnm.length > 0 ) {
+        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-epubs.json`,
+                          stableStringify( diffs.epubsInTctNotInEnm ) );
+    }
+
+    if ( diffs.epubsInEnmNotInTct.length > 0 ) {
+        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-epubs.json`,
+                          stableStringify( diffs.epubsInEnmNotInTct ) );
+    }
+
+    if ( diffs.authorPublisherInTctNotInEnm.length > 0 ) {
+        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-authorPublishers.json`,
+                          stableStringify( diffs.authorPublisherInTctNotInEnm ) );
+    }
+
+    if ( diffs.authorPublisherInEnmNotInTct.length > 0 ) {
+        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-authorPublishers.json`,
+                          stableStringify( diffs.authorPublisherInEnmNotInTct ) );
+    }
 }
 
 function stableStringify( json ) {
