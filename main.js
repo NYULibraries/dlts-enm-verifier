@@ -37,27 +37,13 @@ topicIds.forEach( topicId => {
 } );
 
 function writeDiffReport( topicId ) {
-    var tctResponseBody      = getTctResponseBody( topicId ),
-        tctData              = JSON.parse( tctResponseBody, '' ),
-        tctTopicName         = tctData.basket.display_name,
-        tctRelatedTopicNames = tctData.relations.map( relation => {
-            return relation.basket.display_name
-        } ).sort( caseInsensitiveSort ),
-        tctEpubs             = _.sortedUniq( tctData.basket.occurs.map( occurrence => {
-            return occurrence.location.document.title;
-        } ).sort( caseInsensitiveSort ) ),
-        tctAuthorPublishers  = tctEpubs.map( epubTitle => {
-            var author    = epubs[ epubTitle ].author,
-                publisher = epubs[ epubTitle ].publisher;
-
-            return `${ author }; ${ publisher }`;
-        } ).sort( caseInsensitiveSort ),
+    var tct = getTctData( topicId );
 
         enmTopicPage         = getEnmResponseBody( topicId ),
         dom                  = new JSDOM( enmTopicPage ),
         enmTopicNames        = getSortedTopicNamesFromScript( dom.window.document.querySelector( 'script' ).textContent ),
         enmRelatedTopicNames = enmTopicNames.filter( name => {
-            return name !== tctTopicName;
+            return name !== tct.topicName;
         } ),
         enmEpubs             = Array.from( dom.window.document.querySelectorAll( 'h3.title') )
             .map( epubNode => {
@@ -70,19 +56,19 @@ function writeDiffReport( topicId ) {
             } )
             .sort( caseInsensitiveSort ),
 
-        relatedTopicsInTctNotInEnm = _.difference( tctRelatedTopicNames, enmRelatedTopicNames ),
-        relatedTopicsInEnmNotTct   = _.difference( enmRelatedTopicNames, tctRelatedTopicNames ),
+        relatedTopicsInTctNotInEnm = _.difference( tct.relatedTopicNames, enmRelatedTopicNames ),
+        relatedTopicsInEnmNotTct   = _.difference( enmRelatedTopicNames, tct.relatedTopicNames ),
 
-        epubsInTctNotInEnm         = _.difference( tctEpubs, enmEpubs ),
-        epubsInEnmNotInTct         = _.difference( enmEpubs, tctEpubs ),
+        epubsInTctNotInEnm         = _.difference( tct.epubs, enmEpubs ),
+        epubsInEnmNotInTct         = _.difference( enmEpubs, tct.epubs ),
 
-        authorPublisherInTctNotInEnm = _.difference( tctAuthorPublishers, enmAuthorPublishers ),
-        authorPublisherInEnmNotInTct = _.difference( enmAuthorPublishers, tctAuthorPublishers );
+        authorPublisherInTctNotInEnm = _.difference( tct.authorPublishers, enmAuthorPublishers ),
+        authorPublisherInEnmNotInTct = _.difference( enmAuthorPublishers, tct.authorPublishers );
 
     if ( cache ) {
         if ( ! tctLocal ) {
             // Cache TCT response body
-           fs.writeFileSync( `${ tctCacheDir }/${ topicId }.json`, tctResponseBody );
+           fs.writeFileSync( `${ tctCacheDir }/${ topicId }.json`, tct.responseBody );
         }
 
         if ( ! enmLocal ) {
@@ -120,6 +106,33 @@ function writeDiffReport( topicId ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-authorPublishers.json`,
                           JSON.stringify( authorPublisherInEnmNotInTct ), null, stringifySpace );
     }
+}
+
+function getTctData( topicId ) {
+    var tct = {};
+
+    tct.responseBody = getTctResponseBody( topicId );
+
+    tct.json = JSON.parse( tct.responseBody, '' );
+
+    tct.topicName = tct.json.basket.display_name;
+
+    tct.relatedTopicNames = tct.json.relations.map( relation => {
+        return relation.basket.display_name
+    } ).sort( caseInsensitiveSort );
+
+    tct.epubs = _.sortedUniq( tct.json.basket.occurs.map( occurrence => {
+        return occurrence.location.document.title;
+    } ).sort( caseInsensitiveSort ) );
+
+    tct.authorPublishers = tct.epubs.map( epubTitle => {
+        var author    = epubs[ epubTitle ].author,
+            publisher = epubs[ epubTitle ].publisher;
+
+        return `${ author }; ${ publisher }`;
+    } ).sort( caseInsensitiveSort );
+
+    return tct;
 }
 
 function normalizePath( pathString ) {
