@@ -54,10 +54,23 @@ function getTctData( topicId ) {
     tct.json = JSON.parse( tct.responseBody, '' );
 
     tct.topicName = tct.json.basket.display_name;
+    tct.topicOccurrenceCounts = {};
+    tct.topicOccurrenceCounts[ tct.json.basket.id ] = tct.json.basket.occurs.length;
 
-    tct.relatedTopicNames = tct.json.relations.map( relation => {
-        return relation.basket.display_name
-    } ).sort( caseInsensitiveSort );
+    if ( tct.json.relations ) {
+        tct.relatedTopicNames = [];
+
+        tct.json.relations.forEach( relation => {
+            tct.relatedTopicNames.push( relation.basket.display_name );
+
+            if ( countRelatedTopicsOccurrences ) {
+                tct.topicOccurrenceCounts[ relation.basket.id ] =
+                    getOccurrenceCounts( relation.basket.id );
+            }
+        } );
+
+        tct.relatedTopicNames = tct.relatedTopicNames.sort( caseInsensitiveSort );
+    }
 
     tct.epubs = _.sortedUniq( tct.json.basket.occurs.map( occurrence => {
         return occurrence.location.document.title;
@@ -225,4 +238,15 @@ function writeDiffReports( topicId, diffs ) {
 
 function stableStringify( json ) {
     return stringify( json, { space: '    ' } );
+}
+
+function getOccurrenceCounts( topicId ) {
+    var responseBody = getTctResponseBody( topicId ),
+        json         = JSON.parse( responseBody ).occurs.length;
+
+    if ( json.occurs ) {
+        return json.occurs.length;
+    } else {
+        return 0;
+    }
 }
