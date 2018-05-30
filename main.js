@@ -107,6 +107,13 @@ function getEnmData( topicId, topicName ) {
             return name !== topicName;
     } );
 
+    // It's cheap to get all topic occurrence counts, so do it whether user
+    // requested it or not.
+    enm.topicOccurrenceCounts = {};
+    visualizationData.nodes.forEach( node => {
+        enm.topicOccurrenceCounts[ node.name ] = node.ocount;
+    } );
+
     enm.epubs = Array.from( enm.dom.window.document.querySelectorAll( 'h3.title') )
             .map( epubNode => {
                 return epubNode.textContent.trim();
