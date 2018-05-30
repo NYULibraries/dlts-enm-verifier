@@ -61,7 +61,8 @@ function getTctData( topicId ) {
         tct.relatedTopicNames = [];
 
         tct.json.relations.forEach( relation => {
-            tct.relatedTopicNames.push( relation.basket.display_name );
+            var relatedTopicName = relation.basket.display_name;
+            tct.relatedTopicNames.push( relatedTopicName );
 
             if ( countRelatedTopicsOccurrences ) {
                 tct.topicOccurrenceCounts[ relation.basket.id ] =
