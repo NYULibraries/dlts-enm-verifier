@@ -11,7 +11,7 @@ dirs.forEach( ( file ) => {
             relations = require( jsonDir + '/' + file ).relations;
             
             relations.forEach( ( relation ) => {
-                    topicIds[ relation.id ] = 1;
+                    topicIds[ relation.basket.id ] = 1;
                 } );
         }
     }
