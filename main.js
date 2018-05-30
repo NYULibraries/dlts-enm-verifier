@@ -202,6 +202,10 @@ function generateDiffs( tct, enm ) {
     diffs.authorPublisherInTctNotInEnm = _.difference( tct.authorPublishers, enm.authorPublishers );
     diffs.authorPublisherInEnmNotInTct = _.difference( enm.authorPublishers, tct.authorPublishers );
 
+    if ( countRelatedTopicsOccurrences ) {
+        diffs.topicOccurrenceCounts = _.difference( tct.topicOccurrenceCounts, enm.topicOccurrenceCounts );
+    }
+
     return diffs;
 }
 
@@ -234,6 +238,11 @@ function writeDiffReports( topicId, diffs ) {
     if ( diffs.authorPublisherInEnmNotInTct.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-authorPublishers.json`,
                           stableStringify( diffs.authorPublisherInEnmNotInTct ) );
+    }
+
+    if ( countRelatedTopicsOccurrences && diffs.topicOccurrenceCounts.length > 0 ) {
+        fs.writeFileSync( `${ reportsDir }/${ topicId }-occurrence-counts-discrepancies.json`,
+                          stableStringify( diffs.topicOccurrenceCounts ) );
     }
 }
 
