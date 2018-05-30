@@ -5,6 +5,7 @@ const _         = require( 'lodash' );
 const path      = require( 'path' );
 const process   = require( 'process' );
 const request   = require( 'sync-request' );
+const stringify = require( 'json-stable-stringify' );
 
 const cacheDir       = __dirname + '/cache';
 const enmCacheDir    = cacheDir + '/enm';
@@ -65,32 +66,32 @@ function writeDiffReport( topicId ) {
 
     if ( diffs.relatedTopicsInTctNotInEnm.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-topics.json`,
-                          JSON.stringify( diffs.relatedTopicsInTctNotInEnm, null, stringifySpace ) );
+                          stableStringify( diffs.relatedTopicsInTctNotInEnm ) );
     }
 
     if ( diffs.relatedTopicsInEnmNotTct.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-topics.json`,
-                          JSON.stringify( diffs.relatedTopicsInEnmNotTct, null, stringifySpace ) );
+                          stableStringify( diffs.relatedTopicsInEnmNotTct ) );
     }
 
     if ( diffs.epubsInTctNotInEnm.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-epubs.json`,
-                          JSON.stringify( diffs.epubsInTctNotInEnm ), null, stringifySpace );
+                          stableStringify( diffs.epubsInTctNotInEnm ) );
     }
 
     if ( diffs.epubsInEnmNotInTct.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-epubs.json`,
-                          JSON.stringify( diffs.epubsInEnmNotInTct ), null, stringifySpace );
+                          stableStringify( diffs.epubsInEnmNotInTct ) );
     }
 
     if ( diffs.authorPublisherInTctNotInEnm.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-authorPublishers.json`,
-                          JSON.stringify( diffs.authorPublisherInTctNotInEnm ), null, stringifySpace );
+                          stableStringify( diffs.authorPublisherInTctNotInEnm ) );
     }
 
     if ( diffs.authorPublisherInEnmNotInTct.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-authorPublishers.json`,
-                          JSON.stringify( diffs.authorPublisherInEnmNotInTct ), null, stringifySpace );
+                          stableStringify( diffs.authorPublisherInEnmNotInTct ) );
     }
 }
 
@@ -206,4 +207,8 @@ function getSortedTopicNamesFromScript( script ) {
     return visualizationData.nodes.map( ( node ) => {
         return node.name;
     } ).sort( caseInsensitiveSort );
+}
+
+function stableStringify( json ) {
+    return stringify( json, { space: '    ' } );
 }
