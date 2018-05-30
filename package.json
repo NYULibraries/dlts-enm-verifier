@@ -4,17 +4,15 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "test/test.sh"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "jsdom": "^11.10.0",
+    "json-stable-stringify": "^1.0.1",
     "lodash": "^4.17.10",
     "minimist": "^1.2.0",
     "sync-request": "^6.0.0"
-  },
-  "scripts": {
-    "test" : "test/test.sh"
   }
 }
