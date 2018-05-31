@@ -264,10 +264,15 @@ function stableStringify( json ) {
 
 function getTctOccurrenceCounts( topicId ) {
     var responseBody = getTctResponseBody( topicId ),
-        json         = JSON.parse( responseBody ).occurs.length;
+        json;
 
-    if ( json.occurs ) {
-        return json.occurs.length;
+    try {
+        json = JSON.parse( responseBody );
+    } catch( e ) {
+        console.error( `ERROR getTctOccurrenceCounts( ${ topicId } ): ${ e }` );
+
+        process.exit();
+    }
     } else {
         return 0;
     }
