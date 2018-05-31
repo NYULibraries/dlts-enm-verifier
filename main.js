@@ -225,33 +225,22 @@ function generateDiffs( tct, enm ) {
 }
 
 function getTopicOccurrenceCountsDifference( tct, enm ) {
-    var difference = [],
-        topicsInEnmButNotInTct = _.difference( Object.keys( enm ), Object.keys( tct ) ),
-        topicsToCompare =
-            Object.keys( tct ).concat( Object.values( topicsInEnmButNotInTct ) )
-                .sort( caseInsensitiveSort ),
-        topic,
+    var diff = [],
+        // Don't bother with topics that are only in TCT or ENM and not both.
+        // Other tests will catch those errors.
+        topicsToCompare = _.intersection( Object.keys( enm ), Object.keys( tct ) ),
         tctCount, enmCount;
 
-    // In these for-loops don't bother with hasOwnProperty tests -- we assume
-    // these are program-contructed objects with no surprises.
     topicsToCompare.forEach( topic => {
         tctCount = tct[ topic ];
         enmCount = enm[ topic ];
 
         if ( tctCount !== enmCount ) {
-            if ( tctCount === undefined ) {
-                tctCount = '[N/A]';
-            }
-            if ( enmCount === undefined ) {
-                enmCount = '[N/A]';
-            }
-
-            difference.push( `${ topic }: TCT count = ${ tctCount }; ENM count = ${ enmCount }` );
+            diff.push( `${ topic }: TCT count = ${ tctCount }; ENM count = ${ enmCount }` );
         }
     } );
 
-    return difference;
+    return diff;
 }
 
 function writeDiffReports( topicId, diffs ) {
