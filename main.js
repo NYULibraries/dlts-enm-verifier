@@ -273,6 +273,9 @@ function getTctOccurrenceCounts( topicId ) {
 
         process.exit();
     }
+
+    if ( json.basket.occurs ) {
+        return json.basket.occurs.length;
     } else {
         return 0;
     }
