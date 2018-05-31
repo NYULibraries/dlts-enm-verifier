@@ -9,9 +9,6 @@ topicIds='36 62 826 885 2458 3131 7672 7907 9640 11928 14034 21488 22256 26141 4
 test1="node main.js --no-cache --count-related-topics-occurrences --use-tct-local=test/tct/ --use-enm-local=test/enm/ -- ${topicIds}"
 verify1='diff -r --exclude .commit-empty-directory reports/ test/reports/'
 
-test2="node main.js --cache -- ${topicIds}"
-verify2='diff -r --exclude .commit-empty-directory cache/tct/ test/verify-tct-cache/'
-
 doTest() {
     local testCmd="$1"
     local verifyCmd="$2"
@@ -29,4 +26,3 @@ doTest() {
 rm $ROOT/reports/*
 
 doTest "${test1}" "${verify1}"
-doTest "${test2}" "${verify2}"
