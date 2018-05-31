@@ -215,10 +215,43 @@ function generateDiffs( tct, enm ) {
     diffs.authorPublisherInEnmNotInTct = _.difference( enm.authorPublishers, tct.authorPublishers );
 
     if ( countRelatedTopicsOccurrences ) {
-        diffs.topicOccurrenceCounts = _.difference( tct.topicOccurrenceCounts, enm.topicOccurrenceCounts );
+        diffs.topicOccurrenceCounts = getTopicOccurrenceCountsDifference(
+            tct.topicOccurrenceCounts,
+            enm.topicOccurrenceCounts
+        );
     }
 
     return diffs;
+}
+
+function getTopicOccurrenceCountsDifference( tct, enm ) {
+    var difference = [],
+        topicsInEnmButNotInTct = _.difference( Object.keys( enm ), Object.keys( tct ) ),
+        topicsToCompare =
+            Object.keys( tct ).concat( Object.values( topicsInEnmButNotInTct ) )
+                .sort( caseInsensitiveSort ),
+        topic,
+        tctCount, enmCount;
+
+    // In these for-loops don't bother with hasOwnProperty tests -- we assume
+    // these are program-contructed objects with no surprises.
+    topicsToCompare.forEach( topic => {
+        tctCount = tct[ topic ];
+        enmCount = enm[ topic ];
+
+        if ( tctCount !== enmCount ) {
+            if ( tctCount === undefined ) {
+                tctCount = '[N/A]';
+            }
+            if ( enmCount === undefined ) {
+                enmCount = '[N/A]';
+            }
+
+            difference.push( `${ topic }: TCT count = ${ tctCount }; ENM count = ${ enmCount }` );
+        }
+    } );
+
+    return difference;
 }
 
 function writeDiffReports( topicId, diffs ) {
