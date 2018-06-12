@@ -1,3 +1,4 @@
+const program   = require( 'commander' );
 const fs        = require( 'fs' );
 const jsdom     = require( 'jsdom' );
 const { JSDOM } = jsdom;
@@ -15,16 +16,24 @@ const reportsDir     = __dirname + '/reports';
 
 const stringifySpace = '    ';
 
-var argv = require( 'minimist' )( process.argv.slice( 2 ), { string: '_' } ),
-    cache = argv[ 'cache' ] || true,
-    countRelatedTopicsOccurrences = argv[ 'count-related-topics-occurrences' ] || false,
+program
+    .option( '--cache', 'Cache responses from ENM and TCT' )
+    .option( '--count-related-topics-occurrences', 'Verify occurrence counts' )
+    .option( '--enm-host [hostname]', 'ENM host', 'dlib.nyu.edu' )
+    .option( '--tct-host [hostname]', 'TCT host', 'nyuapi.infoloom.nyc' )
+    .option( '--use-enm-local [directory]', 'Use locally stored ENM files in <directory>' )
+    .option( '--use-tct-local [directory]', 'Use locally stored TCT files in <directory>' )
+    .parse( process.argv );
 
-    enmHost  = argv[ 'enm-host' ] ? argv[ 'enm-host' ] : 'dlib.nyu.edu',
-    tctHost  = argv[ 'tct-host' ] ? argv[ 'tct-host' ] : 'nyuapi.infoloom.nyc',
+var cache = program.cache || true,
+    countRelatedTopicsOccurrences = program.countRelatedTopicsOccurrences || false,
 
-    enmLocal = argv[ 'use-enm-local' ] ? normalizePath( argv[ 'use-enm-local' ] ) : false,
-    tctLocal = argv[ 'use-tct-local' ] ? normalizePath( argv[ 'use-tct-local' ] ) : false,
-    topicIds = argv._,
+    enmHost  = program.enmHost,
+    tctHost  = program.tctHost,
+
+    enmLocal = program.useEnmLocal || false,
+    tctLocal = program.useTctLocal || false,
+    topicIds = program.args,
     epubsAllTctResponse = getEpubsAllResponseBody(),
     epubs = {};
 
