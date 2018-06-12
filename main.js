@@ -31,8 +31,8 @@ var cache = program.cache || true,
     enmHost  = program.enmHost,
     tctHost  = program.tctHost,
 
-    enmLocal = program.useEnmLocal || false,
-    tctLocal = program.useTctLocal || false,
+    enmLocal = program.useEnmLocal ? path.resolve( program.useEnmLocal ) : false,
+    tctLocal = program.useTctLocal ? path.resolve( program.useTctLocal ) :  false,
     topicIds = program.args,
     epubsAllTctResponse = getEpubsAllResponseBody(),
     epubs = {};
@@ -140,18 +140,6 @@ function getEnmData( topicId, topicName ) {
         .sort( caseInsensitiveSort );
 
     return enm;
-}
-
-function normalizePath( pathString ) {
-    if ( ! path.isAbsolute( pathString ) ) {
-        pathString = __dirname + '/' + pathString;
-    }
-
-    if ( pathString !== '/' ) {
-        return pathString.replace( /\/+$/, '' );
-    } else {
-        return pathString;
-    }
 }
 
 function getEpubsAllResponseBody() {
