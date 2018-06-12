@@ -18,6 +18,10 @@ const stringifySpace = '    ';
 var argv = require( 'minimist' )( process.argv.slice( 2 ), { string: '_' } ),
     cache = argv[ 'cache' ] || true,
     countRelatedTopicsOccurrences = argv[ 'count-related-topics-occurrences' ] || false,
+
+    enmHost  = argv[ 'enm-host' ] ? argv[ 'enm-host' ] : 'dlib.nyu.edu',
+    tctHost  = argv[ 'tct-host' ] ? argv[ 'tct-host' ] : 'nyuapi.infoloom.nyc',
+
     enmLocal = argv[ 'use-enm-local' ] ? normalizePath( argv[ 'use-enm-local' ] ) : false,
     tctLocal = argv[ 'use-tct-local' ] ? normalizePath( argv[ 'use-tct-local' ] ) : false,
     topicIds = argv._,
@@ -155,7 +159,7 @@ function getTctResponseBody( topicId ) {
     if ( tctLocal ) {
         responseBody = fs.readFileSync( `${ tctLocal }/${ topicId }.json`, 'utf8' );
     } else {
-        responseBody = request( 'GET', `https://nyuapi.infoloom.nyc/api/hit/basket/${ topicId }/?format=json` ).body;
+        responseBody = request( 'GET', `https://${ tctHost }/api/hit/basket/${ topicId }/?format=json` ).body;
 
         if ( cache ) {
             // Cache TCT response body
@@ -188,7 +192,7 @@ function caseInsensitiveSort( a, b ) {
 function getEnmTopicPageUrl( id ) {
     var zeroPaddedString = id.padStart( 10, "0" );
 
-    return 'http://dlib.nyu.edu/enm/enm-web/prototypes/topic-pages/' +
+    return `http://${ enmHost }/enm/enm-web/prototypes/topic-pages/` +
                zeroPaddedString.substring( 0, 2 ) + "/" +
                zeroPaddedString.substring( 2, 4 ) + "/" +
                zeroPaddedString.substring( 4, 6 ) + "/" +
