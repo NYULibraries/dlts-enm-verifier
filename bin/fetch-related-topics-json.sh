@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-ROOT=$(cd "$(dirname "$0")" ; pwd -P )
+ROOT=$(cd "$(dirname "$0")" ; cd ..; pwd -P )
 
 topicIds=$( cat $ROOT/related-topics-ids-for-test-sample-tct-topics.txt )
 
