@@ -36,16 +36,17 @@ function init( programArg ) {
 }
 
 function verifyTopicPages( topicIdsArgs ) {
-    cache = program.cache || true;
+    cache                         = program.cache || true;
     countRelatedTopicsOccurrences = this.countRelatedTopicsOccurrences || false;
+    enmHost                       = program.enmHost;
+    tctHost                       = program.tctHost;
+    enmLocal                      = program.useEnmLocal ? path.resolve( program.useEnmLocal ) : false;
+    tctLocal                      = program.useTctLocal ? path.resolve( program.useTctLocal ) : false;
 
-    enmHost  = program.enmHost;
-    tctHost  = program.tctHost;
-
-    enmLocal = program.useEnmLocal ? path.resolve( program.useEnmLocal ) : false;
-    tctLocal = program.useTctLocal ? path.resolve( program.useTctLocal ) :  false;
     topicIds = topicIdsArgs;
+
     epubsAllTctResponse = getEpubsAllResponseBody();
+
     epubs = {};
 
     epubsAllTctResponse.forEach( epub => {
