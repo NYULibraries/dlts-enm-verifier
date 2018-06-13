@@ -23,8 +23,6 @@ program
     .option( '--enm-local [directory]', 'Use locally stored ENM files in <directory>', resolvedPath )
     .option( '--tct-local [directory]', 'Use locally stored TCT files in <directory>', resolvedPath );
 
-util.clearDirectory( directories.reports );
-
 topicPages.init( program, directories );
 
 program.parse( process.argv );
