@@ -23,6 +23,4 @@ doTest() {
     fi
 }
 
-rm $ROOT/reports/*
-
 doTest "${test1}" "${verify1}"

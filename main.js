@@ -3,6 +3,8 @@ const program    = require( 'commander' );
 
 const topicPages = require( './commands/topicpages' );
 
+const util       = require( './lib/util' );
+
 const cacheDir = __dirname + '/cache';
 
 const directories = {
@@ -20,6 +22,8 @@ program
     .option( '--tct-host [hostname]', 'TCT host', 'nyuapi.infoloom.nyc' )
     .option( '--enm-local [directory]', 'Use locally stored ENM files in <directory>', resolvedPath )
     .option( '--tct-local [directory]', 'Use locally stored TCT files in <directory>', resolvedPath );
+
+util.clearDirectory( directories.reports );
 
 topicPages.init( program, directories );
 
