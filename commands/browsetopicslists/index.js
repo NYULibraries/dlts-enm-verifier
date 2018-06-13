@@ -15,7 +15,6 @@ const browseTopicsListCategories = [
     'c',
     'd',
     'e',
-    'enm-picks',
     'f',
     'g',
     'h',
