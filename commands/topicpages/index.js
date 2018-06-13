@@ -30,8 +30,8 @@ function init( programArg, directoriesArg ) {
 }
 
 function verifyTopicPages( topicIdsArgs ) {
-    cache                         = program.cache || true;
-    countRelatedTopicsOccurrences = this.countRelatedTopicsOccurrences || false;
+    cache                         = program.cache;
+    countRelatedTopicsOccurrences = this.countRelatedTopicsOccurrences;
     enmHost                       = program.enmHost;
     tctHost                       = program.tctHost;
     enmLocal                      = program.useEnmLocal;
