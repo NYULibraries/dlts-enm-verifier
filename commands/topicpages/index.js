@@ -105,7 +105,7 @@ function getTctData( topicId ) {
             publisher = epubs[ epubTitle ].publisher;
 
         return `${ author }; ${ publisher }`;
-    } ).sort( util.caseInsensitiveSort );
+    } ).sort();
 
     return tct;
 }
