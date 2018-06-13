@@ -5,53 +5,45 @@ const _         = require( 'lodash' );
 const path      = require( 'path' );
 const process   = require( 'process' );
 const request   = require( 'sync-request' );
-const stringify = require( 'json-stable-stringify' );
 
-const cacheDir       = __dirname + '/../../cache';
-const enmCacheDir    = cacheDir + '/enm';
-const tctCacheDir    = cacheDir + '/tct';
+const util      = require( '../../lib/util' );
 
-const testDir        = __dirname + '/../../test';
-
-const reportsDir     = __dirname + '/../../reports';
-
-const stringifySpace = '    ';
+const commandName = 'topicpages';
 
 var program,
-    cache,
-    countRelatedTopicsOccurrences,
-    enmHost, tctHost,
-    enmLocal, tctLocal,
+    directories,
     topicIds,
     epubsAllTctResponse,
-    epubs = {};
+    epubs = {},
+    enmCache, tctCache,
+    reportsDir;
 
 
-function init( program ) {
-    this.program = program;
+function init( programArg, directoriesArg ) {
+    program     = programArg;
+    directories = directoriesArg;
+
+    enmCache   = `${ directories.cache.enm }/${ commandName }`;
+    tctCache   = `${ directories.cache.tct }/${ commandName }`;
+    reportsDir = `${ directories.reports }/${ commandName }`;
+
+    util.clearDirectory( enmCache );
+    util.clearDirectory( tctCache );
+    util.clearDirectory( reportsDir );
 
     program
-        .command( 'topicpages [topicIds...]' )
-        .option( '--cache', 'Cache responses from ENM and TCT' )
+        .command( `${ commandName } [topicIds...]` )
         .option( '--count-related-topics-occurrences', 'Verify occurrence counts' )
-        .option( '--enm-host [hostname]', 'ENM host', 'dlib.nyu.edu' )
-        .option( '--tct-host [hostname]', 'TCT host', 'nyuapi.infoloom.nyc' )
-        .option( '--use-enm-local [directory]', 'Use locally stored ENM files in <directory>' )
-        .option( '--use-tct-local [directory]', 'Use locally stored TCT files in <directory>' )
-        .action( verifyTopicPages );
+        .action( verify );
 }
 
-function verifyTopicPages( topicIdsArgs ) {
-    cache = this.cache || true;
-    countRelatedTopicsOccurrences = this.countRelatedTopicsOccurrences || false;
+function verify( topicIdsArgs ) {
+    countRelatedTopicsOccurrences = this.countRelatedTopicsOccurrences;
 
-    enmHost  = this.enmHost;
-    tctHost  = this.tctHost;
-
-    enmLocal = this.useEnmLocal ? path.resolve( this.useEnmLocal ) : false;
-    tctLocal = this.useTctLocal ? path.resolve( this.useTctLocal ) :  false;
     topicIds = topicIdsArgs;
-    epubsAllTctResponse = getEpubsAllResponseBody();
+
+    epubsAllTctResponse = JSON.parse( getEpubsAllResponseBody() );
+
     epubs = {};
 
     epubsAllTctResponse.forEach( epub => {
@@ -82,7 +74,7 @@ function getTctData( topicId ) {
 
     tct.responseBody = getTctResponseBody( topicId );
 
-    tct.json = JSON.parse( tct.responseBody, '' );
+    tct.json = JSON.parse( tct.responseBody );
 
     tct.topicName = tct.json.basket.display_name;
     tct.topicOccurrenceCounts = {};
@@ -101,19 +93,19 @@ function getTctData( topicId ) {
             }
         } );
 
-        tct.relatedTopicNames = tct.relatedTopicNames.sort( caseInsensitiveSort );
+        tct.relatedTopicNames = tct.relatedTopicNames.sort( util.caseInsensitiveSort );
     }
 
     tct.epubs = _.sortedUniq( tct.json.basket.occurs.map( occurrence => {
         return occurrence.location.document.title;
-    } ).sort( caseInsensitiveSort ) );
+    } ).sort( util.caseInsensitiveSort ) );
 
     tct.authorPublishers = tct.epubs.map( epubTitle => {
         var author    = epubs[ epubTitle ].author,
             publisher = epubs[ epubTitle ].publisher;
 
         return `${ author }; ${ publisher }`;
-    } ).sort( caseInsensitiveSort );
+    } ).sort();
 
     return tct;
 }
@@ -132,7 +124,7 @@ function getEnmData( topicId, topicName ) {
 
     enm.topicNames = visualizationData.nodes.map( ( node ) => {
         return node.name;
-    } ).sort( caseInsensitiveSort );
+    } ).sort( util.caseInsensitiveSort );
 
     enm.relatedTopicNames = enm.topicNames.filter( name => {
         return name !== topicName;
@@ -149,37 +141,42 @@ function getEnmData( topicId, topicName ) {
         .map( epubNode => {
             return epubNode.textContent.trim();
         } )
-        .sort( caseInsensitiveSort );
+        .sort( util.caseInsensitiveSort );
 
     enm.authorPublishers = Array.from( enm.dom.window.document.querySelectorAll( 'div.meta') )
         .map( authorPublisherNode => {
             return authorPublisherNode.textContent.trim();
         } )
-        .sort( caseInsensitiveSort );
+        .sort( util.caseInsensitiveSort );
 
     return enm;
 }
 
 function getEpubsAllResponseBody() {
-    if ( tctLocal ) {
-        return require( `${ tctLocal }/EpubsAll.json` );
+    var responseBody;
+
+    if ( program.tctLocal ) {
+        responseBody = fs.readFileSync( `${ program.tctLocal }/EpubsAll.json`, 'utf8' );
     } else {
-        return require( `${ testDir }/tct/EpubsAll.json` );
+        responseBody = request( 'GET', `https://${ program.tctHost }/api/epub/document/all/?format=json` ).getBody( 'utf8' );
+
+        // Cache response
+        fs.writeFileSync( `${ tctCache }/EpubsAll.json`, responseBody );
     }
+
+    return responseBody;
 }
 
 function getTctResponseBody( topicId ) {
     var responseBody;
 
-    if ( tctLocal ) {
-        responseBody = fs.readFileSync( `${ tctLocal }/${ topicId }.json`, 'utf8' );
+    if ( program.tctLocal ) {
+        responseBody = fs.readFileSync( `${ program.tctLocal }/${ topicId }.json`, 'utf8' );
     } else {
-        responseBody = request( 'GET', `https://${ tctHost }/api/hit/basket/${ topicId }/?format=json` ).body;
+        responseBody = request( 'GET', `https://${ program.tctHost }/api/hit/basket/${ topicId }/?format=json` ).getBody( 'utf8' );
 
-        if ( cache ) {
-            // Cache TCT response body
-            fs.writeFileSync( `${ tctCacheDir }/${ topicId }.json`, responseBody );
-        }
+        // Cache TCT response body
+        fs.writeFileSync( `${ tctCache }/${ topicId }.json`, responseBody );
     }
 
     return responseBody;
@@ -188,26 +185,21 @@ function getTctResponseBody( topicId ) {
 function getEnmResponseBody( topicId ) {
     var responseBody;
 
-    if ( enmLocal ) {
-        responseBody = fs.readFileSync( `${ enmLocal }/${ topicId }.html`, 'utf8' );
+    if ( program.enmLocal ) {
+        responseBody = fs.readFileSync( `${ program.enmLocal }/${ topicId }.html`, 'utf8' );
     } else {
-        responseBody = request( 'GET', getEnmTopicPageUrl( topicId ) ).body;
+        responseBody = request( 'GET', getEnmTopicPageUrl( topicId ) ).getBody( 'utf8' );
 
-        // Cache ENM response body
-        fs.writeFileSync( `${ enmCacheDir }/${ topicId }.html`, responseBody );
+        fs.writeFileSync( `${ enmCache }/${ topicId }.html`, responseBody );
     }
 
     return responseBody;
 }
 
-function caseInsensitiveSort( a, b ) {
-    return a.toLowerCase().localeCompare( b.toLowerCase() );
-}
-
 function getEnmTopicPageUrl( id ) {
     var zeroPaddedString = id.padStart( 10, "0" );
 
-    return `http://${ enmHost }/enm/enm-web/prototypes/topic-pages/` +
+    return `http://${ program.enmHost }/enm/enm-web/prototypes/topic-pages/` +
            zeroPaddedString.substring( 0, 2 ) + "/" +
            zeroPaddedString.substring( 2, 4 ) + "/" +
            zeroPaddedString.substring( 4, 6 ) + "/" +
@@ -265,42 +257,38 @@ function getTopicOccurrenceCountsDifference( tct, enm ) {
 function writeDiffReports( topicId, diffs ) {
     if ( diffs.relatedTopicsInTctNotInEnm.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-topics.json`,
-                          stableStringify( diffs.relatedTopicsInTctNotInEnm ) );
+                          util.stableStringify( diffs.relatedTopicsInTctNotInEnm ) );
     }
 
     if ( diffs.relatedTopicsInEnmNotTct.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-topics.json`,
-                          stableStringify( diffs.relatedTopicsInEnmNotTct ) );
+                          util.stableStringify( diffs.relatedTopicsInEnmNotTct ) );
     }
 
     if ( diffs.epubsInTctNotInEnm.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-epubs.json`,
-                          stableStringify( diffs.epubsInTctNotInEnm ) );
+                          util.stableStringify( diffs.epubsInTctNotInEnm ) );
     }
 
     if ( diffs.epubsInEnmNotInTct.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-epubs.json`,
-                          stableStringify( diffs.epubsInEnmNotInTct ) );
+                          util.stableStringify( diffs.epubsInEnmNotInTct ) );
     }
 
     if ( diffs.authorPublisherInTctNotInEnm.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-authorPublishers.json`,
-                          stableStringify( diffs.authorPublisherInTctNotInEnm ) );
+                          util.stableStringify( diffs.authorPublisherInTctNotInEnm ) );
     }
 
     if ( diffs.authorPublisherInEnmNotInTct.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-authorPublishers.json`,
-                          stableStringify( diffs.authorPublisherInEnmNotInTct ) );
+                          util.stableStringify( diffs.authorPublisherInEnmNotInTct ) );
     }
 
     if ( countRelatedTopicsOccurrences && diffs.topicOccurrenceCounts.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-occurrence-counts-discrepancies.json`,
-                          stableStringify( diffs.topicOccurrenceCounts ) );
+                          util.stableStringify( diffs.topicOccurrenceCounts ) );
     }
-}
-
-function stableStringify( json ) {
-    return stringify( json, { space: '    ' } );
 }
 
 function getTctOccurrenceCounts( topicId ) {
@@ -323,4 +311,3 @@ function getTctOccurrenceCounts( topicId ) {
 }
 
 module.exports.init = init;
-module.exports.verifyTopicPages = verifyTopicPages;
