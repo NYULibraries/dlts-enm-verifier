@@ -156,7 +156,7 @@ function getEpubsAllResponseBody() {
     var responseBody;
 
     if ( program.tctLocal ) {
-        responseBody = require( `${ program.tctLocal }/EpubsAll.json` );
+        responseBody = fs.readFileSync( `${ program.tctLocal }/EpubsAll.json`, 'utf8' );
     } else {
         responseBody = request( 'GET', `https://${ program.tctHost }/api/epub/document/all/?format=json` ).getBody( 'utf8' );
 
