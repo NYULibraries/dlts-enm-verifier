@@ -40,7 +40,7 @@ function verifyTopicPages( topicIdsArgs ) {
 
     topicIds = topicIdsArgs;
 
-    epubsAllTctResponse = util.getEpubsAllResponseBody( program );
+    epubsAllTctResponse = util.getEpubsAllResponseBody( program, directories );
 
     epubs = {};
 
