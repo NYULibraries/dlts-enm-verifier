@@ -17,7 +17,9 @@ cache/tct/topicpages/*
 node_modules/
 
 reports/*
-!reports/.commit-empty-directory
+!reports/topicpages/
+reports/topicpages/*
+!reports/topicpages/.commit-empty-directory
 
 test/tmp/*
 !test/tmp/.commit-empty-directory
