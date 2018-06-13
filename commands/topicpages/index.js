@@ -12,12 +12,19 @@ var program,
     directories,
     topicIds,
     epubsAllTctResponse,
-    epubs = {};
+    epubs = {},
+    enmCache, tctCache;
 
 
 function init( programArg, directoriesArg ) {
     program     = programArg;
     directories = directoriesArg;
+
+    enmCache = `{ directories.cache.enm }/topicpages`;
+    tctCache = `{ directories.cache.tct }/topicpages`;
+
+    util.clearDirectory( enmCache );
+    util.clearDirectory( tctCache );
 
     program
         .command( 'topicpages [topicIds...]' )
@@ -149,7 +156,7 @@ function getTctResponseBody( topicId ) {
         responseBody = request( 'GET', `https://${ program.tctHost }/api/hit/basket/${ topicId }/?format=json` ).body;
 
         // Cache TCT response body
-        fs.writeFileSync( `${ directories.cache.tct }/${ topicId }.json`, responseBody );
+        fs.writeFileSync( `${ tctCache }/${ topicId }.json`, responseBody );
     }
 
     return responseBody;
@@ -163,7 +170,7 @@ function getEnmResponseBody( topicId ) {
     } else {
         responseBody = request( 'GET', getEnmTopicPageUrl( topicId ) ).body;
 
-        fs.writeFileSync( `${ directories.cache.enm }/${ topicId }.html`, responseBody );
+        fs.writeFileSync( `${ enmCache }/${ topicId }.html`, responseBody );
     }
 
     return responseBody;
