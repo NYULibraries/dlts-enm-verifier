@@ -27,29 +27,24 @@ var program,
     epubs = {};
 
 
-function init( program ) {
-    this.program = program;
+function init( programArg ) {
+    program = programArg;
 
     program
         .command( 'topicpages [topicIds...]' )
-        .option( '--cache', 'Cache responses from ENM and TCT' )
         .option( '--count-related-topics-occurrences', 'Verify occurrence counts' )
-        .option( '--enm-host [hostname]', 'ENM host', 'dlib.nyu.edu' )
-        .option( '--tct-host [hostname]', 'TCT host', 'nyuapi.infoloom.nyc' )
-        .option( '--use-enm-local [directory]', 'Use locally stored ENM files in <directory>' )
-        .option( '--use-tct-local [directory]', 'Use locally stored TCT files in <directory>' )
         .action( verifyTopicPages );
 }
 
 function verifyTopicPages( topicIdsArgs ) {
-    cache = this.cache || true;
+    cache = program.cache || true;
     countRelatedTopicsOccurrences = this.countRelatedTopicsOccurrences || false;
 
-    enmHost  = this.enmHost;
-    tctHost  = this.tctHost;
+    enmHost  = program.enmHost;
+    tctHost  = program.tctHost;
 
-    enmLocal = this.useEnmLocal ? path.resolve( this.useEnmLocal ) : false;
-    tctLocal = this.useTctLocal ? path.resolve( this.useTctLocal ) :  false;
+    enmLocal = program.useEnmLocal ? path.resolve( program.useEnmLocal ) : false;
+    tctLocal = program.useTctLocal ? path.resolve( program.useTctLocal ) :  false;
     topicIds = topicIdsArgs;
     epubsAllTctResponse = getEpubsAllResponseBody();
     epubs = {};
