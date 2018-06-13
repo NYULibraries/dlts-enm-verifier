@@ -8,15 +8,8 @@ const request   = require( 'sync-request' );
 
 const util      = require( '../../lib/util' );
 
-const cacheDir       = __dirname + '/../../cache';
-const enmCacheDir    = cacheDir + '/enm';
-const tctCacheDir    = cacheDir + '/tct';
-
-const testDir        = __dirname + '/../../test';
-
-const reportsDir     = __dirname + '/../../reports';
-
 var program,
+    directories,
     cache,
     countRelatedTopicsOccurrences,
     enmHost, tctHost,
@@ -26,8 +19,9 @@ var program,
     epubs = {};
 
 
-function init( programArg ) {
-    program = programArg;
+function init( programArg, directoriesArg ) {
+    program     = programArg;
+    directories = directoriesArg;
 
     program
         .command( 'topicpages [topicIds...]' )
@@ -159,7 +153,7 @@ function getEpubsAllResponseBody() {
     if ( tctLocal ) {
         return require( `${ tctLocal }/EpubsAll.json` );
     } else {
-        return require( `${ testDir }/tct/EpubsAll.json` );
+        return require( `${ directories.test }/tct/EpubsAll.json` );
     }
 }
 
@@ -173,7 +167,7 @@ function getTctResponseBody( topicId ) {
 
         if ( cache ) {
             // Cache TCT response body
-            fs.writeFileSync( `${ tctCacheDir }/${ topicId }.json`, responseBody );
+            fs.writeFileSync( `${ directories.cache.tct }/${ topicId }.json`, responseBody );
         }
     }
 
@@ -189,7 +183,7 @@ function getEnmResponseBody( topicId ) {
         responseBody = request( 'GET', getEnmTopicPageUrl( topicId ) ).body;
 
         // Cache ENM response body
-        fs.writeFileSync( `${ enmCacheDir }/${ topicId }.html`, responseBody );
+        fs.writeFileSync( `${ directories.cache.enm }/${ topicId }.html`, responseBody );
     }
 
     return responseBody;
@@ -255,37 +249,37 @@ function getTopicOccurrenceCountsDifference( tct, enm ) {
 
 function writeDiffReports( topicId, diffs ) {
     if ( diffs.relatedTopicsInTctNotInEnm.length > 0 ) {
-        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-topics.json`,
+        fs.writeFileSync( `${ directories.reports }/${ topicId }-enm-missing-topics.json`,
                           util.stableStringify( diffs.relatedTopicsInTctNotInEnm ) );
     }
 
     if ( diffs.relatedTopicsInEnmNotTct.length > 0 ) {
-        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-topics.json`,
+        fs.writeFileSync( `${ directories.reports }/${ topicId }-enm-extra-topics.json`,
                           util.stableStringify( diffs.relatedTopicsInEnmNotTct ) );
     }
 
     if ( diffs.epubsInTctNotInEnm.length > 0 ) {
-        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-epubs.json`,
+        fs.writeFileSync( `${ directories.reports }/${ topicId }-enm-missing-epubs.json`,
                           util.stableStringify( diffs.epubsInTctNotInEnm ) );
     }
 
     if ( diffs.epubsInEnmNotInTct.length > 0 ) {
-        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-epubs.json`,
+        fs.writeFileSync( `${ directories.reports }/${ topicId }-enm-extra-epubs.json`,
                           util.stableStringify( diffs.epubsInEnmNotInTct ) );
     }
 
     if ( diffs.authorPublisherInTctNotInEnm.length > 0 ) {
-        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-authorPublishers.json`,
+        fs.writeFileSync( `${ directories.reports }/${ topicId }-enm-missing-authorPublishers.json`,
                           util.stableStringify( diffs.authorPublisherInTctNotInEnm ) );
     }
 
     if ( diffs.authorPublisherInEnmNotInTct.length > 0 ) {
-        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-authorPublishers.json`,
+        fs.writeFileSync( `${ directories.reports }/${ topicId }-enm-extra-authorPublishers.json`,
                           util.stableStringify( diffs.authorPublisherInEnmNotInTct ) );
     }
 
     if ( countRelatedTopicsOccurrences && diffs.topicOccurrenceCounts.length > 0 ) {
-        fs.writeFileSync( `${ reportsDir }/${ topicId }-occurrence-counts-discrepancies.json`,
+        fs.writeFileSync( `${ directories.reports }/${ topicId }-occurrence-counts-discrepancies.json`,
                           util.stableStringify( diffs.topicOccurrenceCounts ) );
     }
 }
