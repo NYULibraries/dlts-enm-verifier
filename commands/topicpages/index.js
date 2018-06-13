@@ -173,7 +173,7 @@ function getTctResponseBody( topicId ) {
     if ( program.tctLocal ) {
         responseBody = fs.readFileSync( `${ program.tctLocal }/${ topicId }.json`, 'utf8' );
     } else {
-        responseBody = request( 'GET', `https://${ program.tctHost }/api/hit/basket/${ topicId }/?format=json` ).body;
+        responseBody = request( 'GET', `https://${ program.tctHost }/api/hit/basket/${ topicId }/?format=json` ).getBody( 'utf8' );
 
         // Cache TCT response body
         fs.writeFileSync( `${ tctCache }/${ topicId }.json`, responseBody );
@@ -188,7 +188,7 @@ function getEnmResponseBody( topicId ) {
     if ( program.enmLocal ) {
         responseBody = fs.readFileSync( `${ program.enmLocal }/${ topicId }.html`, 'utf8' );
     } else {
-        responseBody = request( 'GET', getEnmTopicPageUrl( topicId ) ).body;
+        responseBody = request( 'GET', getEnmTopicPageUrl( topicId ) ).getBody( 'utf8' );
 
         fs.writeFileSync( `${ enmCache }/${ topicId }.html`, responseBody );
     }
