@@ -1,6 +1,7 @@
-const fs = require( 'fs' );
+const fs   = require( 'fs' );
+const path = require( 'path' );
 
-var jsonDir = __dirname + '/test/tct',
+var jsonDir = path.resolve( process.argv[ 2 ] ),
     dirs = fs.readdirSync( jsonDir ),
     topicIds = {};
 
