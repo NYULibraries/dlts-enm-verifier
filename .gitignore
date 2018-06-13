@@ -1,9 +1,18 @@
 .idea/
 
+cache/**
+
+!cache/enm
 cache/enm/*
-!cache/enm/.commit-empty-directory
+!cache/enm/topicpages/
+cache/enm/topicpages/*
+!cache/enm/topicpages/.commit-empty-directory
+
+!cache/tct
 cache/tct/*
-!cache/tct/.commit-empty-directory
+!cache/tct/topicpages/
+cache/tct/topicpages/*
+!cache/tct/topicpages/.commit-empty-directory
 
 node_modules/
 
