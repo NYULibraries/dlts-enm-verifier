@@ -8,6 +8,8 @@ const request   = require( 'sync-request' );
 
 const util      = require( '../../lib/util' );
 
+const commandName = 'topicpages';
+
 var program,
     directories,
     topicIds,
@@ -21,9 +23,9 @@ function init( programArg, directoriesArg ) {
     program     = programArg;
     directories = directoriesArg;
 
-    enmCache   = `${ directories.cache.enm }/topicpages`;
-    tctCache   = `${ directories.cache.tct }/topicpages`;
-    reportsDir = `${ directories.reports }/topicpages`;
+    enmCache   = `${ directories.cache.enm }/${ commandName }`;
+    tctCache   = `${ directories.cache.tct }/${ commandName }`;
+    reportsDir = `${ directories.reports }/${ commandName }`;
 
     util.clearDirectory( enmCache );
     util.clearDirectory( tctCache );
