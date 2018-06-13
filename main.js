@@ -1,7 +1,8 @@
 const path       = require( 'path' );
 const program    = require( 'commander' );
 
-const topicPages = require( './commands/topicpages' );
+const browseTopicsLists = require( './commands/browsetopicslists' );
+const topicPages        = require( './commands/topicpages' );
 
 const util       = require( './lib/util' );
 
@@ -23,6 +24,7 @@ program
     .option( '--enm-local [directory]', 'Use locally stored ENM files in <directory>', resolvedPath )
     .option( '--tct-local [directory]', 'Use locally stored TCT files in <directory>', resolvedPath );
 
+browseTopicsLists.init( program, directories );
 topicPages.init( program, directories );
 
 program.parse( process.argv );
