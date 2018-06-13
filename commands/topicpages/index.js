@@ -5,7 +5,8 @@ const _         = require( 'lodash' );
 const path      = require( 'path' );
 const process   = require( 'process' );
 const request   = require( 'sync-request' );
-const stringify = require( 'json-stable-stringify' );
+
+const util      = require( '../../lib/util' );
 
 const cacheDir       = __dirname + '/../../cache';
 const enmCacheDir    = cacheDir + '/enm';
@@ -14,8 +15,6 @@ const tctCacheDir    = cacheDir + '/tct';
 const testDir        = __dirname + '/../../test';
 
 const reportsDir     = __dirname + '/../../reports';
-
-const stringifySpace = '    ';
 
 var program,
     cache,
@@ -260,42 +259,38 @@ function getTopicOccurrenceCountsDifference( tct, enm ) {
 function writeDiffReports( topicId, diffs ) {
     if ( diffs.relatedTopicsInTctNotInEnm.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-topics.json`,
-                          stableStringify( diffs.relatedTopicsInTctNotInEnm ) );
+                          util.stableStringify( diffs.relatedTopicsInTctNotInEnm ) );
     }
 
     if ( diffs.relatedTopicsInEnmNotTct.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-topics.json`,
-                          stableStringify( diffs.relatedTopicsInEnmNotTct ) );
+                          util.stableStringify( diffs.relatedTopicsInEnmNotTct ) );
     }
 
     if ( diffs.epubsInTctNotInEnm.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-epubs.json`,
-                          stableStringify( diffs.epubsInTctNotInEnm ) );
+                          util.stableStringify( diffs.epubsInTctNotInEnm ) );
     }
 
     if ( diffs.epubsInEnmNotInTct.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-epubs.json`,
-                          stableStringify( diffs.epubsInEnmNotInTct ) );
+                          util.stableStringify( diffs.epubsInEnmNotInTct ) );
     }
 
     if ( diffs.authorPublisherInTctNotInEnm.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-authorPublishers.json`,
-                          stableStringify( diffs.authorPublisherInTctNotInEnm ) );
+                          util.stableStringify( diffs.authorPublisherInTctNotInEnm ) );
     }
 
     if ( diffs.authorPublisherInEnmNotInTct.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-authorPublishers.json`,
-                          stableStringify( diffs.authorPublisherInEnmNotInTct ) );
+                          util.stableStringify( diffs.authorPublisherInEnmNotInTct ) );
     }
 
     if ( countRelatedTopicsOccurrences && diffs.topicOccurrenceCounts.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-occurrence-counts-discrepancies.json`,
-                          stableStringify( diffs.topicOccurrenceCounts ) );
+                          util.stableStringify( diffs.topicOccurrenceCounts ) );
     }
-}
-
-function stableStringify( json ) {
-    return stringify( json, { space: '    ' } );
 }
 
 function getTctOccurrenceCounts( topicId ) {
