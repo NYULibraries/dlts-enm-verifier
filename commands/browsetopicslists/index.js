@@ -135,8 +135,24 @@ function getEnmBrowseTopicsListUrl( browseTopicsListCategory ) {
 }
 
 function getTctTopicsForBrowseTopicsListCategory( category ) {
-    // TODO
-    return [];
+    var regexp,
+        topics;
+
+    if ( category === 'non-alphanumeric' ) {
+        regexp = new RegExp( `^[^a-z0-9]` );
+    } else {
+        regexp = new RegExp( `^[${ category }]` );
+    }
+
+    topics = topicsAllResponse.filter( topic => {
+        return topic.display_name.replace( /^"+/, '' ).toLocaleLowerCase().match( regexp )
+    } )
+        .map( topic => {
+            return getTopicString( topic.display_name.trim(), topic.id );
+        } )
+        .sort( util.caseInsensitiveSort );
+
+    return topics;
 }
 
 function getEnmTopicsFromBrowseTopicsList( dom ) {
