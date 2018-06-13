@@ -42,7 +42,7 @@ function verify( topicIdsArgs ) {
 
     topicIds = topicIdsArgs;
 
-    epubsAllTctResponse = util.getEpubsAllResponseBody( program, directories );
+    epubsAllTctResponse = JSON.parse( getEpubsAllResponseBody() );
 
     epubs = {};
 
@@ -150,6 +150,21 @@ function getEnmData( topicId, topicName ) {
         .sort( util.caseInsensitiveSort );
 
     return enm;
+}
+
+function getEpubsAllResponseBody() {
+    var responseBody;
+
+    if ( program.tctLocal ) {
+        responseBody = require( `${ program.tctLocal }/EpubsAll.json` );
+    } else {
+        responseBody = request( 'GET', `https://${ program.tctHost }/api/epub/document/all/?format=json` ).getBody( 'utf8' );
+
+        // Cache response
+        fs.writeFileSync( `${ tctCache }/EpubsAll.json`, responseBody );
+    }
+
+    return responseBody;
 }
 
 function getTctResponseBody( topicId ) {
