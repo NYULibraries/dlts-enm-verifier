@@ -26,7 +26,6 @@ function init( programArg, directoriesArg ) {
 }
 
 function verifyTopicPages( topicIdsArgs ) {
-    cache                         = program.cache;
     countRelatedTopicsOccurrences = this.countRelatedTopicsOccurrences;
 
     topicIds = topicIdsArgs;
@@ -157,10 +156,8 @@ function getTctResponseBody( topicId ) {
     } else {
         responseBody = request( 'GET', `https://${ program.tctHost }/api/hit/basket/${ topicId }/?format=json` ).body;
 
-        if ( cache ) {
-            // Cache TCT response body
-            fs.writeFileSync( `${ directories.cache.tct }/${ topicId }.json`, responseBody );
-        }
+        // Cache TCT response body
+        fs.writeFileSync( `${ directories.cache.tct }/${ topicId }.json`, responseBody );
     }
 
     return responseBody;
@@ -174,7 +171,6 @@ function getEnmResponseBody( topicId ) {
     } else {
         responseBody = request( 'GET', getEnmTopicPageUrl( topicId ) ).body;
 
-        // Cache ENM response body
         fs.writeFileSync( `${ directories.cache.enm }/${ topicId }.html`, responseBody );
     }
 
