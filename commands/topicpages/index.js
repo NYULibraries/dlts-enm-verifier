@@ -95,19 +95,19 @@ function getTctData( topicId ) {
             }
         } );
 
-        tct.relatedTopicNames = tct.relatedTopicNames.sort( caseInsensitiveSort );
+        tct.relatedTopicNames = tct.relatedTopicNames.sort( util.caseInsensitiveSort );
     }
 
     tct.epubs = _.sortedUniq( tct.json.basket.occurs.map( occurrence => {
         return occurrence.location.document.title;
-    } ).sort( caseInsensitiveSort ) );
+    } ).sort( util.caseInsensitiveSort ) );
 
     tct.authorPublishers = tct.epubs.map( epubTitle => {
         var author    = epubs[ epubTitle ].author,
             publisher = epubs[ epubTitle ].publisher;
 
         return `${ author }; ${ publisher }`;
-    } ).sort( caseInsensitiveSort );
+    } ).sort( util.caseInsensitiveSort );
 
     return tct;
 }
@@ -126,7 +126,7 @@ function getEnmData( topicId, topicName ) {
 
     enm.topicNames = visualizationData.nodes.map( ( node ) => {
         return node.name;
-    } ).sort( caseInsensitiveSort );
+    } ).sort( util.caseInsensitiveSort );
 
     enm.relatedTopicNames = enm.topicNames.filter( name => {
         return name !== topicName;
@@ -143,13 +143,13 @@ function getEnmData( topicId, topicName ) {
         .map( epubNode => {
             return epubNode.textContent.trim();
         } )
-        .sort( caseInsensitiveSort );
+        .sort( util.caseInsensitiveSort );
 
     enm.authorPublishers = Array.from( enm.dom.window.document.querySelectorAll( 'div.meta') )
         .map( authorPublisherNode => {
             return authorPublisherNode.textContent.trim();
         } )
-        .sort( caseInsensitiveSort );
+        .sort( util.caseInsensitiveSort );
 
     return enm;
 }
@@ -192,10 +192,6 @@ function getEnmResponseBody( topicId ) {
     }
 
     return responseBody;
-}
-
-function caseInsensitiveSort( a, b ) {
-    return a.toLowerCase().localeCompare( b.toLowerCase() );
 }
 
 function getEnmTopicPageUrl( id ) {
