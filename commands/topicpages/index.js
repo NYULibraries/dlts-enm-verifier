@@ -30,7 +30,7 @@ function verifyTopicPages( topicIdsArgs ) {
 
     topicIds = topicIdsArgs;
 
-    epubsAllTctResponse = getEpubsAllResponseBody();
+    epubsAllTctResponse = util.getEpubsAllResponseBody( program );
 
     epubs = {};
 
@@ -138,14 +138,6 @@ function getEnmData( topicId, topicName ) {
         .sort( util.caseInsensitiveSort );
 
     return enm;
-}
-
-function getEpubsAllResponseBody() {
-    if ( program.tctLocal ) {
-        return require( `${ program.tctLocal }/EpubsAll.json` );
-    } else {
-        return require( `${ directories.test }/tct/EpubsAll.json` );
-    }
 }
 
 function getTctResponseBody( topicId ) {
