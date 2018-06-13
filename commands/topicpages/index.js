@@ -34,10 +34,10 @@ function init( programArg, directoriesArg ) {
     program
         .command( `${ commandName } [topicIds...]` )
         .option( '--count-related-topics-occurrences', 'Verify occurrence counts' )
-        .action( verifyTopicPages );
+        .action( verify );
 }
 
-function verifyTopicPages( topicIdsArgs ) {
+function verify( topicIdsArgs ) {
     countRelatedTopicsOccurrences = this.countRelatedTopicsOccurrences;
 
     topicIds = topicIdsArgs;
