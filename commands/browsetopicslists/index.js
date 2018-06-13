@@ -2,6 +2,7 @@ const fs        = require( 'fs' );
 const jsdom     = require( 'jsdom' );
 const { JSDOM } = jsdom;
 const _         = require( 'lodash' );
+const path      = require( 'path' );
 const request   = require( 'sync-request' );
 
 const util      = require( '../../lib/util' );
@@ -139,8 +140,25 @@ function getTctTopicsForBrowseTopicsListCategory( category ) {
 }
 
 function getEnmTopicsFromBrowseTopicsList( dom ) {
-    // TODO
-    return [];
+    var topics = [],
+        topicAnchors = dom.window.document.querySelectorAll( '.enm-topiclist a' );
+
+    topicAnchors.forEach( topicAnchor => {
+        topics.push( getTopicStringFromAnchor( topicAnchor ) );
+    } );
+
+    return topics;
+}
+
+function getTopicStringFromAnchor( topicLink ) {
+    var topicId = parseInt( path.basename( topicLink.getAttribute( 'href' ), '.html' ), 10 ),
+        topicName = topicLink.textContent.trim();
+
+    return getTopicString( topicName, topicId );
+}
+
+function getTopicString( topicName, topicId ) {
+    return `${ topicName } | Topic ID: ${ topicId }`;
 }
 
 function generateDiffs( tct, enm ) {
