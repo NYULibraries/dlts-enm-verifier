@@ -4,10 +4,13 @@ ROOT=$(cd "$(dirname "$0")" ; cd ..; pwd -P )
 
 cd $ROOT
 
-topicIds='36 62 826 885 2458 3131 7672 7907 9640 11928 14034 21488 22256 26141 43816'
+topicIds=$( cat $ROOT/test/sample-topics-ids.txt | tr '\n' ' ' )
 
-test1="node main.js --no-cache --count-related-topics-occurrences --use-tct-local=test/tct/ --use-enm-local=test/enm/ -- ${topicIds}"
-verify1='diff -r --exclude .commit-empty-directory reports/ test/reports/'
+test1="node main.js topicpages --count-related-topics-occurrences --tct-local=test/tct/topicpages/ --enm-local=test/enm/topicpages/ -- ${topicIds}"
+verify1='diff -r --exclude .commit-empty-directory reports/topicpages/ test/reports/topicpages/'
+
+test2="node main.js browsetopicslists --enm-local=test/enm/browsetopicslists --tct-local=test/tct/browsetopicslists"
+verify2='diff -r --exclude .commit-empty-directory reports/browsetopicslists/ test/reports/browsetopicslists/'
 
 doTest() {
     local testCmd="$1"
@@ -23,6 +26,5 @@ doTest() {
     fi
 }
 
-rm $ROOT/reports/*
-
 doTest "${test1}" "${verify1}"
+doTest "${test2}" "${verify2}"
