@@ -6,7 +6,7 @@ cd $ROOT
 
 topicIds=$( cat $ROOT/test/sample-topics-ids.txt | tr '\n' ' ' )
 
-test1="node main.js topicpages --count-related-topics-occurrences --tct-local=test/tct/ --enm-local=test/enm/ -- ${topicIds}"
+test1="node main.js topicpages --count-related-topics-occurrences --tct-local=test/tct/topicpages/ --enm-local=test/enm/topicpages/ -- ${topicIds}"
 verify1='diff -r --exclude .commit-empty-directory reports/topicpages/ test/reports/topicpages/'
 
 doTest() {
