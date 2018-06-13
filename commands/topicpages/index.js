@@ -296,4 +296,3 @@ function getTctOccurrenceCounts( topicId ) {
 }
 
 module.exports.init = init;
-module.exports.verifyTopicPages = verifyTopicPages;
