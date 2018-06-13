@@ -32,7 +32,7 @@ function init( programArg, directoriesArg ) {
     util.clearDirectory( reportsDir );
 
     program
-        .command( 'topicpages [topicIds...]' )
+        .command( `${ commandName } [topicIds...]` )
         .option( '--count-related-topics-occurrences', 'Verify occurrence counts' )
         .action( verifyTopicPages );
 }
