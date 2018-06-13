@@ -10,10 +10,6 @@ const util      = require( '../../lib/util' );
 
 var program,
     directories,
-    cache,
-    countRelatedTopicsOccurrences,
-    enmHost, tctHost,
-    enmLocal, tctLocal,
     topicIds,
     epubsAllTctResponse,
     epubs = {};
@@ -32,10 +28,6 @@ function init( programArg, directoriesArg ) {
 function verifyTopicPages( topicIdsArgs ) {
     cache                         = program.cache;
     countRelatedTopicsOccurrences = this.countRelatedTopicsOccurrences;
-    enmHost                       = program.enmHost;
-    tctHost                       = program.tctHost;
-    enmLocal                      = program.useEnmLocal;
-    tctLocal                      = program.useTctLocal;
 
     topicIds = topicIdsArgs;
 
@@ -150,8 +142,8 @@ function getEnmData( topicId, topicName ) {
 }
 
 function getEpubsAllResponseBody() {
-    if ( tctLocal ) {
-        return require( `${ tctLocal }/EpubsAll.json` );
+    if ( program.tctLocal ) {
+        return require( `${ program.tctLocal }/EpubsAll.json` );
     } else {
         return require( `${ directories.test }/tct/EpubsAll.json` );
     }
@@ -160,10 +152,10 @@ function getEpubsAllResponseBody() {
 function getTctResponseBody( topicId ) {
     var responseBody;
 
-    if ( tctLocal ) {
-        responseBody = fs.readFileSync( `${ tctLocal }/${ topicId }.json`, 'utf8' );
+    if ( program.tctLocal ) {
+        responseBody = fs.readFileSync( `${ program.tctLocal }/${ topicId }.json`, 'utf8' );
     } else {
-        responseBody = request( 'GET', `https://${ tctHost }/api/hit/basket/${ topicId }/?format=json` ).body;
+        responseBody = request( 'GET', `https://${ program.tctHost }/api/hit/basket/${ topicId }/?format=json` ).body;
 
         if ( cache ) {
             // Cache TCT response body
@@ -177,8 +169,8 @@ function getTctResponseBody( topicId ) {
 function getEnmResponseBody( topicId ) {
     var responseBody;
 
-    if ( enmLocal ) {
-        responseBody = fs.readFileSync( `${ enmLocal }/${ topicId }.html`, 'utf8' );
+    if ( program.enmLocal ) {
+        responseBody = fs.readFileSync( `${ program.enmLocal }/${ topicId }.html`, 'utf8' );
     } else {
         responseBody = request( 'GET', getEnmTopicPageUrl( topicId ) ).body;
 
@@ -192,7 +184,7 @@ function getEnmResponseBody( topicId ) {
 function getEnmTopicPageUrl( id ) {
     var zeroPaddedString = id.padStart( 10, "0" );
 
-    return `http://${ enmHost }/enm/enm-web/prototypes/topic-pages/` +
+    return `http://${ program.enmHost }/enm/enm-web/prototypes/topic-pages/` +
            zeroPaddedString.substring( 0, 2 ) + "/" +
            zeroPaddedString.substring( 2, 4 ) + "/" +
            zeroPaddedString.substring( 4, 6 ) + "/" +
