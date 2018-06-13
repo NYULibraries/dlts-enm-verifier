@@ -34,8 +34,8 @@ function verifyTopicPages( topicIdsArgs ) {
     countRelatedTopicsOccurrences = this.countRelatedTopicsOccurrences || false;
     enmHost                       = program.enmHost;
     tctHost                       = program.tctHost;
-    enmLocal                      = program.useEnmLocal ? path.resolve( program.useEnmLocal ) : false;
-    tctLocal                      = program.useTctLocal ? path.resolve( program.useTctLocal ) : false;
+    enmLocal                      = program.useEnmLocal;
+    tctLocal                      = program.useTctLocal;
 
     topicIds = topicIdsArgs;
 
