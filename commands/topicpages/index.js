@@ -74,7 +74,7 @@ function getTctData( topicId ) {
 
     tct.responseBody = getTctResponseBody( topicId );
 
-    tct.json = JSON.parse( tct.responseBody, '' );
+    tct.json = JSON.parse( tct.responseBody );
 
     tct.topicName = tct.json.basket.display_name;
     tct.topicOccurrenceCounts = {};
