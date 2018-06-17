@@ -68,21 +68,6 @@ function getEnmData( locationId ) {
     return enm;
 }
 
-function getEpubsAllResponseBody() {
-    var responseBody;
-
-    if ( program.tctLocal ) {
-        responseBody = fs.readFileSync( `${ program.tctLocal }/EpubsAll.json`, 'utf8' );
-    } else {
-        responseBody = request( 'GET', `https://${ program.tctHost }/api/epub/document/all/?format=json` ).getBody( 'utf8' );
-
-        // Cache response
-        fs.writeFileSync( `${ tctCache }/EpubsAll.json`, responseBody );
-    }
-
-    return responseBody;
-}
-
 function getTctResponseBody( locationId ) {
     var responseBody;
 
