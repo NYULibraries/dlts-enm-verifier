@@ -58,11 +58,11 @@ function getTctData( locationId ) {
     return tct;
 }
 
-function getEpubNumberOfPages( epubId ) {
+function getEpubDetail( epubId ) {
     var epubDetailResponseBody = getEpubDetailResponseBody( epubId ),
         epubDetail = JSON.parse( epubDetailResponseBody );
 
-    return epubDetail.locations.length;
+    return epubDetail;
 }
 
 function getEnmData( locationId ) {
