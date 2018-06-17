@@ -58,6 +58,13 @@ function getTctData( locationId ) {
     return tct;
 }
 
+function getEpubNumberOfPages( epubId ) {
+    var epubDetailResponseBody = getEpubDetailResponseBody( epubId ),
+        epubDetail = JSON.parse( epubDetailResponseBody );
+
+    return epubDetail.locations.length;
+}
+
 function getEnmData( locationId ) {
     var responseBody = getEnmResponseBody( locationId ),
         enm = JSON.parse( responseBody ).response.docs[ 0 ];
