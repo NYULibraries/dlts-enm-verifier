@@ -59,11 +59,10 @@ function getTctData( locationId ) {
 }
 
 function getEnmData( locationId ) {
-    var enm = {};
+    var responseBody = getEnmResponseBody( locationId ),
+        enm = JSON.parse( responseBody ).response.docs[ 0 ];
 
-    enm.responseBody = getEnmResponseBody( locationId );
-
-    enm.json = JSON.parse( enm.responseBody );
+    enm.responseBody = responseBody;
 
     return enm;
 }
