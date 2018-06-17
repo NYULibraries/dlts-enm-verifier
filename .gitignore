@@ -8,6 +8,10 @@ cache/enm/*
 !cache/enm/browsetopicslists/
 cache/enm/browsetopicslists/*
 !cache/enm/browsetopicslists/.commit-empty-directory
+# Allow empty solr directory
+!cache/enm/solr/
+cache/enm/solr/*
+!cache/enm/solr/.commit-empty-directory
 # Allow empty topicpages directory
 !cache/enm/topicpages/
 cache/enm/topicpages/*
@@ -19,6 +23,10 @@ cache/tct/*
 !cache/tct/browsetopicslists/
 cache/tct/browsetopicslists/*
 !cache/tct/browsetopicslists/.commit-empty-directory
+# Allow empty solr directory
+!cache/tct/solr/
+cache/tct/solr/*
+!cache/tct/solr/.commit-empty-directory
 # Allow empty topicpages directory
 !cache/tct/topicpages/
 cache/tct/topicpages/*
@@ -31,6 +39,10 @@ reports/*
 !reports/browsetopicslists/
 reports/browsetopicslists/*
 !reports/browsetopicslists/.commit-empty-directory
+# Allow empty solr directory
+!reports/solr/
+reports/solr/*
+!reports/solr/.commit-empty-directory
 # Allow empty topicpages directory
 !reports/topicpages/
 reports/topicpages/*
