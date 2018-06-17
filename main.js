@@ -2,6 +2,7 @@ const path       = require( 'path' );
 const program    = require( 'commander' );
 
 const browseTopicsLists = require( './commands/browsetopicslists' );
+const solr              = require( './commands/solr' );
 const topicPages        = require( './commands/topicpages' );
 
 const util       = require( './lib/util' );
@@ -25,6 +26,7 @@ program
     .option( '--tct-local [directory]', 'Use locally stored TCT files in <directory>', resolvedPath );
 
 browseTopicsLists.init( program, directories );
+solr.init( program, directories );
 topicPages.init( program, directories );
 
 program.parse( process.argv );
