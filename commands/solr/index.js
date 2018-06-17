@@ -55,7 +55,7 @@ function getTctData( locationId ) {
 
     tct.json = JSON.parse( tct.responseBody )[ 0 ];
 
-    tct.authors = [].push( tct.json.document.author );
+    tct.authors = tct.json.document.author;
     tct.epubDetail = getEpubDetail( tct.json.document.id );
     tct.epubNumberOfPages = tct.epubDetail.locations.length;
     tct.id = tct.json.id;
