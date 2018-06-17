@@ -65,6 +65,14 @@ function getEpubDetail( epubId ) {
     return epubDetail;
 }
 
+function getSequenceNumberForLocationId( epubDetail, locationId ) {
+    var location = epubDetail.locations.find( location => {
+        return location.id === locationId;
+    } );
+
+    return location.sequence_number;
+}
+
 function getEnmData( locationId ) {
     var responseBody = getEnmResponseBody( locationId ),
         enm = JSON.parse( responseBody ).response.docs[ 0 ];
