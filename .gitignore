@@ -4,37 +4,37 @@ cache/**
 
 !cache/enm
 cache/enm/*
-# Allow empty topicpages directory
-!cache/enm/topicpages/
-cache/enm/topicpages/*
-!cache/enm/topicpages/.commit-empty-directory
 # Allow empty browsetopicslists directory
 !cache/enm/browsetopicslists/
 cache/enm/browsetopicslists/*
 !cache/enm/browsetopicslists/.commit-empty-directory
+# Allow empty topicpages directory
+!cache/enm/topicpages/
+cache/enm/topicpages/*
+!cache/enm/topicpages/.commit-empty-directory
 
 !cache/tct
 cache/tct/*
-# Allow empty topicpages directory
-!cache/tct/topicpages/
-cache/tct/topicpages/*
-!cache/tct/topicpages/.commit-empty-directory
 # Allow empty browsetopicslists directory
 !cache/tct/browsetopicslists/
 cache/tct/browsetopicslists/*
 !cache/tct/browsetopicslists/.commit-empty-directory
+# Allow empty topicpages directory
+!cache/tct/topicpages/
+cache/tct/topicpages/*
+!cache/tct/topicpages/.commit-empty-directory
 
 node_modules/
 
 reports/*
-# Allow empty topicpages directory
-!reports/topicpages/
-reports/topicpages/*
-!reports/topicpages/.commit-empty-directory
 # Allow empty browsetopicslists directory
 !reports/browsetopicslists/
 reports/browsetopicslists/*
 !reports/browsetopicslists/.commit-empty-directory
+# Allow empty topicpages directory
+!reports/topicpages/
+reports/topicpages/*
+!reports/topicpages/.commit-empty-directory
 
 test/tmp/*
 !test/tmp/.commit-empty-directory
