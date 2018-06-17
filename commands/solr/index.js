@@ -102,6 +102,23 @@ function getEnmResponseBody( locationId ) {
     return responseBody;
 }
 
+function getEpubDetailResponseBody( epubId ) {
+    var responseBody;
+
+    if ( program.tctLocal ) {
+        responseBody = fs.readFileSync( `${ program.tctLocal}/EpubDetail-${ epubId }.json`, 'utf8' );
+    } else {
+        responseBody = request(
+            'GET',
+            `https://${ program.tctHost }/api/epub/document/${ epubId }/`
+        ).getBody( 'utf8' );
+
+        fs.writeFileSync( `${ tctCache }/EpubDetail-${ epubId }.json`, responseBody );
+    }
+
+    return responseBody;
+}
+
 function generateDiffs( tct, enm ) {
     var diffs = {};
 
