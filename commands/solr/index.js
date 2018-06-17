@@ -53,7 +53,22 @@ function getTctData( locationId ) {
 
     tct.responseBody = getTctResponseBody( locationId );
 
-    tct.json = JSON.parse( tct.responseBody );
+    tct.json = JSON.parse( tct.responseBody )[ 0 ];
+
+    tct.authors = [].push( tct.json.document.author );
+    tct.epubDetail = getEpubDetail( tct.json.document.id );
+    tct.epubNumberOfPages = tct.epubDetail.locations.length;
+    tct.id = tct.json.id;
+    tct.isbn = tct.json.document.isbn;
+    tct.pageLocalId = tct.json.localid;
+    tct.pageNumberForDisplay = tct.pageLocalId.replace( /^page_/, '' );
+    tct.pageSequenceNumber = getSequenceNumberForLocationId( tct.epubDetail, tct.id );
+    tct.pageText = tct.json.content.text;
+    tct.publisher = tct.json.document.publisher;
+    tct.title = tct.json.document.title;
+    tct.topicNames = tct.json.occurrences.map( occurrence => {
+        return occurrence.basket.display_name;
+    } ).sort();
 
     return tct;
 }
