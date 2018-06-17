@@ -94,6 +94,12 @@ function getEnmData( locationId ) {
 
     enm.responseBody = responseBody;
 
+    // At the moment, all authors are jammed into first array element, separated
+    // by semi-colons.  This is how they came in through TCT EpubDetail.
+    enm.authors = enm.authors[ 0 ];
+    // Should already be sorted, but just in case...
+    enm.topicNames = enm.topicNames.sort();
+
     return enm;
 }
 
