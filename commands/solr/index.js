@@ -25,6 +25,7 @@ var program,
     directories,
     locationIds,
     namesAll = {},
+    topicDisplayNamesToTopicIdMap = {},
     enmCache, tctCache,
     reportsDir;
 
@@ -101,6 +102,10 @@ function getTctData( locationId ) {
     tct.topicNames = tct.json.occurrences.map( occurrence => {
         return occurrence.basket.display_name;
     } ).sort( util.ignoreWrappingDoubleQuotesCaseInsenstiveSort );
+
+    tct.json.occurrences.forEach( occurrence => {
+        topicDisplayNamesToTopicIdMap[ occurrence.basket.display_name ] = occurrence.basket.id;
+    } );
 
     return tct;
 }
