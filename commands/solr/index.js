@@ -82,7 +82,7 @@ function getTctData( locationId ) {
     tct.title = tct.json.document.title;
     tct.topicNames = tct.json.occurrences.map( occurrence => {
         return occurrence.basket.display_name;
-    } ).sort();
+    } ).sort( util.ignoreWrappingDoubleQuotesCaseInsenstiveSort );
 
     return tct;
 }
@@ -116,8 +116,13 @@ function getEnmData( locationId ) {
     // in which case Solr field should be set to single-valued.  For now, need
     // to extract the publisher from the first element.
     enm.publisher = enm.publisher[ 0 ];
-    // Should already be sorted, but just in case...
-    enm.topicNames = enm.topicNames.sort();
+    // Should already be sorted, but just sort them anyway just in case, as we
+    // are not verifying ordering here, but are merely checking to see that TCT
+    // and ENM have the same names associated with the location, as our custom
+    // sort as specified in NYUP-376 is something that is implemented outside of
+    // TCT.
+    // The Solr indexer tests will check for the correct ordering,
+    enm.topicNames = enm.topicNames.sort( util.ignoreWrappingDoubleQuotesCaseInsenstiveSort );
 
     return enm;
 }
