@@ -24,7 +24,6 @@ const fieldsToVerify = {
 var program,
     directories,
     locationIds,
-    epubs = {},
     enmCache, tctCache,
     reportsDir;
 
