@@ -113,7 +113,10 @@ function getTctData( locationId ) {
     } ).sort( util.ignoreWrappingDoubleQuotesCaseInsenstiveSort );
 
     tct.json.occurrences.forEach( occurrence => {
-        topicDisplayNamesToTopicIdMap[ occurrence.basket.display_name ] = occurrence.basket.id;
+        var topicId = occurrence.basket.id,
+            topicDisplayName = occurrence.basket.display_name;
+
+        topicDisplayNamesToTopicIdMap[ topicDisplayName ] = topicId;
     } );
 
     return tct;
