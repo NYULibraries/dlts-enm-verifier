@@ -6,6 +6,24 @@ const util      = require( '../../lib/util' );
 
 const commandName = 'solr';
 
+const MULTI_VALUED = 0;
+const SINGLE_VALUED = 1;
+
+const fieldsToVerify = {
+    'authors'              : SINGLE_VALUED,
+    'epubNumberOfPages'    : SINGLE_VALUED,
+    'id'                   : SINGLE_VALUED,
+    'isbn'                 : SINGLE_VALUED,
+    'pageLocalId'          : SINGLE_VALUED,
+    'pageNumberForDisplay' : SINGLE_VALUED,
+    'pageSequenceNumber'   : SINGLE_VALUED,
+    'pageText'             : SINGLE_VALUED,
+    'publisher'            : SINGLE_VALUED,
+    'title'                : SINGLE_VALUED,
+    'topicNames'           : MULTI_VALUED,
+    'topicNamesForDisplay' : SINGLE_VALUED,
+};
+
 var program,
     directories,
     locationIds,
