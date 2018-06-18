@@ -181,6 +181,27 @@ function getEpubDetailResponseBody( epubId ) {
 function generateDiffs( tct, enm ) {
     var diffs = {};
 
+    Object.keys( fieldsToVerify ).sort().forEach( field => {
+        if ( fieldsToVerify[ field ] === SINGLE_VALUED ) {
+            if ( enm[ field ] !== tct[ field ] ) {
+                diffs[ field ] = {};
+                diffs[ field ].tct = tct[ field ];
+                diffs[ field ].enm = enm[ field ];
+            }
+        } else if ( fieldsToVerify[ field ] === MULTI_VALUED ) {
+                diffs[ field ] = {};
+                diffs[ field ].tct = _.difference( tct[ field ], enm[ field ] );
+                diffs[ field ].enm = _.difference( enm[ field ], tct[ field ] );
+
+        } else {
+            console.error( 'ERROR in generateDiffs( tct, enm ): got ' +
+                `fieldsToVerify[ "${ field }" ] = ${ fieldsToVerify[ field ] }; ` +
+                `expected either ${ SINGLE_VALUED } or ${ MULTI_VALUED }.` );
+
+            process.exit( 1 );
+        }
+    } );
+
     return diffs;
 }
 
