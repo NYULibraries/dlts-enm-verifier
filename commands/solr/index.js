@@ -24,9 +24,9 @@ const fieldsToVerify = {
 var program,
     directories,
     locationIds,
+    namesAll = {},
     enmCache, tctCache,
     reportsDir;
-
 
 function init( programArg, directoriesArg ) {
     program     = programArg;
@@ -48,10 +48,28 @@ function init( programArg, directoriesArg ) {
 function verify( locationIdsArgs ) {
     locationIds = locationIdsArgs;
 
+    namesAll = JSON.parse( getNamesAllResponseBody() );
+
     locationIds.forEach( locationId => {
         compareTctAndEnm( locationId );
     } );
 }
+
+function getNamesAllResponseBody() {
+    var responseBody;
+
+    if ( program.tctLocal ) {
+        responseBody = fs.readFileSync( `${ program.tctLocal }/NamesAll.json`, 'utf8' );
+    } else {
+        responseBody = request( 'GET', `https://${ program.tctHost }/api/hit/hits/all/?format=json` ).getBody( 'utf8' );
+
+        // Cache response
+        fs.writeFileSync( `${ tctCache }/NamesAll.json`, responseBody );
+    }
+
+    return responseBody;
+}
+
 
 function compareTctAndEnm( locationId ) {
     var tct = getTctData( locationId ),
