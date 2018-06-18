@@ -218,7 +218,7 @@ function generateDiffs( tct, enm ) {
     var diffs = {};
 
     Object.keys( fieldsToVerify ).sort().forEach( field => {
-        if ( fieldsToVerify[ field ].multiValued ) {
+        if ( fieldsToVerify[ field ].multiValued === false ) {
             if ( enm[ field ] !== tct[ field ] ) {
                 diffs[ field ] = {};
                 diffs[ field ].tct = tct[ field ];
@@ -238,7 +238,7 @@ function generateDiffs( tct, enm ) {
 function writeDiffReports( locationId, diffs ) {
     Object.keys( fieldsToVerify ).forEach( field => {
         if ( diffs[ field ] ) {
-            if ( fieldsToVerify[ field ].multiValued ) {
+            if ( fieldsToVerify[ field ].multiValued === false ) {
                 fs.writeFileSync( `${ reportsDir }/${ locationId }-unequal-${ field }-values.json`,
                                   `ENM: ${ diffs[ field ].enm }\nTCT: ${ diffs[ field ].tct }` );
             } else {
