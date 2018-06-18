@@ -194,11 +194,7 @@ function generateDiffs( tct, enm ) {
                 diffs[ field ].enm = _.difference( enm[ field ], tct[ field ] );
 
         } else {
-            console.error( 'ERROR in generateDiffs( tct, enm ): got ' +
-                `fieldsToVerify[ "${ field }" ] = ${ fieldsToVerify[ field ] }; ` +
-                `expected either ${ SINGLE_VALUED } or ${ MULTI_VALUED }.` );
-
-            process.exit( 1 );
+            fatalErrorUnknownFieldsToVerifyValue( field, fieldsToVerify[ field ] );
         }
     } );
 
@@ -206,7 +202,16 @@ function generateDiffs( tct, enm ) {
 }
 
 function writeDiffReports( locationId, diffs ) {
+function fatalErrorUnknownFieldsToVerifyValue( field, unknownValue ) {
+    fatalError( 'ERROR in generateDiffs( tct, enm ): got ' +
+                `fieldsToVerify[ "${ field }" ] = ${ unknownValue }; ` +
+                `expected either ${ SINGLE_VALUED } or ${ MULTI_VALUED }.` );
+}
 
+function fatalError( message ) {
+    console.error( message );
+
+    process.exit( 1 );
 }
 
 module.exports.init = init;
