@@ -6,58 +6,19 @@ const util      = require( '../../lib/util' );
 
 const commandName = 'solr';
 
-const TYPE_STRING = 'string';
-const TYPE_NUMBER = 'number';
-
 const fieldsToVerify = {
-    'authors'              : {
-        type: TYPE_STRING,
-        multiValued: false,
-    },
-    'epubNumberOfPages'    : {
-        type: TYPE_NUMBER,
-        multiValued: false,
-    },
-    'id'                   : {
-        type: TYPE_NUMBER,
-        multiValued: false,
-    },
-    'isbn'                 : {
-        type: TYPE_STRING,
-        multiValued: false,
-    },
-    'pageLocalId'          : {
-        type: TYPE_STRING,
-        multiValued: false,
-    },
-    'pageNumberForDisplay' : {
-        type: TYPE_STRING,
-        multiValued: false,
-    },
-    'pageSequenceNumber'   : {
-        type: TYPE_NUMBER,
-        multiValued: false,
-    },
-    'pageText'             : {
-        type: TYPE_STRING,
-        multiValued: false,
-    },
-    'publisher'            : {
-        type: TYPE_STRING,
-        multiValued: false,
-    },
-    'title'                : {
-        type: TYPE_STRING,
-        multiValued: false,
-    },
-    'topicNames'           : {
-        type: TYPE_STRING,
-        multiValued: true,
-    },
-    'topicNamesForDisplay' : {
-        type: TYPE_STRING,
-        multiValued: false,
-    },
+    'authors'              : { multiValued: false },
+    'epubNumberOfPages'    : { multiValued: false },
+    'id'                   : { multiValued: false },
+    'isbn'                 : { multiValued: false },
+    'pageLocalId'          : { multiValued: false },
+    'pageNumberForDisplay' : { multiValued: false },
+    'pageSequenceNumber'   : { multiValued: false },
+    'pageText'             : { multiValued: false },
+    'publisher'            : { multiValued: false },
+    'title'                : { multiValued: false },
+    'topicNames'           : { multiValued: true },
+    'topicNamesForDisplay' : { multiValued: false },
 };
 
 var program,
