@@ -6,22 +6,58 @@ const util      = require( '../../lib/util' );
 
 const commandName = 'solr';
 
-const MULTI_VALUED = 0;
-const SINGLE_VALUED = 1;
+const TYPE_STRING = 'string';
+const TYPE_NUMBER = 'number';
 
 const fieldsToVerify = {
-    'authors'              : SINGLE_VALUED,
-    'epubNumberOfPages'    : SINGLE_VALUED,
-    'id'                   : SINGLE_VALUED,
-    'isbn'                 : SINGLE_VALUED,
-    'pageLocalId'          : SINGLE_VALUED,
-    'pageNumberForDisplay' : SINGLE_VALUED,
-    'pageSequenceNumber'   : SINGLE_VALUED,
-    'pageText'             : SINGLE_VALUED,
-    'publisher'            : SINGLE_VALUED,
-    'title'                : SINGLE_VALUED,
-    'topicNames'           : MULTI_VALUED,
-    'topicNamesForDisplay' : SINGLE_VALUED,
+    'authors'              : {
+        type: TYPE_STRING,
+        multiValued: false,
+    },
+    'epubNumberOfPages'    : {
+        type: TYPE_NUMBER,
+        multiValued: false,
+    },
+    'id'                   : {
+        type: TYPE_NUMBER,
+        multiValued: false,
+    },
+    'isbn'                 : {
+        type: TYPE_STRING,
+        multiValued: false,
+    },
+    'pageLocalId'          : {
+        type: TYPE_STRING,
+        multiValued: false,
+    },
+    'pageNumberForDisplay' : {
+        type: TYPE_STRING,
+        multiValued: false,
+    },
+    'pageSequenceNumber'   : {
+        type: TYPE_NUMBER,
+        multiValued: false,
+    },
+    'pageText'             : {
+        type: TYPE_STRING,
+        multiValued: false,
+    },
+    'publisher'            : {
+        type: TYPE_STRING,
+        multiValued: false,
+    },
+    'title'                : {
+        type: TYPE_STRING,
+        multiValued: false,
+    },
+    'topicNames'           : {
+        type: TYPE_STRING,
+        multiValued: true,
+    },
+    'topicNamesForDisplay' : {
+        type: TYPE_STRING,
+        multiValued: false,
+    },
 };
 
 var program,
@@ -182,19 +218,17 @@ function generateDiffs( tct, enm ) {
     var diffs = {};
 
     Object.keys( fieldsToVerify ).sort().forEach( field => {
-        if ( fieldsToVerify[ field ] === SINGLE_VALUED ) {
+        if ( fieldsToVerify[ field ].multiValued ) {
             if ( enm[ field ] !== tct[ field ] ) {
                 diffs[ field ] = {};
                 diffs[ field ].tct = tct[ field ];
                 diffs[ field ].enm = enm[ field ];
             }
-        } else if ( fieldsToVerify[ field ] === MULTI_VALUED ) {
+        } else {
                 diffs[ field ] = {};
                 diffs[ field ].tct = _.difference( tct[ field ], enm[ field ] );
                 diffs[ field ].enm = _.difference( enm[ field ], tct[ field ] );
 
-        } else {
-            fatalErrorUnknownFieldsToVerifyValue( field, fieldsToVerify[ field ] );
         }
     } );
 
@@ -204,10 +238,10 @@ function generateDiffs( tct, enm ) {
 function writeDiffReports( locationId, diffs ) {
     Object.keys( fieldsToVerify ).forEach( field => {
         if ( diffs[ field ] ) {
-            if ( fieldsToVerify[ field ] === SINGLE_VALUED ) {
+            if ( fieldsToVerify[ field ].multiValued ) {
                 fs.writeFileSync( `${ reportsDir }/${ locationId }-unequal-${ field }-values.json`,
                                   `ENM: ${ diffs[ field ].enm }\nTCT: ${ diffs[ field ].tct }` );
-            } else if ( fieldsToVerify[ field ] === MULTI_VALUED ) {
+            } else {
                 if ( diffs[ field ].tct ) {
                     fs.writeFileSync( `${ reportsDir }/${ locationId }-enm-missing-${ field }.json`,
                                       util.stableStringify( diffs[ field ].tct ) );
@@ -217,8 +251,6 @@ function writeDiffReports( locationId, diffs ) {
                     fs.writeFileSync( `${ reportsDir }/${ locationId }-tct-missing-${ field }.json`,
                                       util.stableStringify( diffs[ field ].enm ) );
                 }
-            } else {
-                fatalErrorUnknownFieldsToVerifyValue( field, fieldsToVerify[ field ] );
             }
         }
     } );
