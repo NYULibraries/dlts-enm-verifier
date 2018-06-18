@@ -196,20 +196,25 @@ function generateDiffs( tct, enm ) {
 }
 
 function writeDiffReports( locationId, diffs ) {
-    Object.keys( fieldsToVerify ).forEach( field => {
-        if ( diffs[ field ] ) {
-            if ( fieldsToVerify[ field ].multiValued === false ) {
-                fs.writeFileSync( `${ reportsDir }/${ locationId }-unequal-${ field }-values.json`,
-                                  `ENM: ${ diffs[ field ].enm }\nTCT: ${ diffs[ field ].tct }` );
+    Object.keys( fieldsToVerify ).forEach( fieldName => {
+        var fieldToVerify = fieldsToVerify[ fieldName ],
+            diffForField  = diffs[ fieldName ];
+
+        if ( diffForField ) {
+            if ( fieldToVerify.multiValued === false ) {
+                fs.writeFileSync( `${ reportsDir }/${ locationId }-unequal-${ fieldName }-values.json`,
+                    'ENM: ' + getDiffValueForDisplay( diffForField.enm, fieldToVerify.type ) +
+                    '\n' +
+                    'TCT: ' + getDiffValueForDisplay( diffForField.tct, fieldToVerify.type ) );
             } else {
-                if ( diffs[ field ].tct ) {
-                    fs.writeFileSync( `${ reportsDir }/${ locationId }-enm-missing-${ field }.json`,
-                                      util.stableStringify( diffs[ field ].tct ) );
+                if ( diffs[ fieldName ].tct ) {
+                    fs.writeFileSync( `${ reportsDir }/${ locationId }-enm-missing-${ fieldName }.json`,
+                                      util.stableStringify( diffs[ fieldName ].tct ) );
                 }
 
-                if ( diffs[ field ].enm ) {
-                    fs.writeFileSync( `${ reportsDir }/${ locationId }-tct-missing-${ field }.json`,
-                                      util.stableStringify( diffs[ field ].enm ) );
+                if ( diffs[ fieldName ].enm ) {
+                    fs.writeFileSync( `${ reportsDir }/${ locationId }-tct-missing-${ fieldName }.json`,
+                                      util.stableStringify( diffs[ fieldName ].enm ) );
                 }
             }
         }
