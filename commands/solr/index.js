@@ -186,10 +186,9 @@ function generateDiffs( tct, enm ) {
                 diffs[ field ].enm = enm[ field ];
             }
         } else {
-                diffs[ field ] = {};
-                diffs[ field ].tct = _.difference( tct[ field ], enm[ field ] );
-                diffs[ field ].enm = _.difference( enm[ field ], tct[ field ] );
-
+            diffs[ field ] = {};
+            diffs[ field ].tct = _.difference( tct[ field ], enm[ field ] );
+            diffs[ field ].enm = _.difference( enm[ field ], tct[ field ] );
         }
     } );
 
