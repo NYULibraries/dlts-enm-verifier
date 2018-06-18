@@ -17,7 +17,7 @@ const fieldsToVerify = {
     'pageText'             : { multiValued: false },
     'publisher'            : { multiValued: false },
     'title'                : { multiValued: false },
-    'topicNames'           : { multiValued: true },
+    'topicNames'           : { multiValued: true  },
     'topicNamesForDisplay' : { multiValued: false },
 };
 
@@ -80,7 +80,6 @@ function getNamesAllResponseBody() {
 
     return responseBody;
 }
-
 
 function compareTctAndEnm( locationId ) {
     var tct = getTctData( locationId ),
