@@ -202,6 +202,28 @@ function generateDiffs( tct, enm ) {
 }
 
 function writeDiffReports( locationId, diffs ) {
+    Object.keys( fieldsToVerify ).forEach( field => {
+        if ( diffs[ field ] ) {
+            if ( fieldsToVerify[ field ] === SINGLE_VALUED ) {
+                fs.writeFileSync( `${ reportsDir }/${ locationId }-unequal-${ field }-values.json`,
+                                  `ENM: ${ diffs[ field ].enm }\nTCT: ${ diffs[ field ].tct }` );
+            } else if ( fieldsToVerify[ field ] === MULTI_VALUED ) {
+                if ( diffs[ field ].tct ) {
+                    fs.writeFileSync( `${ reportsDir }/${ locationId }-enm-missing-${ field }.json`,
+                                      util.stableStringify( diffs[ field ].tct ) );
+                }
+
+                if ( diffs[ field ].enm ) {
+                    fs.writeFileSync( `${ reportsDir }/${ locationId }-tct-missing-${ field }.json`,
+                                      util.stableStringify( diffs[ field ].enm ) );
+                }
+            } else {
+                fatalErrorUnknownFieldsToVerifyValue( field, fieldsToVerify[ field ] );
+            }
+        }
+    } );
+}
+
 function fatalErrorUnknownFieldsToVerifyValue( field, unknownValue ) {
     fatalError( 'ERROR in generateDiffs( tct, enm ): got ' +
                 `fieldsToVerify[ "${ field }" ] = ${ unknownValue }; ` +
