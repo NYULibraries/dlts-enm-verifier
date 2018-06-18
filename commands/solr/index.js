@@ -25,6 +25,7 @@ var program,
     directories,
     locationIds,
     namesAll = {},
+    topicNamesForId = {},
     topicDisplayNamesToTopicIdMap = {},
     enmCache, tctCache,
     reportsDir;
@@ -50,6 +51,15 @@ function verify( locationIdsArgs ) {
     locationIds = locationIdsArgs;
 
     namesAll = JSON.parse( getNamesAllResponseBody() );
+    namesAll.forEach( name => {
+        var topicId = name.basket;
+
+        if ( ! topicNamesForId[ topicId ] ) {
+            topicNamesForId[ topicId ] = [];
+        }
+
+        topicNamesForId[ topicId ].push( name.name );
+    } );
 
     locationIds.forEach( locationId => {
         compareTctAndEnm( locationId );
