@@ -108,16 +108,18 @@ function getTctData( locationId ) {
     tct.pageText = tct.json.content.text;
     tct.publisher = tct.json.document.publisher;
     tct.title = tct.json.document.title;
-    tct.topicNames = tct.json.occurrences.map( occurrence => {
-        return occurrence.basket.display_name;
-    } ).sort( util.ignoreWrappingDoubleQuotesCaseInsenstiveSort );
+    tct.topicNames = [];
 
     tct.json.occurrences.forEach( occurrence => {
         var topicId = occurrence.basket.id,
-            topicDisplayName = occurrence.basket.display_name;
+            topicDisplayName = occurrence.basket.display_name,
+            topicNamesAll = topicNamesForId[ topicId ];
 
+        tct.topicNames = tct.topicNames.concat( topicNamesAll );
         topicDisplayNamesToTopicIdMap[ topicDisplayName ] = topicId;
     } );
+
+    tct.topicNames = tct.topicNames.sort( util.ignoreWrappingDoubleQuotesCaseInsenstiveSort );
 
     return tct;
 }
