@@ -216,4 +216,15 @@ function writeDiffReports( locationId, diffs ) {
     } );
 }
 
+function getDiffValueForDisplay( value ) {
+    if ( typeof value === 'string' ) {
+        return `"${ value }"`;
+    } else if ( typeof value === 'number' ) {
+        return value;
+    } else {
+        // undefined, or possibly something else unanticipated
+        return value;
+    }
+}
+
 module.exports.init = init;
