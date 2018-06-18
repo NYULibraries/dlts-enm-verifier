@@ -97,6 +97,11 @@ function getEnmData( locationId ) {
     // At the moment, all authors are jammed into first array element, separated
     // by semi-colons.  This is how they came in through TCT EpubDetail.
     enm.authors = enm.authors[ 0 ];
+    // Solr schema currently has publisher as multi-valued.  TCT uses single string
+    // for publisher...not sure if it's the case that there can be multiple publishers,
+    // in which case Solr field should be set to single-valued.  For now, need
+    // to extract the publisher from the first element.
+    enm.publisher = enm.publisher[ 0 ];
     // Should already be sorted, but just in case...
     enm.topicNames = enm.topicNames.sort();
 
