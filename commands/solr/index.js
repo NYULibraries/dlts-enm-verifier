@@ -178,7 +178,7 @@ function getEnmData( locationId ) {
     // TCT.
     // The Solr indexer tests will check for the correct ordering.
     if ( enm.topicNames ) {
-        enm.topicNames = enm.topicNames.sort( util.ignoreWrappingDoubleQuotesCaseInsenstiveSort );
+        enm.topicNames = enm.topicNames.sort( util.ignoreWrappingDoubleQuotesCaseInsensitiveSort );
     } else {
         enm.topicNames = [];
     }
