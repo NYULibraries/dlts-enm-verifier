@@ -171,9 +171,7 @@ function getEnmData( locationId ) {
     // in which case Solr field should be set to single-valued.  For now, need
     // to extract the publisher from the first element.
     enm.publisher = enm.publisher[ 0 ];
-    // Should already be sorted, but just sort them to match tct.topicNames order
-    // just in case so that _.difference will report accurately on whether they
-    // contain the same elements.
+    // Sort enm and tct topic names stuff according to the same rules.
     // We not verifying the correctness of ENM ordering because our custom
     // sort as specified in NYUP-376 is something that is implemented outside of
     // TCT.  util.ignoreWrappingDoubleQuotesCaseInsensitiveSort is an attempt to
@@ -183,11 +181,6 @@ function getEnmData( locationId ) {
     if ( enm.topicNames ) {
         enm.topicNames.sort( util.ignoreWrappingDoubleQuotesCaseInsensitiveSort );
 
-        // Again, because util.ignoreWrappingDoubleQuotesCaseInsensitiveSort doesn't
-        // currently match the SQL-based sort used in enm, for now just verify
-        // that topic mappings are correct and ignore the ordering.  The ordering
-        // is not really in scope for this verification program anyway, that's the
-        // job of the Solr indexer tests.
         enm.topicNamesForDisplayData = JSON.parse( enm.topicNamesForDisplay );
         sortNestedArraysInTopicNamesDisplayData( enm.topicNamesForDisplayData );
         enm.topicNamesForDisplayData.sort( util.firstElementIgnoreWrappingDoubleQuotesCaseInsensitiveSort );
