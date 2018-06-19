@@ -1,0 +1,38 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:13709",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["John W. Chapman"],
+        "authors_facet":"John W. Chapman",
+        "epubNumberOfPages":373,
+        "id":13709,
+        "isbn":"9780814714539",
+        "isbn_facet":"9780814714539",
+        "pageLocalId":"page_299",
+        "pageNumberForDisplay":"299",
+        "pageSequenceNumber":311,
+        "pageText":"distribution of wealth and entitlements forms the neutral baseline against which to assess the propriety of legal intervention, and the associated belief that social reordering, through law, ought not to be permitted except in the service of compensation to identifiable plaintiffs injured by identifiable defendants at discrete times. This approach appears to be undergirded by an understanding that existing distributions are not themselves unjust, are not the product of law, or at least are not to be challenged in the context of the issue at hand.\nIt is here that the compensatory model, despite its apparently formal character, is rooted in a deeply substantive, and controversial, conception about the appropriate role of law. Here the relevant disputes embody a disagreement about first principles. Those disputes, revisiting arguments during the New Deal, involve the actual and appropriate place of law in the social structure. Is redistribution off-limits? Are existing distributions unjust or already a product of law? Can the legal system impose costs on people who have not produced traditional injuries? Questions of this sort underlie many of the relevant debates.\nII. SUBSTITUTES FOR COMPENSATORY JUSTICE\nThe analysis so far should be sufficient to reveal that principles of compensatory justice have played an important role in a number of areas. The legal culture is permeated by them, from the first year in law school to the very structuring of adjudication. In part for this reason, compensatory principles have given content and shape to programs built on quite different foundations. But there are alternative ways of understanding the role of the legal system in these settings. Compensatory principles are a controversial choice among competing possibilities.\nIn this section, I explain how the persistence of principles of compensatory justice has had an important distorting effect in many areas of current law. More concretely, I suggest that legal issues have been approached through compensatory principles when those issues might better be understood in terms of principles of risk management or nonsubordination. These principles, I suggest, are best adopted by legislatures and administrators rather than by courts; but when the former institutions have ",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"Compensatory Justice",
+        "title_facet":"Compensatory Justice",
+        "topicNames":["Compensatory principles -- non-subordination and",
+          "Compensatory principles -- risk management and",
+          "New Deal",
+          "Nonsubordination",
+          "Risk management"],
+        "topicNamesForDisplay":"[[\"Compensatory principles -- non-subordination and\"],[\"Compensatory principles -- risk management and\"],[\"New Deal\"],[\"Nonsubordination\"],[\"Risk management\"]]",
+        "topicNames_facet":["Compensatory principles -- non-subordination and",
+          "Compensatory principles -- risk management and",
+          "New Deal",
+          "Nonsubordination",
+          "Risk management"],
+        "yearOfPublication":0,
+        "_version_":1593583035256668160}]
+  }}

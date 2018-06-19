@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:25798",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Paula C. Rust"],
+        "authors_facet":"Paula C. Rust",
+        "epubNumberOfPages":388,
+        "id":25798,
+        "isbn":"9780814774458",
+        "isbn_facet":"9780814774458",
+        "pageLocalId":"page_ix",
+        "pageNumberForDisplay":"ix",
+        "pageSequenceNumber":9,
+        "pageText":"Dedicated\nto all the women who made this study possibleby taking the time to complete a very long questionnairein the hope that our lives would become a little less invisibleandto the memory ofMartin P. Levinewhose encouragement and mentorshipmade this book, and my career as I know it, possible.\n",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"Bisexuality and the Challenge to Lesbian Politics",
+        "title_facet":"Bisexuality and the Challenge to Lesbian Politics",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593583359119851520}]
+  }}

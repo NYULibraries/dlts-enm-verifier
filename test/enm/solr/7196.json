@@ -1,0 +1,32 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:7196",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Henry Jenkins et al"],
+        "authors_facet":"Henry Jenkins et al",
+        "epubNumberOfPages":359,
+        "id":7196,
+        "isbn":"9781479899982",
+        "isbn_facet":"9781479899982",
+        "pageLocalId":"page_91",
+        "pageNumberForDisplay":"91",
+        "pageSequenceNumber":102,
+        "pageText":"it certainly, but my end goal was always to have people understand more and learn more, get a better sense and then do whatever they think is the right thing to do, with the best information possible … but by no means was this an attack on the great work that Invisible Children has done and continues to do.” When Oyston encountered a group of IC roadies on his campus, he ended up talking with them for more than an hour, and ultimately granting an interview for the Invisible Children blog on March 21, 2013, in which he told readers: “You’re telling a story that’s been going on for multiple decades and involves thousands of people.… No one person is ever going to understand everything about the story. That’s impossible. But if it’s something you care about you owe it to yourself to do your best to learn what you can as a reasonable person and get a decent understanding of what’s going on.”\nMany of the youth we interviewed experienced the pushback against Kony 2012 as a repudiation of their values and beliefs. One of them, Molly, reported, “I think after Kony 2012 we were kind of walking on eggshells with what we posted online and what we said.… I feel like we were bullied. People were picking at every little thing and we were nervous and we were kind of just like we had been around for so long and people stuck with us and we’re going to keep our voice.… We’re not going to stop because somebody is posting on our Facebook that we’re a scam or liars.” As Kony 2012 spread, it also reached youth who were not directly involved with IC. For example, 15-year-old Theo, a member of the Nerdfighter community discussed in the next chapter, mentioned his encounter with Kony 2012 when interviewed about his experience with Nerdfighteria. At first, he found the film “very moving” but later had “second thoughts” about getting involved as he encountered critiques of IC’s finances. Kevin, another Nerdfighter we interviewed, felt that the critiques leveraged against Kony 2012 actually applied to online activism more generally as it became clear that many people who may have shared the film “didn’t investigate the issue at all.”\nWhile some of the young IC supporters felt that they experienced most of the pushback online, even as they received support from classmates and family at the local level, others found that the online controversy brought the issues into their everyday interactions within their school communities. Natalie, a recent high school graduate, reported, “I think the reason I’m afraid of criticism is because the kids at my school ",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"By Any Media Necessary",
+        "title_facet":"By Any Media Necessary",
+        "topicNames":["Nerdfighters",
+          "Oyston, Grant"],
+        "topicNamesForDisplay":"[[\"Nerdfighters\"],[\"Oyston, Grant\"]]",
+        "topicNames_facet":["Nerdfighters",
+          "Oyston, Grant"],
+        "yearOfPublication":0,
+        "_version_":1593582850641231872}]
+  }}

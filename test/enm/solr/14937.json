@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:14937",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Robert M. Seltzer"],
+        "authors_facet":"Robert M. Seltzer",
+        "epubNumberOfPages":492,
+        "id":14937,
+        "isbn":"9780814780015",
+        "isbn_facet":"9780814780015",
+        "pageLocalId":"page_iii",
+        "pageNumberForDisplay":"iii",
+        "pageSequenceNumber":3,
+        "pageText":"REAPPRAISALS IN JEWISH SOCIALAND INTELLECTUAL HISTORY\nGENERAL EDITOR:ROBERT M. SELTZER\nMartin Buber’s Social and Religious Thought:Alienation and the Quest for MeaningLAURENCE J. SILBERSTEIN\nThe American Judaism of Mordecai M. KaplanEDITED BY EMANUEL S. GOLDSMITH, MEL SCULT,AND ROBERT M. SELTZER\nOn Socialists and “the Jewish Question” after MarxJACK JACOBS\nEaster in Kishinev: Anatomy of a PogromEDWARD H. JUDGE\nJewish Responses to Modernity:New Voices from America and Eastern EuropeELI LEDERHENDLER\nRabbi Abraham Isaac Kook and Jewish SpiritualityEDITED BY LAWRENCE J. KAPLAN AND DAVID SHATZ\nThe Americanization of the JewsEDITED BY ROBERT M. SELTZER AND NORMAN J. COHEN\n",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"The Americanization of the Jews",
+        "title_facet":"The Americanization of the Jews",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593583072244137984}]
+  }}

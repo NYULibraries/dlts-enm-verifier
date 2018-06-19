@@ -1,0 +1,32 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:12921",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["John Marshall"],
+        "authors_facet":"John Marshall",
+        "epubNumberOfPages":373,
+        "id":12921,
+        "isbn":"9780814731437",
+        "isbn_facet":"9780814731437",
+        "pageLocalId":"page_77",
+        "pageNumberForDisplay":"77",
+        "pageSequenceNumber":88,
+        "pageText":"majority in population. Not fully articulated as of 1787, this low-country view of representation apparently assumed that property deserved special protection; that the major property interests—planters, merchants, lawyers—deserved a share of power that would protect each interest in an equipoise that theoretically promoted harmony and the good of the whole; and that those who supplied the bulk of the tax money for the state’s defense and welfare deserved commensurate representation. The deep South was a numerical minority in the United States with special interests to protect, as was the lowcountry in South Carolina. Rutledge and his colleagues at the convention therefore advocated a familiar representation formula for familiar purposes. In the end, they settled for representation based on population, including three-fifths of the slaves.31 Since slaves were a form of wealth, they found that provision an acceptable compromise, though they were not entirely pleased with it.\nProportional representation in both houses was unacceptable to many delegates from the smaller states. Rutledge was elected to the committee that devised the Great Compromise on representation. He urged “the indispensable necessity of a representation from the states according to their numbers and wealth “ and was unhappy with the committee’s report: proportional representation in the lower house, an equal vote for each state in the upper house, and a provision that money bills must originate in the former and could not be amended in the latter.32\nRutledge continued to oppose the Great Compromise on the floor of the convention. He argued again for representation based on wealth, or wealth and population combined. He expressed fear that new, poorer western states could gain a majority in a lower house based solely on population. Again, this argument reflected attitudes formed in lowcountry-upcountry conflicts in South Carolina. As for the Great Compromise’s provision regarding money bills, Rutledge believed that it was of no advantage, based “on a blind adherence to the British model” and productive only of conflict in his experience in South Carolina.33\nThe South Carolina delegates voted against the Great Compromise but accepted it once it was adopted. When Virginia’s Edmund Randolph and others expressed dissatisfaction and some spoke of adjourning, Rutledge urged that the convention must go on. “Altho’ we could not do what we thought best, in itself, we ought to do something” ",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"Seriatim",
+        "title_facet":"Seriatim",
+        "topicNames":["Randolph, Edmund -- at constitutional convention",
+          "Slavery -- and John Rutledge"],
+        "topicNamesForDisplay":"[[\"Randolph, Edmund -- at constitutional convention\"],[\"Slavery -- and John Rutledge\"]]",
+        "topicNames_facet":["Randolph, Edmund -- at constitutional convention",
+          "Slavery -- and John Rutledge"],
+        "yearOfPublication":0,
+        "_version_":1593583011479158784}]
+  }}

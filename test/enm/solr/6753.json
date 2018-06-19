@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:6753",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Klein, Julie Thompson"],
+        "authors_facet":"Klein, Julie Thompson",
+        "epubNumberOfPages":218,
+        "id":6753,
+        "isbn":"9780472120932",
+        "isbn_facet":"9780472120932",
+        "pageLocalId":"page_186",
+        "pageNumberForDisplay":"186",
+        "pageSequenceNumber":202,
+        "pageText":"\nSiemens, Raymond G. “Underpinnings of the Social Edition.” Online Humanities Scholarship: The Shape of Things to Come. Ed. Jerome McGann. Houston: Rice UP, 2010. 401–60. Print.\nSiemens, Raymond, et al. “Human-Computer Interface/Interaction and the Book: A Consultation-derived Perspective on Foundational E-Book Research.” Collaborative Research in the Digital Humanities. Ed. Marilyn Deegan and Willard McCarty. Farnham, UK: Ashgate, 2012. 162–89. Print.\nSmelser, N. J. “Interdisciplinarity in Theory and Practice.” The Dialogical Turn: New Roles for Sociology in the Postdisciplinary Age. Ed. C. Camic and H. Joas. Lanham, MD.: Rowman and Littlefield, 2004. Print.\nSmith, Martha Nell. “Electronic Scholarly Editing.” A Companion to Digital Humanities. Ed. Susan Schreibman, Raymond Siemens, and John Unsworth. Malden, MA and Oxford, UK: Blackwell, 2004. 306–22. Print.\nStar, Susan L., and James R. Griesemer. “Institutional Ecology, ‘Translations’ and Boundary Objects: Amateurs and Professionals in Berkeley’s Museum of Vertebrate Zoology, 1907–39.” Social Studies of Science, 19.3 (1989): 387–420. Print.\nSternfeld, Joshua. “Pedagogical Principles of Digital Historiography.” Digital Humanities Pedagogy: Practices, Principles and Policies. Ed. Brett D. Hirsch. Open Book Publishers, 2012. 255–90. Print.\nStokols, Daniel, et al. “Cross Disciplinary Team Science Initiatives: Research, Training, and Translation.” The Oxford Handbook of Interdisciplinarity. Ed. Robert Frodeman, Julie Thompson Klein, and Carl Mitcham. Oxford and New York: Oxford UP, 2010. 471–93. Print.\nStone, Anthony R. “The Interdisciplinary Research Team.” Journal of Applied Behavioral Science, 5.3 (1969): 351–65. Print.\nStrain, Ellen, and Greg Van Hoosier-Carey. “Eloquent Interfaces.” Eloquent Images. Ed. Mary Hocks and Michelle Kendrick. Cambridge: MIT Press, 2003. 257–81. Print.\nTerras, Melissa. “Being the Other.” Collaborative Research in the Digital Humanities. Ed. Marilyn Deegan and Willard McCarty. Farnham, UK: Ashgate, 2012. 213–30. Print.\nTerras, Melissa. “Digitization and Digital Resources in the Humanities.” Digital Humanities in Practice. Ed. Claire Warwick, Melissa Terras, and Julianne Nyhan. London: Facet in Association with UCL Center for Digital Humanities, 2012. 47–70. Print.\nTerras, Melissa. “Disciplined: Using Educational Studies to Analyze Humanities Computing.” Literary and Linguistic Computing, 21.2 (2006): 229–46. Print.\nTerras, Melissa, Julianne Nyhan, and Edward Vanhoutte, eds. Defining Digital Humanities: A Reader. Farnham, UK: Ashgate, 2013. Print.\nThomas, William. “Computing and the Historical Imagination.” A Companion to Digital Humanities. Ed. Susan Schreibman, Raymond Siemens, and John Unsworth. Malden, MA and Oxford, UK: Blackwell, 2004. 56–68. Print.\nToombs, W., and W. Tierney. Meeting the Mandate: Reviewing the College and Department\n",
+        "publisher":["University of Michigan Press"],
+        "publisher_facet":"University of Michigan Press",
+        "title":"Interdisciplining Digital Humanities: Boundary Work in an Emerging Field",
+        "title_facet":"Interdisciplining Digital Humanities: Boundary Work in an Emerging Field",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593582836668956672}]
+  }}

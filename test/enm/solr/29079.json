@@ -1,0 +1,38 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:29079",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Antonio T. Tiongson Jr."],
+        "authors_facet":"Antonio T. Tiongson Jr.",
+        "epubNumberOfPages":144,
+        "id":29079,
+        "isbn":"9780816687848",
+        "isbn_facet":"9780816687848",
+        "pageLocalId":"page_75",
+        "pageNumberForDisplay":"75",
+        "pageSequenceNumber":94,
+        "pageText":"beginning. He was like, “It does not matter. You could get that.” With the set I ended up getting, it was the worst set you could ever get. Well he was like, “This is good for mixing.” It seemed like he was purposely even trying to limit me from what I could do. And then when I got my turntables too, I was like, “Oh, I don’t know what to do. How do I set it up?” He came over and he was not really helpful. He set it up and he really did not explain it, and so I had to figure it out myself.\nINTERVIEWER: You think if you were guy that would have made a difference? You think these people you asked would have been more helpful?\nCELSKIII: Yeah, definitely. I guess with him and some of my other friends, they did not think I’m serious about it. If it was a guy, they’ll be more willing to help. With anything though, when it comes to handling technology, there’s doubt that women can actually work it, the equipment.18\n\nGenerally excluded from social networks that have paved the way for the next generation of Filipino DJs, the Pinay DJs I interviewed have had to essentially learn the basics of DJing on their own, which serves to ensure that the preponderance of DJs and DJ crews are men.\nIt is not surprising, therefore, to hear female respondents talk about the dearth of female DJs they could look up to and emulate. One Tyme discusses the influence of one of the few female DJs in the culture but also laments the absence of female DJs:\n\nINTERVIEWER: Did Pinay DJs influence you at all, Pinay DJs like Symphony?\nONE TYME: Kuttin’ Kandi. When I first saw her at a DMC, I was like, “I want to be exactly like her.” And after that, I’ve never heard about her anymore. It’s kind of depressing because all I see are males up there on turntables. There’s DJ Shortee, and like Symphony, I don’t think she’s in it anymore. Kuttin’ Kandi, I haven’t heard anything about her.\nINTERVIEWER: So Kuttin’ Kandi really made an impression on you.\nONE TYME: Yeah, like, once I saw there’s a female on turntables, I wanted to be exactly like her. I wanted to be in DMCs, beat juggling and all that. But of course everything changed and I got more into mixing and production. I still want to learn that aspect focusing on production.19\n\nThe absence of female DJs means that Pinay youth are primarily exposed to male DJs, which can serve to discourage them and other female youth from pursuing DJing. In One Tyme’s case, seeing a Pinay DJ perform on stage clearly made a difference in her decision to take up DJing, though it was also difficult for her to come up with more than a handful of names of prominent female DJs.\nA common theme that emerges in the personal narratives of Pinay DJs is that they are taken much less seriously than their male counterparts, and ",
+        "publisher":["University of Minnesota Press"],
+        "publisher_facet":"University of Minnesota Press",
+        "title":"FILIPINOS REPRESENT",
+        "title_facet":"FILIPINOS REPRESENT",
+        "topicNames":["female DJs -- stereotypical perceptions of",
+          "Kuttin' Kandi (hip-hop DJ)",
+          "mixing",
+          "One Tyme (DJ and study participant) -- experiences and beliefs as a performer",
+          "Symphony (hip-hop performer)"],
+        "topicNamesForDisplay":"[[\"female DJs -- stereotypical perceptions of\"],[\"Kuttin' Kandi (hip-hop DJ)\"],[\"mixing\"],[\"One Tyme (DJ and study participant) -- experiences and beliefs as a performer\"],[\"Symphony (hip-hop performer)\"]]",
+        "topicNames_facet":["female DJs -- stereotypical perceptions of",
+          "Kuttin' Kandi (hip-hop DJ)",
+          "mixing",
+          "One Tyme (DJ and study participant) -- experiences and beliefs as a performer",
+          "Symphony (hip-hop performer)"],
+        "yearOfPublication":0,
+        "_version_":1593583453398368256}]
+  }}

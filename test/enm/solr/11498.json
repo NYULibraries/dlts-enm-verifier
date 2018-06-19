@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:11498",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["charles b.craver"],
+        "authors_facet":"charles b.craver",
+        "epubNumberOfPages":226,
+        "id":11498,
+        "isbn":"9780814715123",
+        "isbn_facet":"9780814715123",
+        "pageLocalId":"page_162",
+        "pageNumberForDisplay":"162",
+        "pageSequenceNumber":174,
+        "pageText":"42. 44 Stat. 577 (1926).\n43. 49 Stat. 1189 (1936).\n44. 48 Stat. 198 (1933).\n45. 295 U.S. 495 (1935).\n46. 49 Stat. 449 (1935). The NLRA is codified at 29 U.S.C. §§ 151-69.\n47. 301 U.S. 1 (1937).\n48. The industrial unions generally ignored the female clerical personnel working in these industries.\n49. Philip Taft, Organized Labor in American History, 472.\n50. Paul Weiler, Governing the Workplace (Cambridge: Harvard University Press, 1990), 9.\n51. Business experts have estimated that the enactment of the NLRA caused a 15.9 percent decline in shareholder wealth. Craig Olson & Brian Becker, “The Effects of the NLRA on Stockholder Wealth in the 1930s,” Industrial & Labor Relations Review 44 (Oct. 1990): 116.\n52. 306 U.S. 240 (1939).\n53. NLRB v. Montgomery Ward & Co., 157 F.2d 486 (8th Cir. 1946); Elk Lumber Co., 91 N.L.R.B. 333 (1950).\n54. C. G. Conn, Ltd. v. NLRB, 108 F.2d 390 (7th Cir. 1939).\n55. UAW Local 232 v. Wisconsin Employment Relations Board, 336 U.S. 245 (1949).\n56. NLRB v. Mackay Radio & Telegraph Co., 304 U.S. 333 (1938).\n57. 346 U.S. 464 (1953).\n58. Patterson Sargent Co., 115 N.L.R.B. 1627 (1956).\n59. 351 U.S. 105 (1956).\n60. 61 Stat. 136 (1947).\n61. 330 U.S. 485 (1947).\n62. 73 Stat. 519 (1959).\n63. Philip Taft, Organized Labor in American History, 658.\n64. Ibid., 661.\n65. 77 Stat. 56 (1963).\n66. 78 Stat. 253 (1964).\n67. 81 Stat. 602 (1967).\n68. 84 Stat. 1590 (1970).\n69. 88 Stat. 832 (1974).\n70. 104 Stat. 327 (1990).\n71. Thomas Edsall, The New Politics of Inequality (New York: W. W. Norton, 1984), 107-8.\n72. Charles Morris, The Developing Labor Law (Washington, D.C.: Bureau of National Affairs, 2d ed. 1983), 66-67.\n73. Thomas Edsall, The New Politics of Inequality, 156.\n3. THE EXTENT AND CAUSES OF THE DECLINE\n1. Philip Taft, Organized Labor in American History (New York: Harper & Row, 1964), 162.\n2. Michael Goldfield, The Decline of Organized Labor in the United States (Chicago: University of Chicago Press, 1987), 8.\n3. Ibid., 10 Table 1.\n4. George Barnett, “American Trade Unionism and Social Insurance,” American ",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"Can Unions Survive?",
+        "title_facet":"Can Unions Survive?",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593582971802091520}]
+  }}

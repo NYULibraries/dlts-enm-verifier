@@ -1,0 +1,30 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:17073",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Stephen M. Feldman."],
+        "authors_facet":"Stephen M. Feldman.",
+        "epubNumberOfPages":408,
+        "id":17073,
+        "isbn":"9780814726846",
+        "isbn_facet":"9780814726846",
+        "pageLocalId":"page_63",
+        "pageNumberForDisplay":"63",
+        "pageSequenceNumber":75,
+        "pageText":"purposes—they aimed in different directions—but interestingly, their theories weave together neatly in a complementary fashion. On the one hand, Machiavelli focused on the well-being of the state. He suggested that Christianity (that is, Roman Catholicism) corrupted political affairs by discouraging citizen involvement in this-worldly civic affairs. On the other hand, Luther focused on the religious well-being of the people. He argued that the Church interfered with the salvation of Christians because of its excessive involvement in worldly affairs. When fit together, these two arguments seem to drive toward a greater separation between church and state. Machiavelli pushed for greater separation from the state or governmental side—the Church should remain outside of civic affairs to avoid corrupting the political sphere—while Luther pushed for greater separation from the religious or spiritual side—the Church should remain outside of civic affairs so that it could concentrate on saving Christians. When combined in this manner, their arguments seem to prefigure some modern conceptions of the principle of separation of church and state in a democracy: these modern conceptions emphasize a public square of democratic debate free of religious interference and, simultaneously, a religious sphere free of political interference.\nDid Luther therefore implicitly support a democratic or civic republican form of secular government, as Machiavelli did? Probably not. To be sure, Luther’s concept of a congregation of the faithful, devoid of the Catholic Church’s hierarchy, had populist and democratic implications in the religious sphere insofar as it suggested that all Christians are equal. His emphases on Scripture and justification by faith alone reinforced this populism because supposedly each individual could personally and directly experience the Word of God and the truth of Christ. This religious populism even resonated with the common Renaissance and civic humanist focus on human dignity in political and civil affairs. Nonetheless, Luther clearly did not intend to celebrate human dignity and excellence; to the contrary, he emphatically insisted that humans are sinful and depraved. Furthermore, as already mentioned, Luther maintained that everyone is not equally able to “publicly minister and teach” Christianity.74 Finally, in his political theorizing, Luther never incorporated civic humanist notions of private persons as citizens. For Luther, individuals were always subjects; rulers therefore remained superiors, princes, lords, or masters, never magistrates. As ordained by God, subjects had a duty to obey and rulers had a right to command. Thus, however contrary to Luther’s intentions, his political theory helped legitimate the emerging absolutist monarchies of Europe.75\n",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"Please don’t Wish me a Merry Christmas",
+        "title_facet":"Please don’t Wish me a Merry Christmas",
+        "topicNames":["state -- citizens"],
+        "topicNamesForDisplay":"[[\"state -- citizens\"]]",
+        "topicNames_facet":["state -- citizens"],
+        "yearOfPublication":0,
+        "_version_":1593583126637969408}]
+  }}

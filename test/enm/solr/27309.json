@@ -1,0 +1,34 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:27309",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Niobe Way"],
+        "authors_facet":"Niobe Way",
+        "epubNumberOfPages":320,
+        "id":27309,
+        "isbn":"9780814793398",
+        "isbn_facet":"9780814793398",
+        "pageLocalId":"page_216",
+        "pageNumberForDisplay":"216",
+        "pageSequenceNumber":226,
+        "pageText":"What does it mean to you to be a black man in this society?\nBeing a black man and not being on drugs, not in jail and going to college, it’s like one of the chosen few. And then it feels like it’s my duty as a black man to go to college and do as best for myself, you know, just to be like a role model because there’s so many of us you know. … Statistics show that there’s more black men in jail than in college, which shouldn’t really be. So, you know, now I’m the chosen few. So I have a job, it’s really like I’m the only one out of all those guys so this is just my chance and I’m going to do it.\nKnowing the particular difficulties he faces as a black man, Jamal is determined to be a success and, in fact, feels a responsibility to his community to be successful.\nSonia speaks about challenging the stereotypes of her Puerto Rican community:\nBecause at school, you know, you talk about it [racism]. That’s why I feel I always have an image to put up. Because I think, you know, a lot of people that have talked so bad about Spanish people. You know, that they get pregnant too soon. And it is true because a lot of Puerto Rican girls they have, you know, they’ve made people talk like that about them. … You know, “Oh, they get pregnant soon. They’re all on welfare.” And it is true … and that’s where I come in. It’s like I don’t want people to think that about me. ’Cause you know I am gonna make it far, and I’m not gonna let anything stop me. ’Cause if I do, then I’d get, “Oh look, what we all talked about was true.” … That’s why, you know, I have this, I’m gonna go to college. I’m gonna graduate. I’m gonna have a career set for myself and then I’ll think about making a family.\nSonia’s affirmation of racist stereotypes (“they’ve made people talk like that about them … and it is true”) and determination to prove these beliefs false suggest that she, like Eva and Jamal, uses these stereotypes as a backdrop from which to differentiate herself. She will be different from her “Spanish” peers. She will be, as Jamal says, among the “chosen few.” This belief appears to strengthen her ambitions as well as the ambitions of many of her peers.\n",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"Everyday Courage",
+        "title_facet":"Everyday Courage",
+        "topicNames":["Racism -- affirming stereotypes of",
+          "Sonia (case study) -- on overcoming racism",
+          "Stereotypes -- racist, affirmation of"],
+        "topicNamesForDisplay":"[[\"Racism -- affirming stereotypes of\"],[\"Sonia (case study) -- on overcoming racism\"],[\"Stereotypes -- racist, affirmation of\"]]",
+        "topicNames_facet":["Racism -- affirming stereotypes of",
+          "Sonia (case study) -- on overcoming racism",
+          "Stereotypes -- racist, affirmation of"],
+        "yearOfPublication":0,
+        "_version_":1593583402808770560}]
+  }}

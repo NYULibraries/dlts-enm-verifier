@@ -1,0 +1,37 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:6157",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Elizabeth Carolyn Miller"],
+        "authors_facet":"Elizabeth Carolyn Miller",
+        "epubNumberOfPages":296,
+        "id":6157,
+        "isbn":"9780472024469",
+        "isbn_facet":"9780472024469",
+        "pageLocalId":"page_183",
+        "pageNumberForDisplay":"183",
+        "pageSequenceNumber":195,
+        "pageText":"\nmarketplace: both authors want to sell, yet also exhibit distaste for popular fiction. The novels distinguish themselves as “literary” products by associating modern consumerism with cheap, mass-produced, worthless texts. On the second page of The Princess, for example, a young Hyacinth engages in the sort of window-shopping that the novel more commonly associates with women:\nthe boy was often planted in front of the little sweet-shop on the other side of the street, an establishment where periodical literature, as well as tough toffy and hard lollipops, was dispensed … attractively exhibited in the small-paned, dirty window. He used to stand there for half an hour at a time, spelling out the first page of the romances in the Family Herald and the London Journal, and admiring the obligatory illustration in which the noble characters … were presented to the carnal eye. (54)\nAssociating popular papers with candy and carnality, James presents them as ephemeral, easily digestible, and unsophisticated: texts that appeal to a child. The stories' “obligatory” illustrations suggest they are products of formula rather than art, separating them from James's novel. The Princess was published serially in the Atlantic Monthly, but this was not the sort of journal to print illustrated fiction; hanging over the first installment of James's novel, in the September 1885 issue, is the magazine's banner: “A Magazine of Literature, Science, Art, and Politics.” Conrad likewise describes mass-produced texts in terms of ephemerality and disposability: he refers to “a dismal row of newspaper sellers” who “dealt with their wares from the gutter;” to an “eruption of the damp, rubbishy sheets of paper soiled with printers' ink;” and to “posters, maculated with filth.” Despite being widely consumed by passers-by, these newspapers and posters remain culturally insignificant: “the effect was of indifference, of a disregarded distribution” (101). In the first pages of the novel, he describes the radical newspapers sold in Verloc's shop as “obscure” and “badly printed” (45), the flotsam and jetsam of modern print culture.\nThrough these representations of ephemeral texts, James's and Conrad's argument about terrorism and individual political expression becomes even more peculiarly gendered. As two authors who self-consciously position themselves against a dominant cultural condition—characterized by proliferating, feminized, mass-produced literature and culture—James and Conrad share many of the same concerns as the novels' terrorists, who pit themselves against prevailing social orthodoxy and\n",
+        "publisher":["University of Michigan Press and University of Michigan Library"],
+        "publisher_facet":"University of Michigan Press and University of Michigan Library",
+        "title":"Framed: The New Woman Criminal in British Culture at the Fin de Siecle",
+        "title_facet":"Framed: The New Woman Criminal in British Culture at the Fin de Siecle",
+        "topicNames":["Atlantic Monthly",
+          "The Atlantic",
+          "illustration",
+          "liberalism -- liberty of individual subject",
+          "terrorism / terrorists"],
+        "topicNamesForDisplay":"[[\"Atlantic Monthly\",\"The Atlantic\"],[\"illustration\"],[\"liberalism -- liberty of individual subject\"],[\"terrorism / terrorists\"]]",
+        "topicNames_facet":["Atlantic Monthly",
+          "illustration",
+          "liberalism -- liberty of individual subject",
+          "terrorism / terrorists"],
+        "yearOfPublication":0,
+        "_version_":1593582817248280576}]
+  }}

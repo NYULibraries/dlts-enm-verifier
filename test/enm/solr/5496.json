@@ -1,0 +1,40 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:5496",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Shackelford, Laura"],
+        "authors_facet":"Shackelford, Laura",
+        "epubNumberOfPages":273,
+        "id":5496,
+        "isbn":"9780472120680",
+        "isbn_facet":"9780472120680",
+        "pageLocalId":"page_218",
+        "pageNumberForDisplay":"218",
+        "pageSequenceNumber":226,
+        "pageText":"reconceptualization of processes of materialization in light of such knowledges and practices. As importantly, they pursue the potential consequence of these emergent materialisms to the U.S. social field, to the political, cultural, and economic terms through which we map, navigate, and redescribe contemporary social life at multiple sites and scales. These fictions provide us with concepts drawn from these sciences and practices and, therefore, well attuned to the topographies of late capitalism and its computation-based technics. These concepts are then speculatively followed through to their expected or potential social, cultural, and political ends and, in this process, tactically reconceived and reoriented in light of a careful observation of this thick environment.\nAs a result, these literary texts reveal how such emergent knowledges and processes of materialization, and the complex interrelations they delineate between human cultures, social systems, and material lifeworlds provide quite essential conceptual and practical resources for literary, cultural, political, and social theories, as they, quite literally, work through contemporary U.S. digital cultures. In this way, these texts unleash the literary’s potential as a mode of diagnosis. It is a diagnostic mode that, as Isabelle Stengers stresses after Nietzsche, is grounded in a reflection on the present material, empirical realities, yet precisely because of that momentary entrenchment is capable of opening open onto speculative, prospective futures through its grounded, reiterative, creative diagnostic inquiries.12 Importantly, such diagnoses serve as immanent, nonoppositional, experimental modes of registering the present, empirical realities and finding openings through which these trajectories might otherwise unfold or bifurcate.\nBorrowing and adapting key concepts and processes from systems thinking in cybernetics and information theory, biological and social systems theory, and the emerging technics already, notably, well under way in early digital cultures, the book joins these literary texts in creatively exploring the multipotentiality and necessity of these new modes of thinking through and, quite literally, grappling with materially realized technics and the systems relations they dynamically and forcefully engender. The book draws upon these late twentieth- and early twenty-first-century literary methods to devise new materialist tactics for engaging the technical apparati and processes under way in contemporary technoscience, neoliberal economic networks, and their U.S. digital cultures, tactics that are, thus, closely attuned to the latter’s blind spots and unpursued potential.\nAdditionally, in looking back to these early literary engagements with digital cultures, which clearly begin to “understand fictional worlds as systems”",
+        "publisher":["University of Michigan Press"],
+        "publisher_facet":"University of Michigan Press",
+        "title":"Tactics of the Human: Experimental Technics in American Fiction",
+        "title_facet":"Tactics of the Human: Experimental Technics in American Fiction",
+        "topicNames":["diagnosis -- as novelistic mode",
+          "observation",
+          "Stengers",
+          "Stengers, I.",
+          "Stengers, Isabelle",
+          "systems thinking",
+          "tactics -- digital literary"],
+        "topicNamesForDisplay":"[[\"diagnosis -- as novelistic mode\"],[\"observation\"],[\"Stengers, Isabelle\",\"Stengers\",\"Stengers, I.\"],[\"systems thinking\"],[\"tactics -- digital literary\"]]",
+        "topicNames_facet":["diagnosis -- as novelistic mode",
+          "observation",
+          "Stengers, Isabelle",
+          "systems thinking",
+          "tactics -- digital literary"],
+        "yearOfPublication":0,
+        "_version_":1593582796273614848}]
+  }}

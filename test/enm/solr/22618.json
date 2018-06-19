@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:22618",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Seth Forman"],
+        "authors_facet":"Seth Forman",
+        "epubNumberOfPages":284,
+        "id":22618,
+        "isbn":"9780814726815",
+        "isbn_facet":"9780814726815",
+        "pageLocalId":"page_x",
+        "pageNumberForDisplay":"x",
+        "pageSequenceNumber":10,
+        "pageText":"reciprocation. Dr. Jacobson is a scholar and teacher of such immense skill and patience that if I can do for my future graduate students only half of what he has done for me, my career goal will be largely fulfilled. In this regard I must also mention Dr. David Burner of SUNY at Stony Brook, a “second reader” who has been more generous with his time and erudition than anyone bearing such an appellation need be. Thanks also to Dr. Carole Kessner and Dr. Nikhil Singh for their thorough reading of the manuscript and helpful comments.\nSpecial thanks to Dr. Lee E. Koppelman of the Center for Regional Policy Studies at SUNY at Stony Brook and the Long Island Regional Planning Board, a mentor and role model for so many students and staff over the years. While Dr. Koppelman is involved in policymaking at all levels of government and planning, his students and employees always come first. His support and encouragement of my educational pursuits, along with his personal guidance and friendship, have been an indispensable part of the past five years of my life.\nRegarding the actual details of my research, I would like to thank a number of individuals. Ms. Syma Horowitz and Ms. Michelle Anisch, of the Blaustein Library of the American Jewish Committee in Manhattan, and the interlibrary loan librarians at the Frank Melville Jr. Memorial Library at SUNY at Stony Brook, notably Ms. Donna Sammis and Ms. Victoria Grasso, were extremely helpful in providing access to an enormous amount of obscure material.\nMy editors at New York University Press, Jennifer Hammer and Despina Papazoglou Gimbel, helped me turn a sloppy doctoral thesis into a presentable scholarly book, a seemingly impossible task. For their competence and professionalism I give them my most heartfelt thanks.\nFinally, thanks to Samara Eve Forman, whose imminent arrival proved to be my greatest inspiration.\n\n\n",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"Blacks in the Jewish Mind",
+        "title_facet":"Blacks in the Jewish Mind",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593583276070535168}]
+  }}

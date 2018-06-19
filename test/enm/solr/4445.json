@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:4445",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Dougherty, Jack; Nawrotzki, Kristen"],
+        "authors_facet":"Dougherty, Jack; Nawrotzki, Kristen",
+        "epubNumberOfPages":297,
+        "id":4445,
+        "isbn":"9780472029914",
+        "isbn_facet":"9780472029914",
+        "pageLocalId":"page_265",
+        "pageNumberForDisplay":"265",
+        "pageSequenceNumber":237,
+        "pageText":"\nand commenters recirculated it on their Twitter, Facebook, and WordPress accounts. A typical solo-authored monograph would not have generated the same response.\nWith each phase of the project, we expanded the website for Writing History in the Digital Age to guide visitors into lively channels of discussion and also to document the evolution of our writing. During the initial “call for ideas” phase in May–June 2011, we invited readers to generate and respond to potential themes for the volume, and 73 participants posted 261 comments, which collectively generated over 60 paragraph-length topics. By late August 2011, we received 28 fully drafted essays from individual authors and coauthors, which we converted into WordPress posts. We then instructed our contributors on how to enhance them with digital media and web links. When combined with our introductory essay, the fall 2011 volume totaled over 120,000 words, far above the 90,000 permitted in our advance book contract with the University of Michigan Press. We publicly announced the open peer review, which ran from October through November 2011 and drew 71 participants who wrote 942 comments, the majority of them on substantive issues. The coeditors met in December 2011 to select 20 out of 28 essays (about 70 percent) to be revised and resubmitted to the press as the full manuscript. Newer versions of essays were posted online in spring 2012, with links to prior drafts and copyediting for the print version to be submitted.\nThe coeditors' editorial and intellectual property policy deliberately required essay contributors and commenters to use their full names and agree to our Creative Commons licensing. The combined objectives were to reward quality ideas by attribution, circulate them freely and widely, and maintain civil discourse online. Although we initially “primed the pump” to guarantee some comments at the spring 2011 launch, the flow ran nearly continuously during the fall of 2011, with minimal guidance from us.\nUnlike a print-only text, our web-book format allows editors to track some general characteristics of the audience, how they arrived at the site, and which portions of the text generated the greatest interest. Based on anonymous Google Analytics data, over 8,500 unique visitors came to Writing History in the Digital Age during its developmental period from May 2011 through mid-January 2012. The number continues to rise as of this writing. Most of these web visits were brief. Only 1,000 unique visitors spent at least five minutes viewing our site, and of those, only 122 spent more than one hour on the site, which is comparable to the total number of individuals who have posted comments during all stages of the web-book.\n",
+        "publisher":["The University of Michigan Press"],
+        "publisher_facet":"The University of Michigan Press",
+        "title":"Writing History in the Digital Age",
+        "title_facet":"Writing History in the Digital Age",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593582761121153024}]
+  }}

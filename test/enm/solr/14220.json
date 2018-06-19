@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:14220",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Mark E. Kann"],
+        "authors_facet":"Mark E. Kann",
+        "epubNumberOfPages":242,
+        "id":14220,
+        "isbn":"9780814747148",
+        "isbn_facet":"9780814747148",
+        "pageLocalId":"page_iii",
+        "pageNumberForDisplay":"iii",
+        "pageSequenceNumber":2,
+        "pageText":"A Republic of Men\nThe American Founders, Gendered Language, and Patriarchal Politics\nMark E. Kann\n\n\n\n",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"A Republic of Men",
+        "title_facet":"A Republic of Men",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593583052595920896}]
+  }}

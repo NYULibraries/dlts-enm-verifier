@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:26174",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Paula C. Rust"],
+        "authors_facet":"Paula C. Rust",
+        "epubNumberOfPages":388,
+        "id":26174,
+        "isbn":"9780814774458",
+        "isbn_facet":"9780814774458",
+        "pageLocalId":"page_365",
+        "pageNumberForDisplay":"365",
+        "pageSequenceNumber":385,
+        "pageText":"Author Index\nAbbott, S., 132, 135, 326 nn. 2, 5, 327 nn. 6, 13, 330 n. 29, 331 n. 34, 333 n. 44, 334 nn. 50, 56\nAdam, B. D., 155, 157, 174, 177, 326 nn. 2, 4, 327 n. 10, 332 n. 42, 333 n. 48, 334 nn. 49, 55\nAlice, 151, 161, 184, 328 n. 20, 334 n. 54, 335 nn. 56, 58\nAllen, V. L., 219\nAnapol, D., 234, 338 n. 9\nAtkinson, T., 131, 137, 139, 140, 164, 165, 169–170, 327 n. 11, 330 n. 26, 335 n. 63\nAubut, B., 238, 339 n. 30, 340 n. 35\nAvery, E., 236, 239, 338 n. 18, 339 n. 30, 340 nn. 34, 36\nBaker, K., 240, 340 nn. 39, 43\nBarnett, E., 240, 340 nn. 33, 42\nBeal, F. M., 147\nBechdel, A., 178\nBell, A. P., 31, 32\nBenkert, K. M., 27, 322 n. 1\nBennett, K., 234, 236, 337 n. 8, 338 n. 15, 339 n. 27, 341 n. 48\nBerger, S., 248, 337 n. 3, 343 n. 77\nBernhard, S., 15\nBerson, G., 327 n. 8\nBettykay, 243, 341 n. 52\nBillig, M., 219\nBlumstein, P., 31, 107, 323 n. 8\nBornstein, K., 19\nBoswell, J., 323 n. 2\nBraindrop, L., 15\nBrenner, E., 238, 244, 339 n. 30, 341 n. 56\nBrierley, H., 33\nBrown, R. M., 129, 130, 132, 136, 137, 138, 139, 140, 141, 142, 143, 147, 150, 151, 153, 154, 160, 163, 164, 166, 167–168, 169, 178, 179–180, 182, 326 nn. 2, 5, 333 n. 44, 334 n. 55, 335 n. 56\nBrownmiller, S., 326 n. 1\nBullough, B., 323 n. 4\nBullough, V., 322 n. 1, 323 n. 4\nBunch, C., 129, 130, 131, 132, 138, 140, 141, 142, 143, 147, 148, 179, 335 n. 59\nBurek, D. M., 321 n. 2\nCalifia, P., 12–13, 14\nCant, B., 326 n. 4\nCaplan, P., 323 n. 2\nCarpenter, V., 138, 149, 154, 177\nCattolico, P., 239, 340 n. 37\nChasnoff, D., 321 n. 3\nChunovic, L., 15, 322 n. 16\nClausen, J., 16–17, 18\nCloutte, P., 145\nCook, B. W., 154, 331 n. 33\nCourtney, A., 236, 338 n. 16, 341 n. 54\nCowan, L., 161, 332 n. 37\nDajenya, 22, 322 n. 34, 343 n. 84\nDaly, M., 329 n. 23\nDamon, G., 331 n. 35, 334 n. 50\nDanyliw, H. L., 245, 342 n. 60\nDeCecco, J. P., 33, 323 n. 4, 324 n. 6\nDeihl, M., 340 n. 35\nDiamond, M., 31\nDixon, J., 140, 141, 143, 326 n. 2, 329 n. 22\nDurgahdas, G., 245\nDwinell, J., 20, 322 n. 27\n",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"Bisexuality and the Challenge to Lesbian Politics",
+        "title_facet":"Bisexuality and the Challenge to Lesbian Politics",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593583370065936384}]
+  }}

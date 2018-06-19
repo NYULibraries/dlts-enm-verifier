@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:15416",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Robert M. Seltzer"],
+        "authors_facet":"Robert M. Seltzer",
+        "epubNumberOfPages":492,
+        "id":15416,
+        "isbn":"9780814780015",
+        "isbn_facet":"9780814780015",
+        "pageLocalId":"page_462",
+        "pageNumberForDisplay":"462",
+        "pageSequenceNumber":482,
+        "pageText":"Gans, Eduard, 22\nGarfield, John, 80\nGender-based religious language, 276, 291\nGender roles, and kashrut, 249\nGerman Jews, 3, 5, 11, 19–40, 153–54, 155, 163n. 3, 195, 357, 385, 450n. 7\nGersoni, Henry, 44\nGet, 303\nGinzberg, Louis, 231, 237\nGlatstein, Jacob, 74–75\nGlueck, Nelson, 270\nGod, Jewish ideas of, 1, 2, 64, 125, 151, 196–97, 276–77, 282n. 41, 291, 312, 329, 332, 335–36, 343, 351, 356–68\npassim, 399, 400–401, 409, 439, 447, 454\nGoethe, Johann Wolfgang von, 21\nGold, Michael, 71\nGoldbaum, Meshulum Feitel, 49\nGoldman, Solomon, 187, 194\nGoldstein, Israel, 187\nGoldwyn, Samuel, 80, 82\nGoodbye, Columbus (movie), 81, 88, 89\nGordon, David, 46\nGordon, Issachar Baer, 50\nGordon, Judah Leib, 46, 50–51\nGottheill, Richard, 167\nGottloeber, Abraham Baer, 50, 52\nGottschalk, Alfred, 270\nGreen, Arthur, 291, 452\nGreenberg, Clement, 73\nGreenberg, Irving, 452\nGreenberg, Simon, 187\nGreenfeld, Osher, 327–28, 333\nGulf War, 161\nGünzberg, Mordecai Aaron, 50\nHadassah, 157, 159, 160, 285\nHafetz Hayyim (Israel Meir Ha-Kohen), 56\nHaganah, 185\nHalakhah, 202, 290, 297, 300, 302, 303, 330, 349, 359, 361, 362, 364, 401–2, 409, 451\nHalakhah, Conservative, and feminism, 297–98, 299, 300, 302, 304, 306n. 8\nHa-Levanon, 56\nHalpern, Abraham, 200–201, 204, 205\nHalpern, Ben, 165, 195, 209\nHalpern, Moishe Leib, 68–69\nHa-Maggid, 42, 43, 45, 46, 52\nHa-Melitz, 42, 43, 44, 45, 50\nHandlin, Oscar, 193\nHaredim (Ultra-Orthodox), 389–90, 394n. 25\nHarkavy, Alexander, 47–48\nHa-Shahar, 44, 46\nHasidism, 3, 27, 324–25, 326, 330, 355, 360, 364, 367–68, 422, 452, 453\nHasidism, varieties of: Bluzhover, 324–25\nGerrer, 333–34\nSkver, 325\nVizhnitzer, 328\nHaskalah, 3, 46, 151, 379. See also Enlightenment\nHavurot, 13, 225, 446\nHa-Zefirah, 42, 45, 46\nHa-Zeman, 53\nHa-Zofeh ba-Aretz ha-Hadashah, 43\nHeartburn (movie), 88\nHebrew Benevolent Society, 221\nHebrew Union College (after 1950, Hebrew Union College-Jewish Institute of Religion), 38n. 36, 38n. 41, 209, 268–70, 272, 357, 358, 360\nadmission of gays and lesbians to and their ordination by, 278–79\nHebrew University of Jerusalem, 177\nHecht, Ben, 74\nHeilbut, Anthony, 32\nHeine, Heinrich, 22, 34n. 4, 36n. 19, 247, 380\nHerberg, Will, 12, 120–32, 193, 427\nHerzl, Theodor, 152, 196, 197, 202, 208, 209\nHeschel, Abraham Joshua, 13–14, 355–74, 452, 454\nHibbat Tsiyyon, 51, 55\nHillel Foundations, 274\nHillquit, Morris, 106\nHirshbein, Peretz, 68\nHochschule für die Wissenschaft des Judentums, 356, 357\nHolidays, Jewish, 261, 399, 402, 404, 407–8, 409\nHolocaust, 9, 74, 110, 125, 147, 157–58, 159, 162, 196, 312, 316, 332, 334, 356, 367, 369n. 4, 373n. 55, 408, 417, 452, 456\n",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"The Americanization of the Jews",
+        "title_facet":"The Americanization of the Jews",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593583084664520704}]
+  }}

@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:23241",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Stanley A. Renshon"],
+        "authors_facet":"Stanley A. Renshon",
+        "epubNumberOfPages":416,
+        "id":23241,
+        "isbn":"9780814774632",
+        "isbn_facet":"9780814774632",
+        "pageLocalId":"page_335",
+        "pageNumberForDisplay":"335",
+        "pageSequenceNumber":349,
+        "pageText":"R. Dale, was eventually accused of specific wrongdoing, and he was acquitted of charges that he misused Travel Office money. Dale insisted throughout that he had done nothing wrong and that his legal troubles were a result of the Clinton administration’s attempt to justify its behavior. President Clinton expressed sorrow for what Dale “had to go through,” but an editorial in the Washington Post pointed out that a more accurate phrasing by the president would have been to say “he was sorry for what Mr. Dale had been ‘put through’ by the White House” (1995, 25). A detailed chronology and analysis of the White House travel operations accusations and their consequences can be found in the General Accounting Office’s report to Congress (1994b).\n18. This itself was part of a policy straddle. Clinton had received strong support from the homosexual community but unlike other Democratic party nominees had declined to support a civil rights bill for homosexuals.\nNOTES TO CHAPTER 7\n1. I would like to thank Miss Dara Monahan of Mozark Productions for providing me with a copy of the tape originally shown at the Democratic National Convention. For a brilliant deconstruction and analysis of the implications of the images evoked by the text and narrative of this film see Rosteck (1994).\n2. In this and the following two chapters I rely on Virginia Kelley’s own views of the events as contained in her autobiography (Kelley 1994a). Throughout these chapters, quotes, unless otherwise noted, are drawn from Kelley’s autobiography.\n3. Ifill says that Blythe was killed six months before Bill Clinton was born (1992b). Levin puts the time four months before Clinton’s birth (1992, 4). However, Virginia Kelley puts the date of her husband’s death at May 17, 1946, three months before Clinton’s birth (1994a, 60).\nIn this and other matters concerning when events actually occurred, there is often some ambiguity. There are several possible causes for this, including imperfect or selective memories. Another possible explanation is that the Clinton family had no “family historian.” Clinton’s mother, as will become clearer, was too busy living her life to pay close attention to family history, and Clinton too had his reasons for not wishing to record his family history, much of which was difficult for him.\n4. See Levin (1992, xxii), Oakley (1994, 24), Allen (1991, 8), and Maraniss (1995, 30). There is some ambiguity about these dates. Levin’s chronology reports that Virginia Kelley left Hope in 1948 when Bill Clinton was two and was away until he was four (1992, xxii). Allen reports that Kelley was away two years but doesn’t give the dates. Oakley reports only that she completed her training when Bill Clinton was four, and Maraniss reports that she left in the fall of 1947 and was away two years. This latter view is at least somewhat consistent with that of Kelley herself, who recalls that she called Charity Hospital in New Orleans to see about their program within a week of the time she and her new son returned from the hospital in August 1946 and was told there was an eight-month backlog ",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"High Hopes",
+        "title_facet":"High Hopes",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593583294212997120}]
+  }}

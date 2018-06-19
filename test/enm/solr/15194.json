@@ -1,0 +1,32 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:15194",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Robert M. Seltzer"],
+        "authors_facet":"Robert M. Seltzer",
+        "epubNumberOfPages":492,
+        "id":15194,
+        "isbn":"9780814780015",
+        "isbn_facet":"9780814780015",
+        "pageLocalId":"page_240",
+        "pageNumberForDisplay":"240",
+        "pageSequenceNumber":260,
+        "pageText":"conservative so as not to repel the elders” seems to have stopped him.23\nThese policies and efforts achieved an early modicum of success for the Brotherhood as it grew from “an experimental place of worship” to being a recognized fixture on the Lower East Side. By 1910, the American Hebrew printed without comment or critique a report on the fifth annual meeting of the Brotherhood, replete with the hyperbole that they are “doing excellent pioneer work in a direction not hitherto attempted and in a section of the city not covered by similar organizations.”24\nAs the Emanu-El Brotherhood proceeded on its own, the Board of Ministers’ plans “for a permanent building [for an umbrella Young People’s Synagogue] after a year’s work of experimental synagogues” lost momentum and ultimately any chance of coming to fruition. Regardless of whatever deliberations were held, initiatives toward a Board of Minsters-sponsored synagogue were dropped after 1905.25\nLeft to their own devices, JES leaders and members still continued to struggle to make their synagogue activities and classes a permanent reality in the downtown neighborhood. Despite this disappointment, Endeavorers displayed no loss in enthusiasm for their labor in the succeeding months. In April 1905, for example, an unnamed author, signing his letter to the American Hebrew only as “Endeavorer,” announced with “a feeling of happiness” that “after an interval of two long years” an organization “that is quietly but surely teaching the tenets of the Jewish religion to the younger generation” would be resuming Sabbath afternoon services. The Endeavorers’ friend, Mr. Leinkram, and “the broad-minded trustees and members” of the Pitt Street Synagogue seemed to have worked out a way for the synagogue to be the site for a “service that would be as severely Orthodox as the rest, and at the same time, to exclude those features that are objectionable to the younger people.”26\nAs it turned out, “Endeavorer” spoke too quickly. In the few days between the receipt of his letter and its publication, the congregation changed its mind, necessitating the American Hebrew to place an asterisk next to “Endeavorer’s” missive calling attention to a footnote referring to a “change of program due to the bigoted refusal ",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"The Americanization of the Jews",
+        "title_facet":"The Americanization of the Jews",
+        "topicNames":["American Hebrew",
+          "Pitt Street Synagogue (Agudath Achim Cracow, New York)"],
+        "topicNamesForDisplay":"[[\"American Hebrew\"],[\"Pitt Street Synagogue (Agudath Achim Cracow, New York)\"]]",
+        "topicNames_facet":["American Hebrew",
+          "Pitt Street Synagogue (Agudath Achim Cracow, New York)"],
+        "yearOfPublication":0,
+        "_version_":1593583078915178496}]
+  }}

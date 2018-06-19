@@ -1,0 +1,40 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:12861",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["John Marshall"],
+        "authors_facet":"John Marshall",
+        "epubNumberOfPages":373,
+        "id":12861,
+        "isbn":"9780814731437",
+        "isbn_facet":"9780814731437",
+        "pageLocalId":"page_17",
+        "pageNumberForDisplay":"17",
+        "pageSequenceNumber":28,
+        "pageText":"Willis Whichard explains that James Iredell came to America as a British official to be the comptroller of customs in Edenton, North Carolina. Iredell studied law under Samuel Johnston, a politically influential lawyer, and acquired the reputation of a superior lawyer. In his most significant case as counsel, Whichard reveals, Iredell advocated the concept of judicial review. He also championed it in a series of sophisticated letters and essays.\nWhichard demonstrates how Iredell became a leading essayist for the American cause in the Revolution and a bellwether for the Federalist forces in the effort to ratify the federal Constitution. Iredell answered George Mason’s objections, led other literary efforts, and served as floor leader for the Federalist forces at the initial North Carolina ratification convention. When that convention failed to approve the Constitution, Iredell continued his endeavors until a second convention ratified the document. President Washington rewarded Iredell’s efforts by appointing him to the Supreme Court. Whichard suggests that the grasp of constitutional questions Iredell displayed in promoting ratification was the foremost reason for the appointment.\nWhichard maintains that Iredell’s most significant opinion was his dissent in Chisholm v. Georgia. In that case Iredell took the position that a citizen of one state could not sue another state. The Eleventh Amendment incorporated Iredell’s position into the Constitution. Iredell spent most of his Court years traveling the circuits. He led efforts to terminate or reduce the travel but, Whichard reveals, those efforts were largely to no avail. His work on circuit undermined his health, and he died after a near-decade of service.\nDaniel Degnan reminds us that William Paterson was a member of the Constitutional Convention and author of the New Jersey, or small-states, plan. Despite his advocacy of the rights of the smaller states, however, Paterson proved to be a consistent nationalist. As a member of the first Senate, Paterson was a principal coauthor, with Oliver Ellsworth, of the Judiciary Act of 1789. The first nine sections of the act, establishing the federal district and circuit courts, were in Paterson’s handwriting.\nPaterson served on the Supreme Court from 1793 to 1806 where, Father Degnan argues, his work was a continuation of his work in the convention and the Senate. For Paterson, prize capture on the high seas evoked the plenary power of the national government in foreign affairs. The national power to tax, he believed, was not to be nar-1rowly ",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"Seriatim",
+        "title_facet":"Seriatim",
+        "topicNames":["Chisholm v. Georgia (1793)",
+          "Eleventh Amendment -- and Chisholm v. Georgia (1793)",
+          "Johnston, Samuel",
+          "Judiciary Act of 1789",
+          "Mason, George, objections to the U.S. Constitution",
+          "Washington, George"],
+        "topicNamesForDisplay":"[[\"Chisholm v. Georgia (1793)\"],[\"Eleventh Amendment -- and Chisholm v. Georgia (1793)\"],[\"Johnston, Samuel\"],[\"Judiciary Act of 1789\"],[\"Mason, George, objections to the U.S. Constitution\"],[\"Washington, George\"]]",
+        "topicNames_facet":["Chisholm v. Georgia (1793)",
+          "Eleventh Amendment -- and Chisholm v. Georgia (1793)",
+          "Johnston, Samuel",
+          "Judiciary Act of 1789",
+          "Mason, George, objections to the U.S. Constitution",
+          "Washington, George"],
+        "yearOfPublication":0,
+        "_version_":1593583009784659968}]
+  }}

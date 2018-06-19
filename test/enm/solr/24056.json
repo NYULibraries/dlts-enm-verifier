@@ -1,0 +1,37 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:24056",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Steve Kroll-Smith"],
+        "authors_facet":"Steve Kroll-Smith",
+        "epubNumberOfPages":237,
+        "id":24056,
+        "isbn":"9780814746622",
+        "isbn_facet":"9780814746622",
+        "pageLocalId":"page_111",
+        "pageNumberForDisplay":"111",
+        "pageSequenceNumber":125,
+        "pageText":"5Explaining Strange Bodies\nSomething so “practical” as a bodily ailment may be a“symbolic” act on the part of the body which, in thismaterialization, dances a corresponding state of mind.\n(Burke 1989, 80)\nA TURNING POINT for many of the chemically reactive is the failure of prevailing medical theory and practice to acknowledge their immediate and tangible somatic experiences. It is worth recalling a point made briefly in the last chapter. By the time the chemically reactive are seeking the counsel and care of physicians, many of them have already developed a rudimentary understanding of their troubles. Matching variable environments and consumer products with variable symptoms, people approaching the medical profession know something useful about their somatic complaints based on immediate, tangible experiences.\nIt is this practical, useful knowledge that is generally unacknowledged by physicians. A physician might listen respectfully to the accounts of a patient who has catalogued an extensive array of associations between his body and local environments but is not likely to 5Explaining Strange Bodies\nSomething so “practical” as a bodily ailment may be a“symbolic” act on the part of the body which, in thismaterialization, dances a corresponding state of mind.\n(Burke 1989, 80)\nA TURNING POINT for many of the chemically reactive is the failure of prevailing medical theory and practice to acknowledge their immediate and tangible somatic experiences. It is worth recalling a point made briefly in the last chapter. By the time the chemically reactive are seeking the counsel and care of physicians, many of them have already developed a rudimentary understanding of their troubles. Matching variable environments and consumer products with variable symptoms, people approaching the medical profession know something useful about their somatic complaints based on immediate, tangible experiences.\nIt is this practical, useful knowledge that is generally unacknowledged by physicians. A physician might listen respectfully to the accounts of a patient who has catalogued an extensive array of associations between his body and local environments but is not likely to ",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"Bodies in Protest",
+        "title_facet":"Bodies in Protest",
+        "topicNames":["Beck, Ulrich",
+          "Bodies -- strange",
+          "Burke, K.",
+          "Burke, Kenneth",
+          "Touraine, Alain"],
+        "topicNamesForDisplay":"[[\"Beck, Ulrich\"],[\"Bodies -- strange\"],[\"Burke, Kenneth\",\"Burke, K.\"],[\"Touraine, Alain\"]]",
+        "topicNames_facet":["Beck, Ulrich",
+          "Bodies -- strange",
+          "Burke, Kenneth",
+          "Touraine, Alain"],
+        "yearOfPublication":0,
+        "_version_":1593583314493505536}]
+  }}

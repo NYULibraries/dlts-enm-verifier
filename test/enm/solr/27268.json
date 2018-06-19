@@ -1,0 +1,30 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:27268",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Niobe Way"],
+        "authors_facet":"Niobe Way",
+        "epubNumberOfPages":320,
+        "id":27268,
+        "isbn":"9780814793398",
+        "isbn_facet":"9780814793398",
+        "pageLocalId":"page_175",
+        "pageNumberForDisplay":"175",
+        "pageSequenceNumber":185,
+        "pageText":"to her concerns (she does not neglect her own need to protect herself), she is ambivalent about acknowledging her fears to me and, perhaps, to herself. Given Gayle’s repeated discussions of the importance of having a positive attitude, this ambivalence may reflect both her desire to maintain a positive stance and her comprehension of the realities of her circumstances.\nLike Marie, Gayle’s seemingly “positive” outlook may lead her to deny to herself and to others that she is frightened or worried. It may even prevent her from taking the proper precautions. On the other hand, her “positive” outlook may also enable Gayle to take care of herself. If she were to dwell on her fears about being shot or about being attacked at night, for example, she might lose her ability to move freely in the world—it might immobilize her. With her positive attitude, she may feel empowered to act independently and spontaneously.\nAt the end of her junior-year interview, Gayle is asked:\nWhen you think of the future, what do you think of?\nI think of me living in a nice house with a family. Having a steady job. Everything just the way I want it to be.\nDo you think that’s going to be a reality, having everything you want?\nIf I make it that way.\nDo you think you will?\nYeah.\nDo you feel like you think about the future much?\nI try not to. I try to live every day as it comes.\nWhy do you think you have that philosophy?\n’Cause I might not be here tomorrow. I might die or something, so I try not to say, “This is what I want to do in the future.” Okay, I’ll say, “My goal is to do this.” But I’m not gonna say, “Well I want to do this,” or “I hope this is like this.” I don’t say that.\nAnd why don’t you say that?\nBecause you never know. You might not be here tomorrow. …\nWhat do you think makes your life worth living?\nThe attitude that I have about life.\nWhat do you mean your attitude?\nMy outlook about things in life. Like when I walk out in the street, I’m not gonna think I’m gonna get shot or whatever.\n",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"Everyday Courage",
+        "title_facet":"Everyday Courage",
+        "topicNames":["Marie (case study) -- on the future"],
+        "topicNamesForDisplay":"[[\"Marie (case study) -- on the future\"]]",
+        "topicNames_facet":["Marie (case study) -- on the future"],
+        "yearOfPublication":0,
+        "_version_":1593583401586130944}]
+  }}

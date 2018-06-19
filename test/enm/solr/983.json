@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:983",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Amy Koritz and George J. Sanchez"],
+        "authors_facet":"Amy Koritz and George J. Sanchez",
+        "epubNumberOfPages":252,
+        "id":983,
+        "isbn":"9780472024483",
+        "isbn_facet":"9780472024483",
+        "pageLocalId":"page_240",
+        "pageNumberForDisplay":"240",
+        "pageSequenceNumber":252,
+        "pageText":"\nWilliams, Tennessee, 190\nWilliamson, Marianne, 94\nWilson, William J.\nThere Goes the Neighborhood: Racial, Ethnic, and Class Tension in Four Chicago Neighborhoods and Their Meaning for America, 57\nWoodville, Richard\nWar News from Mexico, 27\nWorks Progress Administration (WPA), 11\nXavier University of Louisiana, 105, 107, 118, 148\nXavier University of New Orleans, 6, 7, 51, 86, 87, 162, 168, 169, 170, 171, 175, 179, 181, 198\nArt Department, 164, 166\nCenter for Bioenvironmental Research, 150, 167\nCommunity Arts Program, 14\nYale University, 48, 49\nYudicé, George, 211\n\n\n",
+        "publisher":["University of Michigan Press"],
+        "publisher_facet":"University of Michigan Press",
+        "title":"Civic Engagement in the Wake of Katrina",
+        "title_facet":"Civic Engagement in the Wake of Katrina",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593582636713902080}]
+  }}

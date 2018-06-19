@@ -1,0 +1,34 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:24139",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Steve Kroll-Smith"],
+        "authors_facet":"Steve Kroll-Smith",
+        "epubNumberOfPages":237,
+        "id":24139,
+        "isbn":"9780814746622",
+        "isbn_facet":"9780814746622",
+        "pageLocalId":"page_194",
+        "pageNumberForDisplay":"194",
+        "pageSequenceNumber":208,
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"Bodies in Protest",
+        "title_facet":"Bodies in Protest",
+        "topicNames":["Brown, Phil",
+          "Irwin, Alan",
+          "Knowledge -- rational"],
+        "topicNamesForDisplay":"[[\"Brown, Phil\"],[\"Irwin, Alan\"],[\"Knowledge -- rational\"]]",
+        "topicNames_facet":["Brown, Phil",
+          "Irwin, Alan",
+          "Knowledge -- rational"],
+        "yearOfPublication":0,
+        "pageText":"from our vantage point, however, is that in those instances where experts align themselves with citizens, the citizens acquire both the knowledge and its embodiment, the expert, thus appropriating and controlling two important rational knowledge resources. Brown (1992), for example, notes the cooperation between a citizens’ group (whose independent neighborhood health surveys suggested a link between water contamination and leukemia) and scientists at the Harvard School of Public Health: the citizens “no longer had to seek scientific expertise from outside; now they were largely in control of scientific inquiry” (271).\nCitizens in control of epidemiological studies are likely to expand the circle of culpability to include purportedly safe environments typically ignored in government-sponsored research. Popular epidemiology ascribes to a view of evidence that expands the idea of dangerous or risky environments. It is considerably more flexible than traditional epidemiology in setting standards for proof that call for remedial actions (Recall the NUAAW’s “balance of probabilities” argument). According to Brown (1992), traditional epidemiologists “prefer false negatives to false positives—i.e., they would prefer to claim falsely that an association between variables does not exist when it does than to claim an association when there is none” (274). In contrast, Linda King, the director of the Environmental Health Network, argues that epidemiology, like clinical medicine, should be committed to “false positives, that jargon that means the environment is considered dangerous until it is proven that it’s not” (EHN Newsletter 1992).\nProponents of popular epidemiology argue that even without statistically significant data one can find satisfactory association between contamination and health problems across persons, places, circumstances, time, and so on (Brown 1992; Irwin 1995). Other proponents argue that circumstantial evidence should be considered valid: “Not every person who gets sick near a hazardous waste site gets sick because of the waste in the site. Yet very often there is strong circumstantial evidence to corroborate residents’ beliefs that illnesses derive from toxic exposures” (Lewis, Keating, and Russell 1992, 4).\nfrom our vantage point, however, is that in those instances where experts align themselves with citizens, the citizens acquire both the knowledge and its embodiment, the expert, thus appropriating and controlling two important rational knowledge resources. Brown (1992), for example, notes the cooperation between a citizens’ group (whose independent neighborhood health surveys suggested a link between water contamination and leukemia) and scientists at the Harvard School of Public Health: the citizens “no longer had to seek scientific expertise from outside; now they were largely in control of scientific inquiry” (271).\nCitizens in control of epidemiological studies are likely to expand the circle of culpability to include purportedly safe environments typically ignored in government-sponsored research. Popular epidemiology ascribes to a view of evidence that expands the idea of dangerous or risky environments. It is considerably more flexible than traditional epidemiology in setting standards for proof that call for remedial actions (Recall the NUAAW’s “balance of probabilities” argument). According to Brown (1992), traditional epidemiologists “prefer false negatives to false positives—i.e., they would prefer to claim falsely that an association between variables does not exist when it does than to claim an association when there is none” (274). In contrast, Linda King, the director of the Environmental Health Network, argues that epidemiology, like clinical medicine, should be committed to “false positives, that jargon that means the environment is considered dangerous until it is proven that it’s not” (EHN Newsletter 1992).\nProponents of popular epidemiology argue that even without statistically significant data one can find satisfactory association between contamination and health problems across persons, places, circumstances, time, and so on (Brown 1992; Irwin 1995). Other proponents argue that circumstantial evidence should be considered valid: “Not every person who gets sick near a hazardous waste site gets sick because of the waste in the site. Yet very often there is strong circumstantial evidence to corroborate residents’ beliefs that illnesses derive from toxic exposures” (Lewis, Keating, and Russell 1992, 4).\n",
+        "_version_":1593583316571783168}]
+  }}

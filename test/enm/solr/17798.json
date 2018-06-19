@@ -1,0 +1,35 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:17798",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Ruth Colker"],
+        "authors_facet":"Ruth Colker",
+        "epubNumberOfPages":265,
+        "id":17798,
+        "isbn":"9780814715635",
+        "isbn_facet":"9780814715635",
+        "pageLocalId":"page_196",
+        "pageNumberForDisplay":"196",
+        "pageSequenceNumber":210,
+        "pageText":"ous attempts to require full-time/part-time benefit parity have failed. Conservative economists typically praise the large part-time workforce in the United States as demonstrating the “flexibility” of the U.S. economy, without assessing the voluntariness of that status or the level of compensation offered to those workers.27\nEmployment at Will\nINDIVIDUAL TERMINATIONS\nIn 1989, Ruby Wells and two other licensed practical nurses who worked for a nursing home requested a meeting with the nursing home administrator to discuss problems at the workplace.28 When the administrator refused to meet with them at that time, they drove to Toledo, Ohio, to meet with the director of human resources and vice president of operations. Two of the three nurses who made the trip to Toledo were terminated or disciplined, and so they filed a charge with the National Labor Relations Board claiming that they had been disciplined for engaging in concerted protected conduct for the purpose of collective bargaining. In a five-to-four decision, the U.S. Supreme Court ruled that they were not covered by the National Labor Relations Act because their duties included the supervision of nursing aides.29 Receiving no protection from federal law, these nurses were “at will” employees who could be disciplined or terminated for any reason whatsoever, even though the administrative law judge had concluded that the licensed practical nurses were “just hired hands.” Their predicament was typical of that of most American workers— they received virtually no workplace protection from discipline or discharge.\n",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"American Law in the Age of Hypercapitalism",
+        "title_facet":"American Law in the Age of Hypercapitalism",
+        "topicNames":["At-will employment",
+          "Employment at will",
+          "Health Care & Retirement Corporation of America v. National Labor Relations Board, 987 F.2d 1256 (6th Cir. 1993) aff'd, 511 U.S. 571 (1994)",
+          "Wells, Ruby"],
+        "topicNamesForDisplay":"[[\"At-will employment\",\"Employment at will\"],[\"Health Care \\u0026 Retirement Corporation of America v. National Labor Relations Board, 987 F.2d 1256 (6th Cir. 1993) aff'd, 511 U.S. 571 (1994)\"],[\"Wells, Ruby\"]]",
+        "topicNames_facet":["At-will employment",
+          "Health Care & Retirement Corporation of America v. National Labor Relations Board, 987 F.2d 1256 (6th Cir. 1993) aff'd, 511 U.S. 571 (1994)",
+          "Wells, Ruby"],
+        "yearOfPublication":0,
+        "_version_":1593583144767848448}]
+  }}

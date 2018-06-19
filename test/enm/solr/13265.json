@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:13265",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Don Judson"],
+        "authors_facet":"Don Judson",
+        "epubNumberOfPages":192,
+        "id":13265,
+        "isbn":"9780814742297",
+        "isbn_facet":"9780814742297",
+        "pageLocalId":"page_47",
+        "pageNumberForDisplay":"47",
+        "pageSequenceNumber":59,
+        "pageText":"cop,’ I ask. Which of course she isn’t. The woman is just nervous. I think this is not her thing. Any of it—the dope, the bar scene? But she’s made up her mind . . . about this, decided. So, I ask if she’s a cop and then bust up. Relaxing everything a bit . . . I am going to get the dope, right? Only, she wants both of us to go—come right along with me. Okay, even better. Of course we end up at her house, a condo. I’ve never seen anything like it. The woman owns—check this out, she lives on the entire top floor. There is a jungle outside her living room. A regular jungle, okay? The trees and all. Forty stories up. Her entire living room, windows. When I got out of the car it was just morning. ‘Up there,’ she said, pointing, and I got out of the car and right in front of me was the whole package. I told myself, I said, ‘this is it brother. . . .’\n“Anyway, when we get upstairs I had the shakes a little. Been up most all the week. But I fix us a real good shot of coke to cure all that. Wham. Now I was feeling good again, thinking my luck is changing—the woman, she ain’t bad, looks like she might be pretty good in bed—I’m digging on the apartment, out on the balcony, you know? Thinking this is all of it and I turn around and the lady is dead. She’s on the couch, dead. At first I think, ‘what the fuck.’ This is not right. What am I supposed to do? So, I fix another shot. But I can’t ",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"Bird-Self Accumulated",
+        "title_facet":"Bird-Self Accumulated",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593583021787709440}]
+  }}

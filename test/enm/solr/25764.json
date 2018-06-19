@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:25764",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Steven T. Katz"],
+        "authors_facet":"Steven T. Katz",
+        "epubNumberOfPages":586,
+        "id":25764,
+        "isbn":"9780814746929",
+        "isbn_facet":"9780814746929",
+        "pageLocalId":"page_548",
+        "pageNumberForDisplay":"548",
+        "pageSequenceNumber":561,
+        "pageText":"community. It checks the flight of the mystic, restrains the fancy of the poet, assuages the ardor of the ascetic, and recalls the fanatical dogmatist to the realities of life.\nIn Judaism, the unity of ethnic awareness and religious loyalty is fundamental and of a peculiar intimacy. Accordingly, we may expect to find the usual tensions of ethnicism and faith magnified and intensified, with the surge of idealism reaching occasionally peculiar heights even as from time to time the pathos of sacred egotism may sink to the lowest depths. As we turn our attention to the formative period of the Jewish mentality, we find the heights of objective thought and universal sympathy conjoined with intensified feelings of ethnic pride and religious exclusiveness. Instead of the usual monolithic picture, depicting either nobility of soul or meanness of spirit, we find both extremes of the universal tensions of the human spirit. In Jewish experience, we see exemplified the basic tensions of humanity—only more so.\nNOTES\n1. Adolf Harnack, The Expansion of Christianity (Boston, 1957), vol. 1, “Excursus on the Third Race.”\n2. Bahya Ibn Pakuda, Duties of the Heart (Jerusalem, 1970), Introduction.\n3. Erich Fromm, The Art of Loving, New York, 1959.\n4. Elijah de Vidash, Reshith Hochmo, Shaar Ahavah, Chapter 4.\n5. B. Spinoza, Ethics, Book V.\n6. Plato, Phaedrus, 279C.\n7. Harnack, the historian of the early Church, attributed the decline of Christianity to its encounter with Greek philosophy, resulting in the substitution of dogmas for living experience. R. Sohn considered institutionalism to be the cause of decline. Adolf Harnack, Outlines of the History of Dogma (Boston, 1957).\n8. Leviticus 11:44.\n9. Naphtali Lewis and Meyer Reinhold (eds.), Roman Civilization (New York, 1955), vol. II, p. 585.\n\n\n",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"The Essential Agus",
+        "title_facet":"The Essential Agus",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593583358233804800}]
+  }}
