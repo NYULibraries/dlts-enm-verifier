@@ -1,7 +1,7 @@
 {
   "responseHeader":{
     "status":0,
-    "QTime":0,
+    "QTime":32,
     "params":{
       "q":"id:112",
       "indent":"on",
