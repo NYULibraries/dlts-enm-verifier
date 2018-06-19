@@ -181,7 +181,7 @@ function getEnmData( locationId ) {
     // So far, though, haven't been able to iron out all the fine differences.
     // The Solr indexer tests will check for the correct ordering.
     if ( enm.topicNames ) {
-        enm.topicNames = enm.topicNames.sort( util.ignoreWrappingDoubleQuotesCaseInsensitiveSort );
+        enm.topicNames.sort( util.ignoreWrappingDoubleQuotesCaseInsensitiveSort );
 
         // Again, because util.ignoreWrappingDoubleQuotesCaseInsensitiveSort doesn't
         // currently match the SQL-based sort used in enm, for now just verify
