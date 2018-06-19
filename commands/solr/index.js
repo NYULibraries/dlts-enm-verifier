@@ -179,7 +179,7 @@ function getEnmData( locationId ) {
     // So far, though, haven't been able to iron out all the fine differences.
     // The Solr indexer tests will check for the correct ordering.
     if ( enm.topicNames ) {
-        enm.topicNames.sort( util.ignoreWrappingDoubleQuotesCaseInsensitiveSort );
+        sortTopicNames( enm.topicNames );
 
         enm.topicNamesForDisplayData = JSON.parse( enm.topicNamesForDisplay );
         sortNestedArraysInTopicNamesDisplayData( enm.topicNamesForDisplayData );
