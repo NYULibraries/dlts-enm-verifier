@@ -48,6 +48,10 @@ function init( programArg, directoriesArg ) {
 }
 
 function verify( locationIdsArgs ) {
+    if ( ! program.enmHost ) {
+        program.enmHost = util.getDefaultEnmHost( commandName );
+    }
+
     locationIds = locationIdsArgs;
 
     namesAll = JSON.parse( getNamesAllResponseBody() );

@@ -65,6 +65,10 @@ function init( programArg, directoriesArg ) {
 }
 
 function verify() {
+    if ( ! program.enmHost ) {
+        program.enmHost = util.getDefaultEnmHost( commandName );
+    }
+
     topicsAllResponse = JSON.parse( getTopicsAllResponseBody() );
 
     browseTopicsListCategories.forEach( browseTopicsListCategory => {

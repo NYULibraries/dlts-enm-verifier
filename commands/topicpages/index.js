@@ -40,6 +40,10 @@ function init( programArg, directoriesArg ) {
 function verify( topicIdsArgs ) {
     countRelatedTopicsOccurrences = this.countRelatedTopicsOccurrences;
 
+    if ( ! program.enmHost ) {
+        program.enmHost = util.getDefaultEnmHost( commandName );
+    }
+
     topicIds = topicIdsArgs;
 
     epubsAllTctResponse = JSON.parse( getEpubsAllResponseBody() );
