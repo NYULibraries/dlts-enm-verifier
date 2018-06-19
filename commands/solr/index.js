@@ -170,12 +170,13 @@ function getEnmData( locationId ) {
     // in which case Solr field should be set to single-valued.  For now, need
     // to extract the publisher from the first element.
     enm.publisher = enm.publisher[ 0 ];
-    // Should already be sorted, but just sort them anyway just in case, as we
-    // are not verifying ordering here, but are merely checking to see that TCT
-    // and ENM have the same names associated with the location, as our custom
+    // Should already be sorted, but just sort them to match tct.topicNames order
+    // just in case so that _.difference will report accurately on whether they
+    // contain the same elements.
+    // We not verifying the correctness of ENM ordering because our custom
     // sort as specified in NYUP-376 is something that is implemented outside of
     // TCT.
-    // The Solr indexer tests will check for the correct ordering,
+    // The Solr indexer tests will check for the correct ordering.
     if ( enm.topicNames ) {
         enm.topicNames = enm.topicNames.sort( util.ignoreWrappingDoubleQuotesCaseInsenstiveSort );
     } else {
