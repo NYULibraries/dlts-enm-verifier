@@ -175,7 +175,9 @@ function getEnmData( locationId ) {
     // contain the same elements.
     // We not verifying the correctness of ENM ordering because our custom
     // sort as specified in NYUP-376 is something that is implemented outside of
-    // TCT.
+    // TCT.  util.ignoreWrappingDoubleQuotesCaseInsensitiveSort is an attempt to
+    // match the sorting done by enm, which is done at the database level in SQL.
+    // So far, though, haven't been able to iron out all the fine differences.
     // The Solr indexer tests will check for the correct ordering.
     if ( enm.topicNames ) {
         enm.topicNames = enm.topicNames.sort( util.ignoreWrappingDoubleQuotesCaseInsensitiveSort );
