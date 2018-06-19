@@ -95,7 +95,7 @@ function getTctData( topicId ) {
             }
         } );
 
-        tct.relatedTopicNames = tct.relatedTopicNames.sort( util.caseInsensitiveSort );
+        tct.relatedTopicNames.sort( util.caseInsensitiveSort );
     }
 
     tct.epubs = _.sortedUniq( tct.json.basket.occurs.map( occurrence => {
