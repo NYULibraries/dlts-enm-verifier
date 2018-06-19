@@ -313,4 +313,22 @@ function getDiffValueForDisplay( value ) {
     }
 }
 
+function sortNestedArraysInTopicNamesDisplayData( topicNamesDisplayData ) {
+    topicNamesDisplayData.forEach( topicNamesArray => {
+        var displayName = topicNamesArray.shift();
+
+        // Even though ultimately we want sorting to be case-insensitive to avoid
+        // (for example) "Zebra" sorting before "alpha", we still need to do an
+        // initial "normal" sort with case-sensitivity so that unordered sets of
+        // topic names like "Programming" and "programming" will sort deterministically.
+        // If we don't do this, then the output can potentially have
+        // [ "Programming", "programming" ] if that's how it was originally ordered
+        // in the input, and [ "programming", "Programming" ] if the input has
+        // that.
+        topicNamesArray.sort();
+        topicNamesArray.sort( util.ignoreWrappingDoubleQuotesCaseInsensitiveSort );
+        topicNamesArray.unshift( displayName );
+    } );
+}
+
 module.exports.init = init;
