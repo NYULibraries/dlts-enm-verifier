@@ -267,12 +267,12 @@ function writeDiffReports( locationId, diffs ) {
                     '\n' +
                     'TCT: ' + getDiffValueForDisplay( diffForField.tct, fieldToVerify.type ) );
             } else {
-                if ( diffs[ fieldName ].tct ) {
+                if ( diffs[ fieldName ].tct.length > 0 ) {
                     fs.writeFileSync( `${ reportsDir }/${ locationId }-enm-missing-${ fieldName }.json`,
                                       util.stableStringify( diffs[ fieldName ].tct ) );
                 }
 
-                if ( diffs[ fieldName ].enm ) {
+                if ( diffs[ fieldName ].enm.length > 0 ) {
                     fs.writeFileSync( `${ reportsDir }/${ locationId }-tct-missing-${ fieldName }.json`,
                                       util.stableStringify( diffs[ fieldName ].enm ) );
                 }
