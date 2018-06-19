@@ -174,7 +174,11 @@ function getEnmData( locationId ) {
     // sort as specified in NYUP-376 is something that is implemented outside of
     // TCT.
     // The Solr indexer tests will check for the correct ordering,
-    enm.topicNames = enm.topicNames.sort( util.ignoreWrappingDoubleQuotesCaseInsenstiveSort );
+    if ( enm.topicNames ) {
+        enm.topicNames = enm.topicNames.sort( util.ignoreWrappingDoubleQuotesCaseInsenstiveSort );
+    } else {
+        enm.topicNames = [];
+    }
 
     return enm;
 }
