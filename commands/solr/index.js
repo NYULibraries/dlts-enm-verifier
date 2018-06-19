@@ -134,6 +134,8 @@ function getTctData( locationId ) {
 
     tct.topicNames = tct.topicNames.sort( util.ignoreWrappingDoubleQuotesCaseInsenstiveSort );
 
+    topicNamesForDisplayData =
+        topicNamesForDisplayData.sort( util.firstElementIgnoreWrappingDoubleQuotesCaseInsensitiveSort );
     tct.topicNamesForDisplay = JSON.stringify( topicNamesForDisplayData );
 
     return tct;
