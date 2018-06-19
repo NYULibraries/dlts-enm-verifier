@@ -37,14 +37,12 @@ function init( programArg, directoriesArg ) {
         .action( verify );
 }
 
-function verify( topicIdsArgs ) {
+function verify( topicIds ) {
     countRelatedTopicsOccurrences = this.countRelatedTopicsOccurrences;
 
     if ( ! program.enmHost ) {
         program.enmHost = util.getDefaultEnmHost( COMMAND_NAME );
     }
-
-    topicIds = topicIdsArgs;
 
     epubsAllTctResponse = JSON.parse( getEpubsAllResponseBody() );
 
