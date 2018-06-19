@@ -4,7 +4,7 @@ const request   = require( 'sync-request' );
 
 const util      = require( '../../lib/util' );
 
-const commandName = 'solr';
+const COMMAND_NAME = 'solr';
 
 const fieldsToVerify = {
     'authors'                  : { multiValued: false },
@@ -34,22 +34,22 @@ function init( programArg, directoriesArg ) {
     program     = programArg;
     directories = directoriesArg;
 
-    enmCache   = `${ directories.cache.enm }/${ commandName }`;
-    tctCache   = `${ directories.cache.tct }/${ commandName }`;
-    reportsDir = `${ directories.reports }/${ commandName }`;
+    enmCache   = `${ directories.cache.enm }/${ COMMAND_NAME }`;
+    tctCache   = `${ directories.cache.tct }/${ COMMAND_NAME }`;
+    reportsDir = `${ directories.reports }/${ COMMAND_NAME }`;
 
     util.clearDirectory( enmCache );
     util.clearDirectory( tctCache );
     util.clearDirectory( reportsDir );
 
     program
-        .command( `${ commandName } [locationIds...]` )
+        .command( `${ COMMAND_NAME } [locationIds...]` )
         .action( verify );
 }
 
 function verify( locationIdsArgs ) {
     if ( ! program.enmHost ) {
-        program.enmHost = util.getDefaultEnmHost( commandName );
+        program.enmHost = util.getDefaultEnmHost( COMMAND_NAME );
     }
 
     locationIds = locationIdsArgs;

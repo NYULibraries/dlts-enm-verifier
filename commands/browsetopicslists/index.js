@@ -7,7 +7,7 @@ const request   = require( 'sync-request' );
 
 const util      = require( '../../lib/util' );
 
-const commandName = 'browsetopicslists';
+const COMMAND_NAME = 'browsetopicslists';
 
 const browseTopicsListCategories = [
     '0-9',
@@ -51,22 +51,22 @@ function init( programArg, directoriesArg ) {
     program     = programArg;
     directories = directoriesArg;
 
-    enmCache   = `${ directories.cache.enm }/${ commandName }`;
-    tctCache   = `${ directories.cache.tct }/${ commandName }`;
-    reportsDir = `${ directories.reports }/${ commandName }`;
+    enmCache   = `${ directories.cache.enm }/${ COMMAND_NAME }`;
+    tctCache   = `${ directories.cache.tct }/${ COMMAND_NAME }`;
+    reportsDir = `${ directories.reports }/${ COMMAND_NAME }`;
 
     util.clearDirectory( enmCache );
     util.clearDirectory( tctCache );
     util.clearDirectory( reportsDir );
 
     program
-        .command( `${ commandName }` )
+        .command( `${ COMMAND_NAME }` )
         .action( verify );
 }
 
 function verify() {
     if ( ! program.enmHost ) {
-        program.enmHost = util.getDefaultEnmHost( commandName );
+        program.enmHost = util.getDefaultEnmHost( COMMAND_NAME );
     }
 
     topicsAllResponse = JSON.parse( getTopicsAllResponseBody() );
