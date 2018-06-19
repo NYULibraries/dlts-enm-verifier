@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:13197",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["John Marshall"],
+        "authors_facet":"John Marshall",
+        "epubNumberOfPages":373,
+        "id":13197,
+        "isbn":"9780814731437",
+        "isbn_facet":"9780814731437",
+        "pageLocalId":"page_353",
+        "pageNumberForDisplay":"353",
+        "pageSequenceNumber":364,
+        "pageText":"Contributors\nWilliam R. Casto is at the School of Law, Texas Tech University, Lubbock.\nDaniel A. Degnan, S.J., is at the School of Law, Seton Hall University, Newark, New Jersey.\nScott Douglas Gerber is at Florida Coastal School of Law, Jacksonsville.\nMark D. Hall is in the Department of Government, East Central University, Ada, Oklahoma.\nJames Haw is in the Department of History, Indiana University/Purdue University at Fort Wayne.\nWythe Holt is at the School of Law, University of Alabama, Tuscaloosa.\nStephen B. Presser is at the School of Law, Northwestern University, Chicago.\nJames R. Stoner, Jr., is in the Department of Political Science, Louisiana State University, Baton Rouge.\nSandra Frances VanBurkleo is in the Department of History, Wayne State University, Detroit.\nWillis P. Whichard is at the Supreme Court of North Carolina, Raleighv.",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"Seriatim",
+        "title_facet":"Seriatim",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593583019912855552}]
+  }}

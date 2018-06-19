@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:7825",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Bernard J. Paris"],
+        "authors_facet":"Bernard J. Paris",
+        "epubNumberOfPages":304,
+        "id":7825,
+        "isbn":"9780814766569",
+        "isbn_facet":"9780814766569",
+        "pageLocalId":"page_v",
+        "pageNumberForDisplay":"v",
+        "pageSequenceNumber":5,
+        "pageText":"Imagined Human Beings\nA Psychological Approach to Character and Conflict in Literature\nBernard J. Paris\n\n\n",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"Imagined Human Beings",
+        "title_facet":"Imagined Human Beings",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593582868355874816}]
+  }}

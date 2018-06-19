@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:16183",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["James B. Jacobs"],
+        "authors_facet":"James B. Jacobs",
+        "epubNumberOfPages":292,
+        "id":16183,
+        "isbn":"9780814742303",
+        "isbn_facet":"9780814742303",
+        "pageLocalId":"page_127",
+        "pageNumberForDisplay":"127",
+        "pageSequenceNumber":143,
+        "pageText":"gentlemen. They couldn’t have approved the selection of the president of the International Teamsters Union. They could not be making decisions about delegates for the Masons Union. They couldn’t be getting $200,000 from the Carpenters Union. They couldn’t be running the Concrete Workers Union. One man, a few men, couldn’t do that. A disciplined criminal organization is what is necessary to do that.",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"Busting the Mob",
+        "title_facet":"Busting the Mob",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593583104329515008}]
+  }}

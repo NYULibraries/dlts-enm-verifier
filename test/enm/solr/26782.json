@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:26782",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Paul Harris"],
+        "authors_facet":"Paul Harris",
+        "epubNumberOfPages":308,
+        "id":26782,
+        "isbn":"9780814735923",
+        "isbn_facet":"9780814735923",
+        "pageLocalId":"page_vii",
+        "pageNumberForDisplay":"vii",
+        "pageSequenceNumber":7,
+        "pageText":"To the members of the San Francisco Community Law Collective.For sixteen years we built community power, demystified the law,dignified our clients, and won more than our share of cases.\n",
+        "publisher":["New York University"],
+        "publisher_facet":"New York University",
+        "title":"Black Rage Confronts the Law",
+        "title_facet":"Black Rage Confronts the Law",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593583387874951168}]
+  }}

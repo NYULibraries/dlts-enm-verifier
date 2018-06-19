@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:740",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Amy Koritz and George J. Sanchez"],
+        "authors_facet":"Amy Koritz and George J. Sanchez",
+        "epubNumberOfPages":252,
+        "id":740,
+        "isbn":"9780472024483",
+        "isbn_facet":"9780472024483",
+        "pageLocalId":"page_ix",
+        "pageNumberForDisplay":"ix",
+        "pageSequenceNumber":9,
+        "pageText":"Contents\nIntroductionAmy Koritz and George J. Sanchez\nSECTION 1. COPING WITH DISASTERAmy Koritz\n“Bring Your Own Chairs”Civic Engagement in Postdiluvial New OrleansRichard Campanella\nA Reciprocity of TearsCommunity Engagement after a DisasterPat Evans and Sarah Lewis\nNot Since the Great DepressionThe Documentary Impulse Post-KatrinaMichael Mizell-Nelson\nAnother Evacuation StoryRebecca Mark\nSECTION 2. NEW BEGINNINGSAmy Koritz\nThe Vision Has Its TimeCulture and Civic Engagement in Postdisaster New OrleansCarol Bebelle\n",
+        "publisher":["University of Michigan Press"],
+        "publisher_facet":"University of Michigan Press",
+        "title":"Civic Engagement in the Wake of Katrina",
+        "title_facet":"Civic Engagement in the Wake of Katrina",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593582628828610560}]
+  }}

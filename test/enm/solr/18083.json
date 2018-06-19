@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:18083",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Peggy Fitzhugh Johnstone"],
+        "authors_facet":"Peggy Fitzhugh Johnstone",
+        "epubNumberOfPages":220,
+        "id":18083,
+        "isbn":"9780814742358",
+        "isbn_facet":"9780814742358",
+        "pageLocalId":"page_xvi",
+        "pageNumberForDisplay":"xvi",
+        "pageSequenceNumber":13,
+        "pageText":"\n\n\n",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"The Transformation of Rage",
+        "title_facet":"The Transformation of Rage",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593583151576252416}]
+  }}

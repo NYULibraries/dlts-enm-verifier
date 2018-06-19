@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:12221",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Daniel Rancour-Laferriere"],
+        "authors_facet":"Daniel Rancour-Laferriere",
+        "epubNumberOfPages":344,
+        "id":12221,
+        "isbn":"9780814774823",
+        "isbn_facet":"9780814774823",
+        "pageLocalId":"page_vi",
+        "pageNumberForDisplay":"vi",
+        "pageSequenceNumber":6,
+        "pageText":"\n\n\n",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"The Slave Soul of Russia",
+        "title_facet":"The Slave Soul of Russia",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593582990832697344}]
+  }}

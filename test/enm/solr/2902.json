@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:2902",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Stein, Kevin"],
+        "authors_facet":"Stein, Kevin",
+        "epubNumberOfPages":275,
+        "id":2902,
+        "isbn":"9780472026708",
+        "isbn_facet":"9780472026708",
+        "pageLocalId":"page_85",
+        "pageNumberForDisplay":"85",
+        "pageSequenceNumber":99,
+        "pageText":"SECTION TWO\nOn Technology & the Writerly Life\n",
+        "publisher":["The University of Michigan Press"],
+        "publisher_facet":"The University of Michigan Press",
+        "title":"Poetry's Afterlife: Verse in the Digital Age",
+        "title_facet":"Poetry's Afterlife: Verse in the Digital Age",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593582705464836096}]
+  }}

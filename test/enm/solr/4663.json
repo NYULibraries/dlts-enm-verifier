@@ -1,0 +1,30 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:4663",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Gabrys, Jennifer"],
+        "authors_facet":"Gabrys, Jennifer",
+        "epubNumberOfPages":238,
+        "id":4663,
+        "isbn":"9780472029402",
+        "isbn_facet":"9780472029402",
+        "pageLocalId":"page_157",
+        "pageNumberForDisplay":"157",
+        "pageSequenceNumber":158,
+        "pageText":"\n\n",
+        "publisher":["The University of Michigan Press"],
+        "publisher_facet":"The University of Michigan Press",
+        "title":"Digital Rubbish: A Natural History of Electronics",
+        "title_facet":"Digital Rubbish: A Natural History of Electronics",
+        "topicNames":["ICL"],
+        "topicNamesForDisplay":"[[\"ICL\"]]",
+        "topicNames_facet":["ICL"],
+        "yearOfPublication":0,
+        "_version_":1593582768453844992}]
+  }}
