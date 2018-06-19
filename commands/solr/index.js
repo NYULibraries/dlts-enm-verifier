@@ -91,7 +91,8 @@ function compareTctAndEnm( locationId ) {
 }
 
 function getTctData( locationId ) {
-    var tct = {};
+    var tct = {},
+        topicNamesForDisplayData = [];
 
     tct.responseBody = getTctResponseBody( locationId );
 
@@ -118,11 +119,22 @@ function getTctData( locationId ) {
         // Add to topicNames field
         tct.topicNames = tct.topicNames.concat( topicNamesAll );
 
+        // Add to data that will be marshalled into JSON for topicNamesForDisplay field
+        topicNamesForDisplayData.push(
+            [ topicDisplayName ].concat(
+                topicNamesAll.filter( topicName => {
+                    return topicName !== topicDisplayName;
+                } )
+            )
+        );
+
         // Add to map used later for looking up topic id for a display name
         topicDisplayNamesToTopicIdMap[ topicDisplayName ] = topicId;
     } );
 
     tct.topicNames = tct.topicNames.sort( util.ignoreWrappingDoubleQuotesCaseInsenstiveSort );
+
+    tct.topicNamesForDisplay = JSON.stringify( topicNamesForDisplayData );
 
     return tct;
 }
