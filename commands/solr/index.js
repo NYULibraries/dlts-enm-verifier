@@ -7,18 +7,18 @@ const util      = require( '../../lib/util' );
 const commandName = 'solr';
 
 const fieldsToVerify = {
-    'authors'              : { multiValued: false },
-    'epubNumberOfPages'    : { multiValued: false },
-    'id'                   : { multiValued: false },
-    'isbn'                 : { multiValued: false },
-    'pageLocalId'          : { multiValued: false },
-    'pageNumberForDisplay' : { multiValued: false },
-    'pageSequenceNumber'   : { multiValued: false },
-    'pageText'             : { multiValued: false },
-    'publisher'            : { multiValued: false },
-    'title'                : { multiValued: false },
-    'topicNames'           : { multiValued: true  },
-    'topicNamesForDisplay' : { multiValued: false },
+    'authors'                  : { multiValued: false },
+    'epubNumberOfPages'        : { multiValued: false },
+    'id'                       : { multiValued: false },
+    'isbn'                     : { multiValued: false },
+    'pageLocalId'              : { multiValued: false },
+    'pageNumberForDisplay'     : { multiValued: false },
+    'pageSequenceNumber'       : { multiValued: false },
+    'pageText'                 : { multiValued: false },
+    'publisher'                : { multiValued: false },
+    'title'                    : { multiValued: false },
+    'topicNames'               : { multiValued: true  },
+    'topicNamesForDisplayData' : { multiValued: true  },
 };
 
 var program,
@@ -91,8 +91,7 @@ function compareTctAndEnm( locationId ) {
 }
 
 function getTctData( locationId ) {
-    var tct = {},
-        topicNamesForDisplayData = [];
+    var tct = {};
 
     tct.responseBody = getTctResponseBody( locationId );
 
@@ -110,6 +109,7 @@ function getTctData( locationId ) {
     tct.publisher = tct.json.document.publisher;
     tct.title = tct.json.document.title;
     tct.topicNames = [];
+    tct.topicNamesForDisplayData = [];
 
     tct.json.occurrences.forEach( occurrence => {
         var topicId = occurrence.basket.id,
@@ -120,7 +120,7 @@ function getTctData( locationId ) {
         tct.topicNames = tct.topicNames.concat( topicNamesAll );
 
         // Add to data that will be marshalled into JSON for topicNamesForDisplay field
-        topicNamesForDisplayData.push(
+        tct.topicNamesForDisplayData.push(
             [ topicDisplayName ].concat(
                 topicNamesAll.filter( topicName => {
                     return topicName !== topicDisplayName;
@@ -134,9 +134,8 @@ function getTctData( locationId ) {
 
     tct.topicNames = tct.topicNames.sort( util.ignoreWrappingDoubleQuotesCaseInsenstiveSort );
 
-    topicNamesForDisplayData =
-        topicNamesForDisplayData.sort( util.firstElementIgnoreWrappingDoubleQuotesCaseInsensitiveSort );
-    tct.topicNamesForDisplay = JSON.stringify( topicNamesForDisplayData );
+    tct.topicNamesForDisplayData =
+        tct.topicNamesForDisplayData.sort( util.firstElementIgnoreWrappingDoubleQuotesCaseInsensitiveSort );
 
     return tct;
 }
@@ -181,6 +180,16 @@ function getEnmData( locationId ) {
     // The Solr indexer tests will check for the correct ordering.
     if ( enm.topicNames ) {
         enm.topicNames = enm.topicNames.sort( util.ignoreWrappingDoubleQuotesCaseInsensitiveSort );
+
+        // Again, because util.ignoreWrappingDoubleQuotesCaseInsensitiveSort doesn't
+        // currently match the SQL-based sort used in enm, for now just verify
+        // that topic mappings are correct and ignore the ordering.  The ordering
+        // is not really in scope for this verification program anyway, that's the
+        // job of the Solr indexer tests.
+        enm.topicNamesForDisplayData = JSON.parse( enm.topicNamesForDisplay )
+            .sort( util.firstElementIgnoreWrappingDoubleQuotesCaseInsensitiveSort );
+
+
     } else {
         enm.topicNames = [];
     }
