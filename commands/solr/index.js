@@ -115,7 +115,10 @@ function getTctData( locationId ) {
             topicDisplayName = occurrence.basket.display_name,
             topicNamesAll = topicNamesForId[ topicId ];
 
+        // Add to topicNames field
         tct.topicNames = tct.topicNames.concat( topicNamesAll );
+
+        // Add to map used later for looking up topic id for a display name
         topicDisplayNamesToTopicIdMap[ topicDisplayName ] = topicId;
     } );
 
