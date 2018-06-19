@@ -134,8 +134,9 @@ function getTctData( locationId ) {
         topicDisplayNamesToTopicIdMap[ topicDisplayName ] = topicId;
     } );
 
-    tct.topicNames = tct.topicNames.sort( util.ignoreWrappingDoubleQuotesCaseInsenstiveSort );
+    tct.topicNames.sort( util.ignoreWrappingDoubleQuotesCaseInsenstiveSort );
 
+    sortNestedArraysInTopicNamesDisplayData( tct.topicNamesForDisplayData );
     tct.topicNamesForDisplayData.sort( util.firstElementIgnoreWrappingDoubleQuotesCaseInsensitiveSort );
 
     return tct;
@@ -187,10 +188,9 @@ function getEnmData( locationId ) {
         // that topic mappings are correct and ignore the ordering.  The ordering
         // is not really in scope for this verification program anyway, that's the
         // job of the Solr indexer tests.
-        enm.topicNamesForDisplayData = JSON.parse( enm.topicNamesForDisplay )
-            .sort( util.firstElementIgnoreWrappingDoubleQuotesCaseInsensitiveSort );
-
-
+        enm.topicNamesForDisplayData = JSON.parse( enm.topicNamesForDisplay );
+        sortNestedArraysInTopicNamesDisplayData( enm.topicNamesForDisplayData );
+        enm.topicNamesForDisplayData.sort( util.firstElementIgnoreWrappingDoubleQuotesCaseInsensitiveSort );
     } else {
         enm.topicNames = [];
     }
