@@ -47,12 +47,10 @@ function init( programArg, directoriesArg ) {
         .action( verify );
 }
 
-function verify( locationIdsArgs ) {
+function verify( locationIds ) {
     if ( ! program.enmHost ) {
         program.enmHost = util.getDefaultEnmHost( COMMAND_NAME );
     }
-
-    locationIds = locationIdsArgs;
 
     namesAll = JSON.parse( getNamesAllResponseBody() );
     namesAll.forEach( name => {
