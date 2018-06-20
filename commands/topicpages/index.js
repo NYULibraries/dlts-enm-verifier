@@ -27,10 +27,6 @@ function init( programArg, directoriesArg ) {
     tctCache   = `${ directories.cache.tct }/${ COMMAND_NAME }`;
     reportsDir = `${ directories.reports }/${ COMMAND_NAME }`;
 
-    util.clearDirectory( enmCache );
-    util.clearDirectory( tctCache );
-    util.clearDirectory( reportsDir );
-
     program
         .command( `${ COMMAND_NAME } [topicIds...]` )
         .option( '--count-related-topics-occurrences', 'Verify occurrence counts' )
@@ -38,6 +34,10 @@ function init( programArg, directoriesArg ) {
 }
 
 function verify( topicIds ) {
+    util.clearDirectory( enmCache );
+    util.clearDirectory( tctCache );
+    util.clearDirectory( reportsDir );
+
     countRelatedTopicsOccurrences = this.countRelatedTopicsOccurrences;
 
     if ( ! program.enmHost ) {

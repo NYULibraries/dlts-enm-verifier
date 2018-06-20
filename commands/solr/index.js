@@ -38,16 +38,16 @@ function init( programArg, directoriesArg ) {
     tctCache   = `${ directories.cache.tct }/${ COMMAND_NAME }`;
     reportsDir = `${ directories.reports }/${ COMMAND_NAME }`;
 
-    util.clearDirectory( enmCache );
-    util.clearDirectory( tctCache );
-    util.clearDirectory( reportsDir );
-
     program
         .command( `${ COMMAND_NAME } [locationIds...]` )
         .action( verify );
 }
 
 function verify( locationIds ) {
+    util.clearDirectory( enmCache );
+    util.clearDirectory( tctCache );
+    util.clearDirectory( reportsDir );
+
     if ( ! program.enmHost ) {
         program.enmHost = util.getDefaultEnmHost( COMMAND_NAME );
     }
