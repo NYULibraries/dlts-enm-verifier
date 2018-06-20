@@ -51,3 +51,5 @@ reports/topicpages/*
 test/tmp/*
 !test/tmp/.commit-empty-directory
 
+# Emacs
+*~
