@@ -6,20 +6,23 @@ const util      = require( '../../lib/util' );
 
 const COMMAND_NAME = 'solr';
 
-const fieldsToVerify = {
-    'authors'                  : { multiValued: false },
-    'epubNumberOfPages'        : { multiValued: false },
-    'id'                       : { multiValued: false },
-    'isbn'                     : { multiValued: false },
-    'pageLocalId'              : { multiValued: false },
-    'pageNumberForDisplay'     : { multiValued: false },
-    'pageSequenceNumber'       : { multiValued: false },
-    'pageText'                 : { multiValued: false },
-    'publisher'                : { multiValued: false },
-    'title'                    : { multiValued: false },
-    'topicNames'               : { multiValued: true  },
-    'topicNamesForDisplayData' : { multiValued: true  },
-};
+const FIELD_TYPE_SINGLE   = '0';
+const FIELD_TYPE_MULTIPLE = '1';
+
+const fieldsToVerify = [
+    'authors',
+    'epubNumberOfPages',
+    'id',
+    'isbn',
+    'pageLocalId',
+    'pageNumberForDisplay',
+    'pageSequenceNumber',
+    'pageText',
+    'publisher',
+    'title',
+    'topicNames',
+    'topicNamesForDisplayData',
+];
 
 var program,
     directories,
@@ -246,15 +249,19 @@ function getEpubDetailResponseBody( epubId ) {
 function generateDiffs( tct, enm ) {
     var diffs = {};
 
-    Object.keys( fieldsToVerify ).sort().forEach( field => {
-        if ( fieldsToVerify[ field ].multiValued === false ) {
+    fieldsToVerify.sort().forEach( field => {
+        var fieldType = typeof tct[ field ];
+
+        if ( [ 'string', 'number' ].includes( fieldType ) ) {
             if ( enm[ field ] !== tct[ field ] ) {
-                diffs[ field ] = {};
-                diffs[ field ].tct = tct[ field ];
-                diffs[ field ].enm = enm[ field ];
+                diffs[ field ]      = {};
+                diffs[ field ].type = FIELD_TYPE_SINGLE;
+                diffs[ field ].tct  = tct[ field ];
+                diffs[ field ].enm  = enm[ field ];
             }
-        } else {
-            diffs[ field ] = {};
+        } else if ( Array.isArray( tct[ field ] ) ) {
+            diffs[ field ]      = {};
+            diffs[ field ].type = FIELD_TYPE_MULTIPLE;
 
             if ( Array.isArray( tct[ field ] ) ) {
                 diffs[ field ].tct = _.differenceWith( tct[ field ], enm[ field ], _.isEqual );
@@ -263,6 +270,11 @@ function generateDiffs( tct, enm ) {
                 diffs[ field ].tct = _.difference( tct[ field ], enm[ field ] );
                 diffs[ field ].enm = _.difference( enm[ field ], tct[ field ] );
             }
+        } else {
+            console.error( `TCT \`${ field }\` field value ${ tct[ field ] } is` +
+                           ` of unexpected type "${ fieldType }".`);
+
+            process.exit( 1 );
         }
     } );
 
@@ -270,26 +282,27 @@ function generateDiffs( tct, enm ) {
 }
 
 function writeDiffReports( locationId, diffs ) {
-    Object.keys( fieldsToVerify ).forEach( fieldName => {
-        var fieldToVerify = fieldsToVerify[ fieldName ],
-            diffForField  = diffs[ fieldName ];
+    fieldsToVerify.forEach( field => {
+        var diffForField  = diffs[ field ];
 
         if ( diffForField ) {
-            if ( fieldToVerify.multiValued === false ) {
-                fs.writeFileSync( `${ reportsDir }/${ locationId }-unequal-${ fieldName }-values.json`,
-                    'ENM: ' + getDiffValueForDisplay( diffForField.enm, fieldToVerify.type ) +
+            if ( diffForField.type === FIELD_TYPE_SINGLE ) {
+                fs.writeFileSync( `${ reportsDir }/${ locationId }-unequal-${ field }-values.json`,
+                    'ENM: ' + getDiffValueForDisplay( diffForField.enm ) +
                     '\n' +
-                    'TCT: ' + getDiffValueForDisplay( diffForField.tct, fieldToVerify.type ) );
-            } else {
-                if ( diffs[ fieldName ].tct.length > 0 ) {
-                    fs.writeFileSync( `${ reportsDir }/${ locationId }-enm-missing-${ fieldName }.json`,
-                                      util.stableStringify( diffs[ fieldName ].tct ) );
+                    'TCT: ' + getDiffValueForDisplay( diffForField.tct ) );
+            } else if ( diffForField.type === FIELD_TYPE_MULTIPLE ) {
+                if ( diffs[ field ].tct.length > 0 ) {
+                    fs.writeFileSync( `${ reportsDir }/${ locationId }-enm-missing-${ field }.json`,
+                                      util.stableStringify( diffs[ field ].tct ) );
                 }
 
-                if ( diffs[ fieldName ].enm.length > 0 ) {
-                    fs.writeFileSync( `${ reportsDir }/${ locationId }-tct-missing-${ fieldName }.json`,
-                                      util.stableStringify( diffs[ fieldName ].enm ) );
+                if ( diffs[ field ].enm.length > 0 ) {
+                    fs.writeFileSync( `${ reportsDir }/${ locationId }-tct-missing-${ field }.json`,
+                                      util.stableStringify( diffs[ field ].enm ) );
                 }
+            } else {
+                // Should never get here
             }
         }
     } );
