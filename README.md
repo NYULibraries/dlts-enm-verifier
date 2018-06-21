@@ -42,7 +42,6 @@ $
 
 ## Notes on sorting of topic names
 
-Topic names are sorted to make debugging easier and diff reports more readable.
 Note that `enm-verifier` is not verifying the correctness of ENM ordering.  The
 ENM custom sort specified in [NYUP-376](https://jira.nyu.edu/jira/browse/NYUP-376)
 is something that is implemented outside of TCT, so it doesn't make sense to
@@ -112,5 +111,6 @@ project:
 The sorting rules for non-alphanumeric characters like space, "-", and "," are
 clearly different.
 
-Neverthless, in this project topic names are sorted to make debugging easier
-and diff reports more readable.
+That said, in this project topic names are sorted using to make diff reports more
+readable and debugging easier.  There are multiple sorting functions used, but
+they all ultimately rely on `util.ignoreWrappingDoubleQuotesCaseInsensitiveSort`.
