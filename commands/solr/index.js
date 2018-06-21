@@ -175,7 +175,7 @@ function getEnmData( locationId ) {
     // to extract the publisher from the first element.
     enm.publisher = enm.publisher[ 0 ];
     // Sort enm and tct topic names stuff according to the same rules.
-    // We not verifying the correctness of ENM ordering because our custom
+    // We are not verifying the correctness of ENM ordering because our custom
     // sort as specified in NYUP-376 is something that is implemented outside of
     // TCT.  util.ignoreWrappingDoubleQuotesCaseInsensitiveSort is an attempt to
     // match the sorting done by enm, which is done at the database level in SQL.
