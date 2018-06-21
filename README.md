@@ -30,7 +30,7 @@ TBD
 
 TBD
 
-### Notes on sorting of topic names
+## Notes on sorting of topic names
 
 Topic names are sorted to make debugging easier and diff reports more readable.
 Note that `enm-verifier` is not verifying the correctness of ENM ordering.  The
