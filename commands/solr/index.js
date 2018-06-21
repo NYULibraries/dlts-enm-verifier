@@ -166,10 +166,9 @@ function getTctData( locationId ) {
 }
 
 function getEpubDetail( epubId ) {
-    let epubDetailResponseBody = getEpubDetailResponseBody( epubId ),
-        epubDetail = JSON.parse( epubDetailResponseBody );
+    let epubDetailResponseBody = getEpubDetailResponseBody( epubId );
 
-    return epubDetail;
+    return JSON.parse( epubDetailResponseBody );
 }
 
 function getEnmResponseBody( locationId ) {
