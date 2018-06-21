@@ -312,7 +312,7 @@ function getDiffValueForDisplay( value ) {
 }
 
 function firstElementIgnoreWrappingDoubleQuotesCaseInsensitiveSort( a, b ) {
-    return ignoreWrappingDoubleQuotesCaseInsensitiveSort( a[ 0 ], b[ 0 ] );
+    return util.ignoreWrappingDoubleQuotesCaseInsensitiveSort( a[ 0 ], b[ 0 ] );
 }
 
 function sortNestedArraysInTopicNamesDisplayData( topicNamesDisplayData ) {
