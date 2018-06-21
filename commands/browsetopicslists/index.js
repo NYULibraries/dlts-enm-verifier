@@ -187,7 +187,7 @@ function generateDiffs( tct, enm ) {
     const diffs = {};
 
     diffs.topicsInTctNotInEnm = _.difference( tct.topics, enm.topics );
-    diffs.topicsInEnmNotTct = _.difference( enm.topics, tct.topics) ;
+    diffs.topicsInEnmNotTct = _.difference( enm.topics, tct.topics);
 
     return diffs;
 }
