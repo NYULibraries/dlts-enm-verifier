@@ -88,7 +88,7 @@ function getEnmData( topicId, topicName ) {
     } );
 
     // See "Notes on sorting of topic names" in README.md
-    sortTopicNames( enm.topicNames );
+    util.sortTopicNames( enm.topicNames );
 
     enm.relatedTopicNames = enm.topicNames.filter( name => {
         return name !== topicName;
