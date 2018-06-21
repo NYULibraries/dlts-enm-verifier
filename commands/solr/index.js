@@ -139,7 +139,7 @@ function getTctData( locationId ) {
     util.sortTopicNames( tct.topicNames );
 
     sortNestedArraysInTopicNamesDisplayData( tct.topicNamesForDisplayData );
-    tct.topicNamesForDisplayData.sort( util.firstElementIgnoreWrappingDoubleQuotesCaseInsensitiveSort );
+    tct.topicNamesForDisplayData.sort( firstElementIgnoreWrappingDoubleQuotesCaseInsensitiveSort );
 
     return tct;
 }
@@ -309,6 +309,10 @@ function getDiffValueForDisplay( value ) {
         // undefined, or possibly something else unanticipated
         return value;
     }
+}
+
+function firstElementIgnoreWrappingDoubleQuotesCaseInsensitiveSort( a, b ) {
+    return ignoreWrappingDoubleQuotesCaseInsensitiveSort( a[ 0 ], b[ 0 ] );
 }
 
 function sortNestedArraysInTopicNamesDisplayData( topicNamesDisplayData ) {
