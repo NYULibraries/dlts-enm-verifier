@@ -12,7 +12,6 @@ const COMMAND_NAME = 'topicpages';
 
 var program,
     directories,
-    topicIds,
     epubsAllTctResponse,
     epubs = {},
     enmCache, tctCache,
