@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:19090",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Natalie Clifford Barney, John Spalding Gatton"],
+        "authors_facet":"Natalie Clifford Barney, John Spalding Gatton",
+        "epubNumberOfPages":308,
+        "id":19090,
+        "isbn":"9780814711774",
+        "isbn_facet":"9780814711774",
+        "pageLocalId":"page_29",
+        "pageNumberForDisplay":"29",
+        "pageSequenceNumber":304,
+        "pageText":"Part One",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"Adventures of the Mind",
+        "title_facet":"Adventures of the Mind",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593583178374709248}]
+  }}

@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:21011",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Keith Beattie"],
+        "authors_facet":"Keith Beattie",
+        "epubNumberOfPages":240,
+        "id":21011,
+        "isbn":"9780814713266",
+        "isbn_facet":"9780814713266",
+        "pageLocalId":"page_vi",
+        "pageNumberForDisplay":"vi",
+        "pageSequenceNumber":6,
+        "pageText":"\n\n",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"The Scar That Binds",
+        "title_facet":"The Scar That Binds",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593583230999592960}]
+  }}

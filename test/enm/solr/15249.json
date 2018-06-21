@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:15249",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Robert M. Seltzer"],
+        "authors_facet":"Robert M. Seltzer",
+        "epubNumberOfPages":492,
+        "id":15249,
+        "isbn":"9780814780015",
+        "isbn_facet":"9780814780015",
+        "pageLocalId":"page_295",
+        "pageNumberForDisplay":"295",
+        "pageSequenceNumber":315,
+        "pageText":"Toward a Feminist-Jewish Reconstruction of Prayer,” Journal of Feminist Studies in Religion 3 (Spring 1987): 39–53; and Ellen Umansky, “(Re)Imaging the Divine,” Response 13 (Fall/Winter 1982): 110–19.\n20. Arthur Green, “Keeping Feminist Creativity Jewish,” Sh’ma, January 10, 1986, 33–35.\n21. Fishman, “The Impact of Feminism,” 33–35, and A Breath of Life, 201–29; Lerner, “Unfinished Agenda,” 172.\n22. See my “The Modern Jewish Family: Image and Reality,” in David Kraemer, ed., The Jewish Family: Metaphor and Memory (New York: Oxford University Press, 1989), 188–90.\n\n\n",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"The Americanization of the Jews",
+        "title_facet":"The Americanization of the Jews",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593583080313978880}]
+  }}

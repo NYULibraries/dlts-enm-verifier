@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:15432",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Ellen E. Berry"],
+        "authors_facet":"Ellen E. Berry",
+        "epubNumberOfPages":326,
+        "id":15432,
+        "isbn":"9780814712481",
+        "isbn_facet":"9780814712481",
+        "pageLocalId":"page_vi",
+        "pageNumberForDisplay":"vi",
+        "pageSequenceNumber":6,
+        "pageText":"PART TWOReforming Culture\n8.   Sex in the Media and the Birth of the Sex Media in Russia\nMasha Gessen\n9.   The Underground Closet: Political and Sexual Dissidence in East European Culture\nKevin Moss\n10.  Ivan Soloviev’s Reflections on Eros\nMikhail Epstein\n11.  Russian Women Writing Alcoholism: The Sixties to the Present\nTeresa Polowy\n12.  Gendering Cinema in Postcommunist Hungary\nCatherine Portuges\nContributors\nGuidelines for Prospective Contributors\n\n\n",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"Postcommunism And The Body Politic",
+        "title_facet":"Postcommunism And The Body Politic",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593583085054590976}]
+  }}

@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:3169",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Herscher, Andrew"],
+        "authors_facet":"Herscher, Andrew",
+        "epubNumberOfPages":316,
+        "id":3169,
+        "isbn":"9780472029174",
+        "isbn_facet":"9780472029174",
+        "pageLocalId":"page_83",
+        "pageNumberForDisplay":"83",
+        "pageSequenceNumber":91,
+        "pageText":"\n\nAmong the spaces that the Mower Gang has tended are O'Shea Park, Riverside Park, Roosevelt Park and the Dorais Velodrome, abandoned in the late 1980s and now used for formal and informal bicycle, moped and go-cart racing. The Mower Gang also collaborated with the Navin Field Grounds Crew to reconstruct the infield of Tiger Stadium. Through this work, the Mower Gang renders park maintenance a public right—the right of the public to care for spaces that it cares about.\n",
+        "publisher":["The University of Michigan Press"],
+        "publisher_facet":"The University of Michigan Press",
+        "title":"The Unreal Estate Guide to Detroit",
+        "title_facet":"The Unreal Estate Guide to Detroit",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593582715397996544}]
+  }}

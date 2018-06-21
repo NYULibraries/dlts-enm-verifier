@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:29139",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Jenna M. Loyd"],
+        "authors_facet":"Jenna M. Loyd",
+        "epubNumberOfPages":361,
+        "id":29139,
+        "isbn":"9780816676507",
+        "isbn_facet":"9780816676507",
+        "pageLocalId":"page_x",
+        "pageNumberForDisplay":"x",
+        "pageSequenceNumber":10,
+        "pageText":"\n\n\n",
+        "publisher":["University of Minnesota Press"],
+        "publisher_facet":"University of Minnesota Press",
+        "title":"Health Rights Are Civil Rights",
+        "title_facet":"Health Rights Are Civil Rights",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593583455284756480}]
+  }}

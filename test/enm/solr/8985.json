@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:8985",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Barbara Fass Leavy"],
+        "authors_facet":"Barbara Fass Leavy",
+        "epubNumberOfPages":388,
+        "id":8985,
+        "isbn":"9780814751008",
+        "isbn_facet":"9780814751008",
+        "pageLocalId":"page_vi",
+        "pageNumberForDisplay":"vi",
+        "pageSequenceNumber":331,
+        "pageText":"\n\n",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"In Search of the Swan Maiden",
+        "title_facet":"In Search of the Swan Maiden",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593582902874996736}]
+  }}
