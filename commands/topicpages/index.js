@@ -85,7 +85,15 @@ function getEnmData( topicId, topicName ) {
 
     enm.topicNames = visualizationData.nodes.map( ( node ) => {
         return node.name;
-    } ).sort( util.caseInsensitiveSort );
+    } );
+
+    // Sort topics to make debugging easier and diff reports more readable.
+    // Note that we are not verifying the correctness of ENM ordering because
+    // our custom sort as specified in NYUP-376 is something that is implemented
+    // outside of TCT.  Currently it is done at the database level in SQL, and
+    // it can be tricky to match the exact sorting rules in JavaScript for
+    // various reasons.
+    sortTopicNames( enm.topicNames );
 
     enm.relatedTopicNames = enm.topicNames.filter( name => {
         return name !== topicName;
