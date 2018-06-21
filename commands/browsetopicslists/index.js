@@ -164,8 +164,9 @@ function getTctTopicsForBrowseTopicsListCategory( category ) {
     } )
         .map( topic => {
             return getTopicString( topic.display_name.trim(), topic.id );
-        } )
-        .sort( util.caseInsensitiveSort );
+        } );
+
+    util.sortTopicNames( topics );
 
     return topics;
 }
