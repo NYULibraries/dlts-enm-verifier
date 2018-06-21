@@ -24,13 +24,10 @@
         "title_facet":"My Life as a Night Elf Priest",
         "topicNames":["bag slots",
           "mobs (monster/mobile)",
-          "mobs (monster/mobile)",
-          "monster/mobile (mobs)",
           "monster/mobile (mobs)"],
-        "topicNamesForDisplay":"[[\"bag slots\"],[\"mobs (monster/mobile)\",\"monster/mobile (mobs)\",\"monster/mobile (mobs)\"]]",
+        "topicNamesForDisplay":"[[\"bag slots\"],[\"mobs (monster/mobile)\",\"monster/mobile (mobs)\"]]",
         "topicNames_facet":["bag slots",
-          "mobs (monster/mobile)",
           "mobs (monster/mobile)"],
         "yearOfPublication":0,
-        "_version_":1593582743421190144}]
+        "_version_":1603740813234274304}]
   }}
