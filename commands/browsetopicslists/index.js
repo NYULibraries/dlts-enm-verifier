@@ -40,7 +40,7 @@ const browseTopicsListCategories = [
     'z',
 ];
 
-var program,
+let program,
     directories,
     topicsAllResponse,
     enmCache, tctCache,
@@ -77,16 +77,16 @@ function verify() {
 }
 
 function compareTctAndEnm( browseTopicsListCategory ) {
-    var tct = getTctData( browseTopicsListCategory ),
-        enm = getEnmData( browseTopicsListCategory ),
+    const tct = getTctData( browseTopicsListCategory ),
+          enm = getEnmData( browseTopicsListCategory ),
 
-        diffs = generateDiffs( tct, enm );
+          diffs = generateDiffs( tct, enm );
 
     writeDiffReports( browseTopicsListCategory, diffs );
 }
 
 function getEnmData( browseTopicsListCategory ) {
-    var enm = {};
+    let enm = {};
 
     enm.responseBody = getEnmResponseBody( browseTopicsListCategory );
 
@@ -98,7 +98,7 @@ function getEnmData( browseTopicsListCategory ) {
 }
 
 function getTctData( browseTopicsListCategory ) {
-    var tct = {};
+    let tct = {};
 
     tct.topics = getTctTopicsForBrowseTopicsListCategory( browseTopicsListCategory );
 
@@ -106,7 +106,7 @@ function getTctData( browseTopicsListCategory ) {
 }
 
 function getEnmResponseBody( browseTopicsListCategory ) {
-    var responseBody;
+    let responseBody;
 
     if ( program.enmLocal ) {
         responseBody = fs.readFileSync( `${ program.enmLocal }/${ browseTopicsListCategory }.html`, 'utf8' );
@@ -120,7 +120,7 @@ function getEnmResponseBody( browseTopicsListCategory ) {
 }
 
 function getTopicsAllResponseBody() {
-    var responseBody;
+    let responseBody;
 
     if ( program.tctLocal ) {
         responseBody = fs.readFileSync( `${ program.tctLocal }/TopicsAll.json`, 'utf8' );
@@ -139,7 +139,7 @@ function getEnmBrowseTopicsListUrl( browseTopicsListCategory ) {
 }
 
 function getEnmTopicsFromBrowseTopicsList( dom ) {
-    var topics = [],
+    let topics = [],
         topicAnchors = dom.window.document.querySelectorAll( '.enm-topiclist a' );
 
     topicAnchors.forEach( topicAnchor => {
@@ -150,7 +150,7 @@ function getEnmTopicsFromBrowseTopicsList( dom ) {
 }
 
 function getTctTopicsForBrowseTopicsListCategory( category ) {
-    var regexp,
+    let regexp,
         topics;
 
     if ( category === 'non-alphanumeric' ) {
@@ -173,8 +173,8 @@ function getTctTopicsForBrowseTopicsListCategory( category ) {
 }
 
 function getTopicStringFromAnchor( topicLink ) {
-    var topicId = parseInt( path.basename( topicLink.getAttribute( 'href' ), '.html' ), 10 ),
-        topicName = topicLink.textContent.trim();
+    const topicId = parseInt( path.basename( topicLink.getAttribute( 'href' ), '.html' ), 10 ),
+          topicName = topicLink.textContent.trim();
 
     return getTopicString( topicName, topicId );
 }
@@ -184,7 +184,7 @@ function getTopicString( topicName, topicId ) {
 }
 
 function generateDiffs( tct, enm ) {
-    var diffs = {};
+    const diffs = {};
 
     diffs.topicsInTctNotInEnm = _.difference( tct.topics, enm.topics );
     diffs.topicsInEnmNotTct = _.difference( enm.topics, tct.topics) ;

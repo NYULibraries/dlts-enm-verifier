@@ -24,7 +24,7 @@ const fieldsToVerify = [
     'topicNamesForDisplayData',
 ];
 
-var program,
+let program,
     directories,
     namesAll = {},
     topicNamesForId = {},
@@ -56,7 +56,7 @@ function verify( locationIds ) {
 
     namesAll = JSON.parse( getNamesAllResponseBody() );
     namesAll.forEach( name => {
-        var topicId = name.basket;
+        const topicId = name.basket;
 
         if ( ! topicNamesForId[ topicId ] ) {
             topicNamesForId[ topicId ] = [];
@@ -71,16 +71,16 @@ function verify( locationIds ) {
 }
 
 function compareTctAndEnm( locationId ) {
-    var tct = getTctData( locationId ),
-        enm = getEnmData( locationId ),
+    const tct = getTctData( locationId ),
+          enm = getEnmData( locationId ),
 
-        diffs = generateDiffs( tct, enm );
+          diffs = generateDiffs( tct, enm );
 
     writeDiffReports( locationId, diffs );
 }
 
 function getSequenceNumberForLocationId( epubDetail, locationId ) {
-    var location = epubDetail.locations.find( location => {
+    const location = epubDetail.locations.find( location => {
         return location.id === locationId;
     } );
 
@@ -88,8 +88,8 @@ function getSequenceNumberForLocationId( epubDetail, locationId ) {
 }
 
 function getEnmData( locationId ) {
-    var responseBody = getEnmResponseBody( locationId ),
-        enm = JSON.parse( responseBody ).response.docs[ 0 ];
+    const responseBody = getEnmResponseBody( locationId ),
+          enm = JSON.parse( responseBody ).response.docs[ 0 ];
 
     enm.responseBody = responseBody;
 
@@ -116,7 +116,7 @@ function getEnmData( locationId ) {
 }
 
 function getTctData( locationId ) {
-    var tct = {};
+    let tct = {};
 
     tct.responseBody = getTctResponseBody( locationId );
 
@@ -137,7 +137,7 @@ function getTctData( locationId ) {
     tct.topicNamesForDisplayData = [];
 
     tct.json.occurrences.forEach( occurrence => {
-        var topicId = occurrence.basket.id,
+        let topicId = occurrence.basket.id,
             topicDisplayName = occurrence.basket.display_name,
             topicNamesAll = topicNamesForId[ topicId ];
 
@@ -166,14 +166,14 @@ function getTctData( locationId ) {
 }
 
 function getEpubDetail( epubId ) {
-    var epubDetailResponseBody = getEpubDetailResponseBody( epubId ),
+    let epubDetailResponseBody = getEpubDetailResponseBody( epubId ),
         epubDetail = JSON.parse( epubDetailResponseBody );
 
     return epubDetail;
 }
 
 function getEnmResponseBody( locationId ) {
-    var responseBody;
+    let responseBody;
 
     if ( program.enmLocal ) {
         responseBody = fs.readFileSync( `${ program.enmLocal }/${ locationId }.json`, 'utf8' );
@@ -190,7 +190,7 @@ function getEnmResponseBody( locationId ) {
 }
 
 function getEpubDetailResponseBody( epubId ) {
-    var responseBody;
+    let responseBody;
 
     if ( program.tctLocal ) {
         responseBody = fs.readFileSync( `${ program.tctLocal}/EpubDetail-${ epubId }.json`, 'utf8' );
@@ -207,7 +207,7 @@ function getEpubDetailResponseBody( epubId ) {
 }
 
 function getNamesAllResponseBody() {
-    var responseBody;
+    let responseBody;
 
     if ( program.tctLocal ) {
         responseBody = fs.readFileSync( `${ program.tctLocal }/NamesAll.json`, 'utf8' );
@@ -222,7 +222,7 @@ function getNamesAllResponseBody() {
 }
 
 function getTctResponseBody( locationId ) {
-    var responseBody;
+    let responseBody;
 
     if ( program.tctLocal ) {
         responseBody = fs.readFileSync( `${ program.tctLocal }/${ locationId }.json`, 'utf8' );
@@ -240,10 +240,10 @@ function getTctResponseBody( locationId ) {
 }
 
 function generateDiffs( tct, enm ) {
-    var diffs = {};
+    const diffs = {};
 
     fieldsToVerify.sort().forEach( field => {
-        var fieldType = typeof tct[ field ];
+        let fieldType = typeof tct[ field ];
 
         if ( [ 'string', 'number' ].includes( fieldType ) ) {
             if ( enm[ field ] !== tct[ field ] ) {
@@ -270,7 +270,7 @@ function generateDiffs( tct, enm ) {
 
 function writeDiffReports( locationId, diffs ) {
     fieldsToVerify.forEach( field => {
-        var diffForField  = diffs[ field ];
+        let diffForField  = diffs[ field ];
 
         if ( diffForField ) {
             if ( diffForField.type === FIELD_TYPE_SINGLE ) {
@@ -312,7 +312,7 @@ function firstElementIgnoreWrappingDoubleQuotesCaseInsensitiveSort( a, b ) {
 
 function sortNestedArraysInTopicNamesDisplayData( topicNamesDisplayData ) {
     topicNamesDisplayData.forEach( topicNamesArray => {
-        var displayName = topicNamesArray.shift();
+        let displayName = topicNamesArray.shift();
 
         util.sortTopicNames( topicNamesArray );
         topicNamesArray.unshift( displayName );

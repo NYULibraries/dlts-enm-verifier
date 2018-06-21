@@ -9,7 +9,7 @@ const util      = require( '../../lib/util' );
 
 const COMMAND_NAME = 'topicpages';
 
-var program,
+let program,
     directories,
     epubsAllTctResponse,
     epubs = {},
@@ -61,17 +61,18 @@ function verify( topicIds ) {
 }
 
 function compareTctAndEnm( topicId ) {
-    var tct = getTctData( topicId ),
-        enm = getEnmData( topicId, tct.topicName ),
+    const tct = getTctData( topicId ),
+          enm = getEnmData( topicId, tct.topicName ),
 
-        diffs = generateDiffs( tct, enm );
+          diffs = generateDiffs( tct, enm );
 
     writeDiffReports( topicId, diffs );
 }
 
 function getEnmData( topicId, topicName ) {
-    var enm = {},
-        visualizationData;
+    const enm = {};
+
+    let visualizationData;
 
     enm.responseBody = getEnmResponseBody( topicId );
 
@@ -115,7 +116,7 @@ function getEnmData( topicId, topicName ) {
 }
 
 function getTctData( topicId ) {
-    var tct = {};
+    const tct = {};
 
     tct.responseBody = getTctResponseBody( topicId );
 
@@ -129,7 +130,7 @@ function getTctData( topicId ) {
         tct.relatedTopicNames = [];
 
         tct.json.relations.forEach( relation => {
-            var relatedTopicName = relation.basket.display_name;
+            const relatedTopicName = relation.basket.display_name;
             tct.relatedTopicNames.push( relatedTopicName );
 
             if ( countRelatedTopicsOccurrences ) {
@@ -146,8 +147,8 @@ function getTctData( topicId ) {
     } ).sort( util.caseInsensitiveSort ) );
 
     tct.authorPublishers = tct.epubs.map( epubTitle => {
-        var author    = epubs[ epubTitle ].author,
-            publisher = epubs[ epubTitle ].publisher;
+        const author    = epubs[ epubTitle ].author,
+              publisher = epubs[ epubTitle ].publisher;
 
         return `${ author }; ${ publisher }`;
     } ).sort();
@@ -156,7 +157,7 @@ function getTctData( topicId ) {
 }
 
 function getEnmResponseBody( topicId ) {
-    var responseBody;
+    let responseBody;
 
     if ( program.enmLocal ) {
         responseBody = fs.readFileSync( `${ program.enmLocal }/${ topicId }.html`, 'utf8' );
@@ -170,7 +171,7 @@ function getEnmResponseBody( topicId ) {
 }
 
 function getEpubsAllResponseBody() {
-    var responseBody;
+    let responseBody;
 
     if ( program.tctLocal ) {
         responseBody = fs.readFileSync( `${ program.tctLocal }/EpubsAll.json`, 'utf8' );
@@ -185,7 +186,7 @@ function getEpubsAllResponseBody() {
 }
 
 function getTctResponseBody( topicId ) {
-    var responseBody;
+    let responseBody;
 
     if ( program.tctLocal ) {
         responseBody = fs.readFileSync( `${ program.tctLocal }/${ topicId }.json`, 'utf8' );
@@ -200,7 +201,7 @@ function getTctResponseBody( topicId ) {
 }
 
 function getEnmTopicPageUrl( id ) {
-    var zeroPaddedString = id.padStart( 10, "0" );
+    const zeroPaddedString = id.padStart( 10, "0" );
 
     return `http://${ program.enmHost }/enm/enm-web/prototypes/topic-pages/` +
            zeroPaddedString.substring( 0, 2 ) + "/" +
@@ -211,13 +212,13 @@ function getEnmTopicPageUrl( id ) {
 }
 
 function getVisualizationDataFromScript( script ) {
-    var visualizationData = JSON.parse( script.replace( /^var visualizationData = /, '' ) );
+    const visualizationData = JSON.parse( script.replace( /^var visualizationData = /, '' ) );
 
     return visualizationData;
 }
 
 function generateDiffs( tct, enm ) {
-    var diffs = {};
+    const diffs = {};
 
     diffs.relatedTopicsInTctNotInEnm = _.difference( tct.relatedTopicNames, enm.relatedTopicNames );
     diffs.relatedTopicsInEnmNotTct = _.difference( enm.relatedTopicNames, tct.relatedTopicNames );
@@ -239,11 +240,12 @@ function generateDiffs( tct, enm ) {
 }
 
 function getTopicOccurrenceCountsDifference( tct, enm ) {
-    var diff = [],
-        // Don't bother with topics that are only in TCT or ENM and not both.
-        // Other tests will catch those errors.
-        topicsToCompare = _.intersection( Object.keys( enm ), Object.keys( tct ) ),
-        tctCount, enmCount;
+    const diff = [],
+          // Don't bother with topics that are only in TCT or ENM and not both.
+          // Other tests will catch those errors.
+          topicsToCompare = _.intersection( Object.keys( enm ), Object.keys( tct ) );
+
+    let tctCount, enmCount;
 
     topicsToCompare.forEach( topic => {
         tctCount = tct[ topic ];
@@ -295,8 +297,9 @@ function writeDiffReports( topicId, diffs ) {
 }
 
 function getTctOccurrenceCounts( topicId ) {
-    var responseBody = getTctResponseBody( topicId ),
-        json;
+    const responseBody = getTctResponseBody( topicId );
+
+    let json;
 
     try {
         json = JSON.parse( responseBody );
