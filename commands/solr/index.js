@@ -70,21 +70,6 @@ function verify( locationIds ) {
     } );
 }
 
-function getNamesAllResponseBody() {
-    var responseBody;
-
-    if ( program.tctLocal ) {
-        responseBody = fs.readFileSync( `${ program.tctLocal }/NamesAll.json`, 'utf8' );
-    } else {
-        responseBody = request( 'GET', `https://${ program.tctHost }/api/hit/hits/all/?format=json` ).getBody( 'utf8' );
-
-        // Cache response
-        fs.writeFileSync( `${ tctCache }/NamesAll.json`, responseBody );
-    }
-
-    return responseBody;
-}
-
 function compareTctAndEnm( locationId ) {
     var tct = getTctData( locationId ),
         enm = getEnmData( locationId ),
@@ -92,6 +77,47 @@ function compareTctAndEnm( locationId ) {
         diffs = generateDiffs( tct, enm );
 
     writeDiffReports( locationId, diffs );
+}
+
+function getSequenceNumberForLocationId( epubDetail, locationId ) {
+    var location = epubDetail.locations.find( location => {
+        return location.id === locationId;
+    } );
+
+    return location.sequence_number;
+}
+
+function getEnmData( locationId ) {
+    var responseBody = getEnmResponseBody( locationId ),
+        enm = JSON.parse( responseBody ).response.docs[ 0 ];
+
+    enm.responseBody = responseBody;
+
+    // At the moment, all authors are jammed into first array element, separated
+    // by semi-colons.  This is how they came in through TCT EpubDetail.
+    enm.authors = enm.authors[ 0 ];
+    // Solr schema currently has publisher as multi-valued.  TCT uses single string
+    // for publisher...not sure if it's the case that there can be multiple publishers,
+    // in which case Solr field should be set to single-valued.  For now, need
+    // to extract the publisher from the first element.
+    enm.publisher = enm.publisher[ 0 ];
+    // Sort topics to make debugging easier and diff reports more readable.
+    // Note that we are not verifying the correctness of ENM ordering because
+    // our custom sort as specified in NYUP-376 is something that is implemented
+    // outside of TCT.  Currently it is done at the database level in SQL, and
+    // it can be tricky to match the exact sorting rules in JavaScript for
+    // various reasons.
+    if ( enm.topicNames ) {
+        util.sortTopicNames( enm.topicNames );
+
+        enm.topicNamesForDisplayData = JSON.parse( enm.topicNamesForDisplay );
+        sortNestedArraysInTopicNamesDisplayData( enm.topicNamesForDisplayData );
+        enm.topicNamesForDisplayData.sort( util.firstElementIgnoreWrappingDoubleQuotesCaseInsensitiveSort );
+    } else {
+        enm.topicNames = [];
+    }
+
+    return enm;
 }
 
 function getTctData( locationId ) {
@@ -151,65 +177,6 @@ function getEpubDetail( epubId ) {
     return epubDetail;
 }
 
-function getSequenceNumberForLocationId( epubDetail, locationId ) {
-    var location = epubDetail.locations.find( location => {
-        return location.id === locationId;
-    } );
-
-    return location.sequence_number;
-}
-
-function getEnmData( locationId ) {
-    var responseBody = getEnmResponseBody( locationId ),
-        enm = JSON.parse( responseBody ).response.docs[ 0 ];
-
-    enm.responseBody = responseBody;
-
-    // At the moment, all authors are jammed into first array element, separated
-    // by semi-colons.  This is how they came in through TCT EpubDetail.
-    enm.authors = enm.authors[ 0 ];
-    // Solr schema currently has publisher as multi-valued.  TCT uses single string
-    // for publisher...not sure if it's the case that there can be multiple publishers,
-    // in which case Solr field should be set to single-valued.  For now, need
-    // to extract the publisher from the first element.
-    enm.publisher = enm.publisher[ 0 ];
-    // Sort topics to make debugging easier and diff reports more readable.
-    // Note that we are not verifying the correctness of ENM ordering because
-    // our custom sort as specified in NYUP-376 is something that is implemented
-    // outside of TCT.  Currently it is done at the database level in SQL, and
-    // it can be tricky to match the exact sorting rules in JavaScript for
-    // various reasons.
-    if ( enm.topicNames ) {
-        util.sortTopicNames( enm.topicNames );
-
-        enm.topicNamesForDisplayData = JSON.parse( enm.topicNamesForDisplay );
-        sortNestedArraysInTopicNamesDisplayData( enm.topicNamesForDisplayData );
-        enm.topicNamesForDisplayData.sort( util.firstElementIgnoreWrappingDoubleQuotesCaseInsensitiveSort );
-    } else {
-        enm.topicNames = [];
-    }
-
-    return enm;
-}
-
-function getTctResponseBody( locationId ) {
-    var responseBody;
-
-    if ( program.tctLocal ) {
-        responseBody = fs.readFileSync( `${ program.tctLocal }/${ locationId }.json`, 'utf8' );
-    } else {
-        responseBody = request(
-            'GET',
-            `https://${ program.tctHost }/api/epub/location/${ locationId }/?format=json`
-        ).getBody( 'utf8' );
-
-        // Cache TCT response body
-        fs.writeFileSync( `${ tctCache }/${ locationId }.json`, responseBody );
-    }
-
-    return responseBody;
-}
-
 function getEnmResponseBody( locationId ) {
     var responseBody;
 
@@ -239,6 +206,39 @@ function getEpubDetailResponseBody( epubId ) {
         ).getBody( 'utf8' );
 
         fs.writeFileSync( `${ tctCache }/EpubDetail-${ epubId }.json`, responseBody );
+    }
+
+    return responseBody;
+}
+
+function getNamesAllResponseBody() {
+    var responseBody;
+
+    if ( program.tctLocal ) {
+        responseBody = fs.readFileSync( `${ program.tctLocal }/NamesAll.json`, 'utf8' );
+    } else {
+        responseBody = request( 'GET', `https://${ program.tctHost }/api/hit/hits/all/?format=json` ).getBody( 'utf8' );
+
+        // Cache response
+        fs.writeFileSync( `${ tctCache }/NamesAll.json`, responseBody );
+    }
+
+    return responseBody;
+}
+
+function getTctResponseBody( locationId ) {
+    var responseBody;
+
+    if ( program.tctLocal ) {
+        responseBody = fs.readFileSync( `${ program.tctLocal }/${ locationId }.json`, 'utf8' );
+    } else {
+        responseBody = request(
+            'GET',
+            `https://${ program.tctHost }/api/epub/location/${ locationId }/?format=json`
+        ).getBody( 'utf8' );
+
+        // Cache TCT response body
+        fs.writeFileSync( `${ tctCache }/${ locationId }.json`, responseBody );
     }
 
     return responseBody;
