@@ -101,12 +101,7 @@ function getEnmData( locationId ) {
     // in which case Solr field should be set to single-valued.  For now, need
     // to extract the publisher from the first element.
     enm.publisher = enm.publisher[ 0 ];
-    // Sort topics to make debugging easier and diff reports more readable.
-    // Note that we are not verifying the correctness of ENM ordering because
-    // our custom sort as specified in NYUP-376 is something that is implemented
-    // outside of TCT.  Currently it is done at the database level in SQL, and
-    // it can be tricky to match the exact sorting rules in JavaScript for
-    // various reasons.
+    // See "Notes on sorting of topic names" in README.md
     if ( enm.topicNames ) {
         util.sortTopicNames( enm.topicNames );
 

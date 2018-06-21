@@ -166,12 +166,7 @@ function getTctTopicsForBrowseTopicsListCategory( category ) {
             return getTopicString( topic.display_name.trim(), topic.id );
         } );
 
-    // Sort topics to make debugging easier and diff reports more readable.
-    // Note that we are not verifying the correctness of ENM ordering because
-    // our custom sort as specified in NYUP-376 is something that is implemented
-    // outside of TCT.  Currently it is done at the database level in SQL, and
-    // it can be tricky to match the exact sorting rules in JavaScript for
-    // various reasons.
+    // See "Notes on sorting of topic names" in README.md
     util.sortTopicNames( topics );
 
     return topics;
