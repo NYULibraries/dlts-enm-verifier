@@ -212,9 +212,7 @@ function getEnmTopicPageUrl( id ) {
 }
 
 function getVisualizationDataFromScript( script ) {
-    const visualizationData = JSON.parse( script.replace( /^var visualizationData = /, '' ) );
-
-    return visualizationData;
+    return  JSON.parse( script.replace( /^var visualizationData = /, '' ) );
 }
 
 function generateDiffs( tct, enm ) {
