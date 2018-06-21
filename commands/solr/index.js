@@ -136,7 +136,7 @@ function getTctData( locationId ) {
         topicDisplayNamesToTopicIdMap[ topicDisplayName ] = topicId;
     } );
 
-    tct.topicNames.sort( util.ignoreWrappingDoubleQuotesCaseInsenstiveSort );
+    util.sortTopicNames( tct.topicNames );
 
     sortNestedArraysInTopicNamesDisplayData( tct.topicNamesForDisplayData );
     tct.topicNamesForDisplayData.sort( util.firstElementIgnoreWrappingDoubleQuotesCaseInsensitiveSort );
