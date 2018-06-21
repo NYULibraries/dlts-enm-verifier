@@ -85,14 +85,6 @@ function compareTctAndEnm( browseTopicsListCategory ) {
     writeDiffReports( browseTopicsListCategory, diffs );
 }
 
-function getTctData( browseTopicsListCategory ) {
-    var tct = {};
-
-    tct.topics = getTctTopicsForBrowseTopicsListCategory( browseTopicsListCategory );
-
-    return tct;
-}
-
 function getEnmData( browseTopicsListCategory ) {
     var enm = {};
 
@@ -103,6 +95,28 @@ function getEnmData( browseTopicsListCategory ) {
     enm.topics = getEnmTopicsFromBrowseTopicsList( enm.dom );
     
     return enm;
+}
+
+function getTctData( browseTopicsListCategory ) {
+    var tct = {};
+
+    tct.topics = getTctTopicsForBrowseTopicsListCategory( browseTopicsListCategory );
+
+    return tct;
+}
+
+function getEnmResponseBody( browseTopicsListCategory ) {
+    var responseBody;
+
+    if ( program.enmLocal ) {
+        responseBody = fs.readFileSync( `${ program.enmLocal }/${ browseTopicsListCategory }.html`, 'utf8' );
+    } else {
+        responseBody = request( 'GET', getEnmBrowseTopicsListUrl( browseTopicsListCategory ) ).getBody( 'utf8' );
+
+        fs.writeFileSync( `${ enmCache }/${ browseTopicsListCategory }.html`, responseBody );
+    }
+
+    return responseBody;
 }
 
 function getTopicsAllResponseBody() {
@@ -120,22 +134,19 @@ function getTopicsAllResponseBody() {
     return responseBody;
 }
 
-function getEnmResponseBody( browseTopicsListCategory ) {
-    var responseBody;
-
-    if ( program.enmLocal ) {
-        responseBody = fs.readFileSync( `${ program.enmLocal }/${ browseTopicsListCategory }.html`, 'utf8' );
-    } else {
-        responseBody = request( 'GET', getEnmBrowseTopicsListUrl( browseTopicsListCategory ) ).getBody( 'utf8' );
-
-        fs.writeFileSync( `${ enmCache }/${ browseTopicsListCategory }.html`, responseBody );
-    }
-
-    return responseBody;
-}
-
 function getEnmBrowseTopicsListUrl( browseTopicsListCategory ) {
     return `http://${ program.enmHost }/enm/enm-web/prototypes/browse-topics-lists/${ browseTopicsListCategory }.html`;
+}
+
+function getEnmTopicsFromBrowseTopicsList( dom ) {
+    var topics = [],
+        topicAnchors = dom.window.document.querySelectorAll( '.enm-topiclist a' );
+
+    topicAnchors.forEach( topicAnchor => {
+        topics.push( getTopicStringFromAnchor( topicAnchor ) );
+    } );
+
+    return topics;
 }
 
 function getTctTopicsForBrowseTopicsListCategory( category ) {
@@ -155,17 +166,6 @@ function getTctTopicsForBrowseTopicsListCategory( category ) {
             return getTopicString( topic.display_name.trim(), topic.id );
         } )
         .sort( util.caseInsensitiveSort );
-
-    return topics;
-}
-
-function getEnmTopicsFromBrowseTopicsList( dom ) {
-    var topics = [],
-        topicAnchors = dom.window.document.querySelectorAll( '.enm-topiclist a' );
-
-    topicAnchors.forEach( topicAnchor => {
-        topics.push( getTopicStringFromAnchor( topicAnchor ) );
-    } );
 
     return topics;
 }
