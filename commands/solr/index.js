@@ -26,7 +26,6 @@ const fieldsToVerify = [
 
 var program,
     directories,
-    locationIds,
     namesAll = {},
     topicNamesForId = {},
     topicDisplayNamesToTopicIdMap = {},
