@@ -11,8 +11,9 @@ TBD
 
 ### Prerequisities
 
-* Node.js version ? (TODO: write caveat about sorting differences between Node versions)
-* [yarn](https://yarnpkg.com/)
+* Node.js - version 6.x or higher
+* [yarn](https://yarnpkg.com/) - minimum version unknown.  Latest version recommended.
+* Bash - for running tests.  Must be a version that supports arrays.
 
 ### Installation and setup
 
