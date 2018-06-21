@@ -156,7 +156,7 @@ function getTctTopicsForBrowseTopicsListCategory( category ) {
     if ( category === 'non-alphanumeric' ) {
         regexp = new RegExp( `^[^a-z0-9]` );
     } else {
-        regexp = new RegExp( `^[${ category }]` );
+        regexp = new RegExp( '^[' + category + ']' );
     }
 
     topics = topicsAllResponse.filter( topic => {
