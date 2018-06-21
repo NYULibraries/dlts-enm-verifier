@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:16047",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["James B. Jacobs"],
+        "authors_facet":"James B. Jacobs",
+        "epubNumberOfPages":292,
+        "id":16047,
+        "isbn":"9780814742303",
+        "isbn_facet":"9780814742303",
+        "pageLocalId":"page_vii",
+        "pageNumberForDisplay":"vii",
+        "pageSequenceNumber":7,
+        "pageText":"I’m not in the mood for the toys or games or kidding, no time. I’m not in the mood for clans. I’m not in the mood for gangs, I’m not in the mood for none of that stuff there. And this is gonna be a Cosa Nostra till I die. Be it an hour from now or be it tonight or a hundred years from now when I’m in jail. It’s gonna be a Cosa Nostra.\n—John Gotti(intercepted conversation)\nWith instability at all levels and with continuing sociological change inevitable, if current law enforcement efforts are maintained in the next five to ten years, the mob is likely to be rendered totally unrecognizable from what it has been for the last sixty years.\n—Ronald Goldstock, Director,New York State Organized Crime Task Force",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"Busting the Mob",
+        "title_facet":"Busting the Mob",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593583100980363264}]
+  }}

@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:26746",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Ronald Suresh Roberts"],
+        "authors_facet":"Ronald Suresh Roberts",
+        "epubNumberOfPages":236,
+        "id":26746,
+        "isbn":"9780814774816",
+        "isbn_facet":"9780814774816",
+        "pageLocalId":"page_193",
+        "pageNumberForDisplay":"193",
+        "pageSequenceNumber":207,
+        "pageText":"Naipaul has long denied that humans in postcolonial societies can generate value. This ability has, says Naipaul, been taken away from us by our history. Naipaul, who begins with an ideal of “truth as revolution,” ends with the news that reality is fixed. Naipaul commits the very sin of which he misaccuses the Indian novelists: the form of his work entails the worth of human life, while the infused vision denies it.\n\n",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"Clarence Thomas and the Tough Love Crowd",
+        "title_facet":"Clarence Thomas and the Tough Love Crowd",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593583386830569472}]
+  }}

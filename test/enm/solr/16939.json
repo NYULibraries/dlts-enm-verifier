@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:16939",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["John W. Chapman"],
+        "authors_facet":"John W. Chapman",
+        "epubNumberOfPages":348,
+        "id":16939,
+        "isbn":"9780814714218",
+        "isbn_facet":"9780814714218",
+        "pageLocalId":"page_277",
+        "pageNumberForDisplay":"277",
+        "pageSequenceNumber":289,
+        "pageText":"PART IVON THE FRONTIER\n",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"Markets and Justice",
+        "title_facet":"Markets and Justice",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593583123200737280}]
+  }}

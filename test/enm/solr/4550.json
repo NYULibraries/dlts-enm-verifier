@@ -1,0 +1,30 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:4550",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Gabrys, Jennifer"],
+        "authors_facet":"Gabrys, Jennifer",
+        "epubNumberOfPages":238,
+        "id":4550,
+        "isbn":"9780472029402",
+        "isbn_facet":"9780472029402",
+        "pageLocalId":"page_44",
+        "pageNumberForDisplay":"44",
+        "pageSequenceNumber":45,
+        "pageText":"\n\n\n\n\n",
+        "publisher":["The University of Michigan Press"],
+        "publisher_facet":"The University of Michigan Press",
+        "title":"Digital Rubbish: A Natural History of Electronics",
+        "title_facet":"Digital Rubbish: A Natural History of Electronics",
+        "topicNames":["Silicon Valley"],
+        "topicNamesForDisplay":"[[\"Silicon Valley\"]]",
+        "topicNames_facet":["Silicon Valley"],
+        "yearOfPublication":0,
+        "_version_":1593582764732448768}]
+  }}

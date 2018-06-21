@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:13103",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["John Marshall"],
+        "authors_facet":"John Marshall",
+        "epubNumberOfPages":373,
+        "id":13103,
+        "isbn":"9780814731437",
+        "isbn_facet":"9780814731437",
+        "pageLocalId":"page_259",
+        "pageNumberForDisplay":"259",
+        "pageSequenceNumber":270,
+        "pageText":"215. Id.\n216. Id.\n217. See 2 G. Haskins & H. Johnson, supra note 102, at 650.Marbury v. Madison and Stuart v. Laird “presaged the development of a full-scale concept of rule of law and a deep-seated respect for the primacy of legislative power as well as for the concept of separation of powers.” Id.\n\n\n",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"Seriatim",
+        "title_facet":"Seriatim",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593583016953774080}]
+  }}

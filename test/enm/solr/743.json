@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:743",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Amy Koritz and George J. Sanchez"],
+        "authors_facet":"Amy Koritz and George J. Sanchez",
+        "epubNumberOfPages":252,
+        "id":743,
+        "isbn":"9780472024483",
+        "isbn_facet":"9780472024483",
+        "pageLocalId":"page_xii",
+        "pageNumberForDisplay":"xii",
+        "pageSequenceNumber":12,
+        "pageText":"",
+        "publisher":["University of Michigan Press"],
+        "publisher_facet":"University of Michigan Press",
+        "title":"Civic Engagement in the Wake of Katrina",
+        "title_facet":"Civic Engagement in the Wake of Katrina",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593582628994285568}]
+  }}

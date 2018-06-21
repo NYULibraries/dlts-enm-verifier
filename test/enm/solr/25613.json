@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:25613",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Steven T. Katz"],
+        "authors_facet":"Steven T. Katz",
+        "epubNumberOfPages":586,
+        "id":25613,
+        "isbn":"9780814746929",
+        "isbn_facet":"9780814746929",
+        "pageLocalId":"page_397",
+        "pageNumberForDisplay":"397",
+        "pageSequenceNumber":410,
+        "pageText":"9. Ibid., 99a.\n10. Yehuda Ibn Shemuel, Midreshai Geulah (Jerusalem, 1954).\n11. Sabbath, 112 b.\n12. Maimonides’ Code, Hilchoth Melochim.\n\n\n",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"The Essential Agus",
+        "title_facet":"The Essential Agus",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593583354043695104}]
+  }}

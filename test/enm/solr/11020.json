@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:11020",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Peter L. Rudnytsky"],
+        "authors_facet":"Peter L. Rudnytsky",
+        "epubNumberOfPages":306,
+        "id":11020,
+        "isbn":"9780814774755",
+        "isbn_facet":"9780814774755",
+        "pageLocalId":"page_ii",
+        "pageNumberForDisplay":"ii",
+        "pageSequenceNumber":2,
+        "pageText":"\n\n\n",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"Ferenczi’s Turn in Psychoanalysis",
+        "title_facet":"Ferenczi’s Turn in Psychoanalysis",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593582959558918144}]
+  }}

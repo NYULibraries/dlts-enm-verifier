@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:1439",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Cummings, Robert E.; Barton, Matt"],
+        "authors_facet":"Cummings, Robert E.; Barton, Matt",
+        "epubNumberOfPages":276,
+        "id":1439,
+        "isbn":"9780472024513",
+        "isbn_facet":"9780472024513",
+        "pageLocalId":"page_236",
+        "pageNumberForDisplay":"236",
+        "pageSequenceNumber":256,
+        "pageText":"",
+        "publisher":["University of Michigan Press and University of Michigan Library"],
+        "publisher_facet":"University of Michigan Press and University of Michigan Library",
+        "title":"Wiki Writing: Collaborative Learning in the College Classroom",
+        "title_facet":"Wiki Writing: Collaborative Learning in the College Classroom",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593582652841000960}]
+  }}

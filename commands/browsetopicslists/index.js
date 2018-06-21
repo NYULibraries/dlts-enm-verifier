@@ -7,7 +7,7 @@ const request   = require( 'sync-request' );
 
 const util      = require( '../../lib/util' );
 
-const commandName = 'browsetopicslists';
+const COMMAND_NAME = 'browsetopicslists';
 
 const browseTopicsListCategories = [
     '0-9',
@@ -40,7 +40,7 @@ const browseTopicsListCategories = [
     'z',
 ];
 
-var program,
+let program,
     directories,
     topicsAllResponse,
     enmCache, tctCache,
@@ -51,20 +51,24 @@ function init( programArg, directoriesArg ) {
     program     = programArg;
     directories = directoriesArg;
 
-    enmCache   = `${ directories.cache.enm }/${ commandName }`;
-    tctCache   = `${ directories.cache.tct }/${ commandName }`;
-    reportsDir = `${ directories.reports }/${ commandName }`;
-
-    util.clearDirectory( enmCache );
-    util.clearDirectory( tctCache );
-    util.clearDirectory( reportsDir );
+    enmCache   = `${ directories.cache.enm }/${ COMMAND_NAME }`;
+    tctCache   = `${ directories.cache.tct }/${ COMMAND_NAME }`;
+    reportsDir = `${ directories.reports }/${ COMMAND_NAME }`;
 
     program
-        .command( `${ commandName }` )
+        .command( `${ COMMAND_NAME }` )
         .action( verify );
 }
 
 function verify() {
+    util.clearDirectory( enmCache );
+    util.clearDirectory( tctCache );
+    util.clearDirectory( reportsDir );
+
+    if ( ! program.enmHost ) {
+        program.enmHost = util.getDefaultEnmHost( COMMAND_NAME );
+    }
+
     topicsAllResponse = JSON.parse( getTopicsAllResponseBody() );
 
     browseTopicsListCategories.forEach( browseTopicsListCategory => {
@@ -73,24 +77,16 @@ function verify() {
 }
 
 function compareTctAndEnm( browseTopicsListCategory ) {
-    var tct = getTctData( browseTopicsListCategory ),
-        enm = getEnmData( browseTopicsListCategory ),
+    const tct = getTctData( browseTopicsListCategory ),
+          enm = getEnmData( browseTopicsListCategory ),
 
-        diffs = generateDiffs( tct, enm );
+          diffs = generateDiffs( tct, enm );
 
     writeDiffReports( browseTopicsListCategory, diffs );
 }
 
-function getTctData( browseTopicsListCategory ) {
-    var tct = {};
-
-    tct.topics = getTctTopicsForBrowseTopicsListCategory( browseTopicsListCategory );
-
-    return tct;
-}
-
 function getEnmData( browseTopicsListCategory ) {
-    var enm = {};
+    let enm = {};
 
     enm.responseBody = getEnmResponseBody( browseTopicsListCategory );
 
@@ -101,8 +97,30 @@ function getEnmData( browseTopicsListCategory ) {
     return enm;
 }
 
+function getTctData( browseTopicsListCategory ) {
+    let tct = {};
+
+    tct.topics = getTctTopicsForBrowseTopicsListCategory( browseTopicsListCategory );
+
+    return tct;
+}
+
+function getEnmResponseBody( browseTopicsListCategory ) {
+    let responseBody;
+
+    if ( program.enmLocal ) {
+        responseBody = fs.readFileSync( `${ program.enmLocal }/${ browseTopicsListCategory }.html`, 'utf8' );
+    } else {
+        responseBody = request( 'GET', getEnmBrowseTopicsListUrl( browseTopicsListCategory ) ).getBody( 'utf8' );
+
+        fs.writeFileSync( `${ enmCache }/${ browseTopicsListCategory }.html`, responseBody );
+    }
+
+    return responseBody;
+}
+
 function getTopicsAllResponseBody() {
-    var responseBody;
+    let responseBody;
 
     if ( program.tctLocal ) {
         responseBody = fs.readFileSync( `${ program.tctLocal }/TopicsAll.json`, 'utf8' );
@@ -116,47 +134,12 @@ function getTopicsAllResponseBody() {
     return responseBody;
 }
 
-function getEnmResponseBody( browseTopicsListCategory ) {
-    var responseBody;
-
-    if ( program.enmLocal ) {
-        responseBody = fs.readFileSync( `${ program.enmLocal }/${ browseTopicsListCategory }.html`, 'utf8' );
-    } else {
-        responseBody = request( 'GET', getEnmBrowseTopicsListUrl( browseTopicsListCategory ) ).getBody( 'utf8' );
-
-        fs.writeFileSync( `${ enmCache }/${ browseTopicsListCategory }.html`, responseBody );
-    }
-
-    return responseBody;
-}
-
 function getEnmBrowseTopicsListUrl( browseTopicsListCategory ) {
     return `http://${ program.enmHost }/enm/enm-web/prototypes/browse-topics-lists/${ browseTopicsListCategory }.html`;
 }
 
-function getTctTopicsForBrowseTopicsListCategory( category ) {
-    var regexp,
-        topics;
-
-    if ( category === 'non-alphanumeric' ) {
-        regexp = new RegExp( `^[^a-z0-9]` );
-    } else {
-        regexp = new RegExp( `^[${ category }]` );
-    }
-
-    topics = topicsAllResponse.filter( topic => {
-        return topic.display_name.replace( /^"+/, '' ).toLocaleLowerCase().match( regexp )
-    } )
-        .map( topic => {
-            return getTopicString( topic.display_name.trim(), topic.id );
-        } )
-        .sort( util.caseInsensitiveSort );
-
-    return topics;
-}
-
 function getEnmTopicsFromBrowseTopicsList( dom ) {
-    var topics = [],
+    let topics = [],
         topicAnchors = dom.window.document.querySelectorAll( '.enm-topiclist a' );
 
     topicAnchors.forEach( topicAnchor => {
@@ -166,9 +149,32 @@ function getEnmTopicsFromBrowseTopicsList( dom ) {
     return topics;
 }
 
+function getTctTopicsForBrowseTopicsListCategory( category ) {
+    let regexp,
+        topics;
+
+    if ( category === 'non-alphanumeric' ) {
+        regexp = new RegExp( `^[^a-z0-9]` );
+    } else {
+        regexp = new RegExp( '^[' + category + ']' );
+    }
+
+    topics = topicsAllResponse.filter( topic => {
+        return topic.display_name.replace( /^"+/, '' ).toLocaleLowerCase().match( regexp )
+    } )
+        .map( topic => {
+            return getTopicString( topic.display_name.trim(), topic.id );
+        } );
+
+    // See "Notes on sorting of topic names" in README.md
+    util.sortTopicNames( topics );
+
+    return topics;
+}
+
 function getTopicStringFromAnchor( topicLink ) {
-    var topicId = parseInt( path.basename( topicLink.getAttribute( 'href' ), '.html' ), 10 ),
-        topicName = topicLink.textContent.trim();
+    const topicId = parseInt( path.basename( topicLink.getAttribute( 'href' ), '.html' ), 10 ),
+          topicName = topicLink.textContent.trim();
 
     return getTopicString( topicName, topicId );
 }
@@ -178,10 +184,10 @@ function getTopicString( topicName, topicId ) {
 }
 
 function generateDiffs( tct, enm ) {
-    var diffs = {};
+    const diffs = {};
 
     diffs.topicsInTctNotInEnm = _.difference( tct.topics, enm.topics );
-    diffs.topicsInEnmNotTct = _.difference( enm.topics, tct.topics) ;
+    diffs.topicsInEnmNotTct = _.difference( enm.topics, tct.topics);
 
     return diffs;
 }

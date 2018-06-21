@@ -1,0 +1,28 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"id:8654",
+      "indent":"on",
+      "wt":"json"}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "authors":["Stanley A. Renshon"],
+        "authors_facet":"Stanley A. Renshon",
+        "epubNumberOfPages":530,
+        "id":8654,
+        "isbn":"9780814774694",
+        "isbn_facet":"9780814774694",
+        "pageLocalId":"page_516",
+        "pageNumberForDisplay":"516",
+        "pageSequenceNumber":530,
+        "pageText":"\n\n\n",
+        "publisher":["New York University Press"],
+        "publisher_facet":"New York University Press",
+        "title":"The Psychological Assessment of Presidential Candidates",
+        "title_facet":"The Psychological Assessment of Presidential Candidates",
+        "topicNamesForDisplay":"[]",
+        "yearOfPublication":0,
+        "_version_":1593582893212368896}]
+  }}
