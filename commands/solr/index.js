@@ -262,14 +262,8 @@ function generateDiffs( tct, enm ) {
         } else if ( Array.isArray( tct[ field ] ) ) {
             diffs[ field ]      = {};
             diffs[ field ].type = FIELD_TYPE_MULTIPLE;
-
-            if ( Array.isArray( tct[ field ] ) ) {
-                diffs[ field ].tct = _.differenceWith( tct[ field ], enm[ field ], _.isEqual );
-                diffs[ field ].enm = _.differenceWith( enm[ field ], tct[ field ], _.isEqual );
-            } else {
-                diffs[ field ].tct = _.difference( tct[ field ], enm[ field ] );
-                diffs[ field ].enm = _.difference( enm[ field ], tct[ field ] );
-            }
+            diffs[ field ].tct  = _.differenceWith( tct[ field ], enm[ field ], _.isEqual );
+            diffs[ field ].enm  = _.differenceWith( enm[ field ], tct[ field ], _.isEqual );
         } else {
             console.error( `TCT \`${ field }\` field value ${ tct[ field ] } is` +
                            ` of unexpected type "${ fieldType }".`);
