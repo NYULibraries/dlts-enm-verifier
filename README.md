@@ -37,6 +37,8 @@ minimum Node 8.0.0.
 
 ### Installation and setup
 
+Clone the repo, install the dependencies:
+
 ```shell
 git clone git@github.com:NYULibraries/dlts-enm-verifier.git enm-verifier
 cd enm-verifier/
