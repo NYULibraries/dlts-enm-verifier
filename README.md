@@ -22,7 +22,7 @@ be used as local "copies" of ENM and/or TCT for future verifications.
 
 This project started out as a quick-and-dirty script to verify the throwaway
 prototypes so that their output could be used as golden master files for the
-[dlts\-enm](https://github.com/NYULibraries/dlts-enm) tests.  Later it seemed
+[enm](https://github.com/NYULibraries/dlts-enm) tests.  Later it seemed
 worthwhile to develop it it out into a more robust program that could be used on
 an ongoing basis.
 
