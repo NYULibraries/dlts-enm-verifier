@@ -4,4 +4,4 @@ BASEDIR=$(cd "$(dirname "$0")" ; pwd -P )
 
 cd $BASEDIR
 
-node main.js $@
+node ev.js $@
