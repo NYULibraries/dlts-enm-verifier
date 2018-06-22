@@ -59,6 +59,9 @@ TBD
 
 ## Running the tests
 
+At the moment the test suite is a simple shell script that does an `ev`
+verification for each component and checks that the reports match what's expected.
+
 ```shell
 $ test/test.sh
 PASS: `node main.js browsetopicslists --enm-local=test/enm/browsetopicslists --tct-local=test/tct/browsetopicslists`
