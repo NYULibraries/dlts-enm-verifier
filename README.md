@@ -1,6 +1,6 @@
 # em - DLTS ENM Verifier
 
-`enm-verifier` is a command-line program for verifying the ENM website against
+`ev` is a command-line program for verifying the ENM website against
 the Topic Curation Toolkit.
 
 ## Overview
