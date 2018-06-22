@@ -5,7 +5,9 @@ the Topic Curation Toolkit.
 
 ## Overview
 
-TBD
+`ev` (DLTS ENM Verifier) verifies the data accuracy of the components of a
+specified live ENM instance or set of ENM-interaction-based files that have been
+cached on local disk.
 
 ## Getting Started
 
