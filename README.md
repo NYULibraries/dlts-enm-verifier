@@ -72,8 +72,8 @@ $
 
 ## Notes on sorting of topic names
 
-Note that `enm-verifier` is not verifying the correctness of ENM ordering.  The
-ENM custom sort specified in [NYUP-376](https://jira.nyu.edu/jira/browse/NYUP-376)
+Note that `ev` is not verifying the correctness of the ordering topic names in ENM.
+The ENM custom sort specified in [NYUP-376](https://jira.nyu.edu/jira/browse/NYUP-376)
 is something that is implemented outside of TCT, so it doesn't make sense to
 to compare the ordering of topic names in ENM to TCT.  Also, it is technically
  challenging to reproduce the custom sort used by
