@@ -1,25 +1,45 @@
 # em - DLTS ENM Verifier
 
 `ev` is a command-line program for verifying the ENM website against
-the Topic Curation Toolkit.
+the Topic Curation Toolkit (TCT).
 
 ## Overview
 
 `ev` (DLTS ENM Verifier) verifies the data accuracy of the components of a
-specified live ENM instance or set of ENM-interaction-based files that have been
-cached on local disk.
+specified live ENM instance or set of saved ENM files.  The ENM components
+are checked against a specified live TCT instance or set of saved JSON files
+conforming to the TCT JSON API spec.
+
+The ENM components that are verified:
+
+* Browse Topics Lists
+* The `enm-pages` Solr index, which backs the Search Results component.
+* Topic Pages
+
+The data is extracted from the ENM components and compared against responses
+from the TCT JSON API.  Any discrepancies are written out to JSON files in
+`reports/[COMPONENT]/` directories.
+
+When run against live servers, `ev` saves the responses as files in `cache/enm/`
+and `cache/tct/`.  These files can then be used as local "copies" of ENM and/or
+TCT for future verifications. 
 
 ## Getting Started
 
 ### Prerequisities
 
-* Node.js - version 6.x or higher
+* Node.js - version 8.x or higher.  Module `sync-request` v6.0.0 requires at
+minimum Node 8.0.0.
 * [yarn](https://yarnpkg.com/) - minimum version unknown.  Latest version recommended.
 * Bash - for running tests.  Must be a version that supports arrays.
 
 ### Installation and setup
 
-TBD
+```shell
+git clone git@github.com:NYULibraries/dlts-enm-verifier.git enm-verifier
+cd enm-verifier/
+yarn
+```
 
 ### Quickstart
 
