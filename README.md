@@ -5,10 +5,9 @@ the Topic Curation Toolkit (TCT).
 
 ## Overview
 
-`ev` (DLTS ENM Verifier) verifies the data accuracy of the components of a
-specified live ENM instance or set of saved ENM files.  The ENM components
-are checked against a specified live TCT instance or set of saved JSON files
-conforming to the TCT JSON API spec.
+`ev` (DLTS ENM Verifier) compares the data of ENM components against
+the TCT via its JSON API and reports any discrepancies in the `reports/[COMPONENT]/`
+directories.
 
 The ENM components that are verified:
 
@@ -16,13 +15,16 @@ The ENM components that are verified:
 * The `enm-pages` Solr index, which backs the Search Results component.
 * Topic Pages
 
-The data is extracted from the ENM components and compared against responses
-from the TCT JSON API.  Any discrepancies are written out to JSON files in
-`reports/[COMPONENT]/` directories.
+`ev` can be run against live ENM and TCT instances or against sets of cached
+ENM and TCT responses.  When run against live servers, `ev` automatically saves
+the responses as files in `cache/enm/` and `cache/tct/`.  These files can then
+be used as local "copies" of ENM and/or TCT for future verifications.
 
-When run against live servers, `ev` saves the responses as files in `cache/enm/`
-and `cache/tct/`.  These files can then be used as local "copies" of ENM and/or
-TCT for future verifications. 
+This project started out as a quick-and-dirty script to verify the throwaway
+prototypes so that their output could be used as golden master files for the
+[dlts\-enm](https://github.com/NYULibraries/dlts-enm) tests.  Later it seemed
+worthwhile to develop it it out into a more robust program that could be used on
+an ongoing basis.
 
 ## Getting Started
 
