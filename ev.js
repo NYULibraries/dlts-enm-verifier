@@ -31,6 +31,10 @@ topicPages.init( program, directories );
 
 program.parse( process.argv );
 
+if ( ! process.argv.slice( 2 ).length ) {
+    program.help();
+}
+
 function resolvedPath( possiblyRelativePath ) {
     return path.resolve( possiblyRelativePath );
 }
