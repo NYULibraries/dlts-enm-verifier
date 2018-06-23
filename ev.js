@@ -19,7 +19,8 @@ const directories = {
 };
 
 program
-    .option( '--enm-host [hostname]', 'ENM host' )
+    .option( '--enm-host [hostname]', 'ENM host (default - varies by command: ' +
+        util.getDefaultEnmHostHelpMessage() + ')' )
     .option( '--tct-host [hostname]', 'TCT host', 'nyuapi.infoloom.nyc' )
     .option( '--enm-local [directory]', 'Use locally stored ENM files in <directory>', resolvedPath )
     .option( '--tct-local [directory]', 'Use locally stored TCT files in <directory>', resolvedPath );
