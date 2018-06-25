@@ -1,7 +1,7 @@
 # em - DLTS ENM Verifier
 
-`ev` is a command-line program for verifying the ENM website against
-the Topic Curation Toolkit (TCT).
+`ev` is a command-line program for verifying an instance of an ENM website against
+an instance of the Topic Curation Toolkit (TCT).
 
 ## Overview
 
