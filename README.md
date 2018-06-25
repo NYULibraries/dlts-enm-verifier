@@ -82,6 +82,36 @@ $ ./ev topicpages --help
       -h, --help                          output usage information
 ```
 
+* Verifications produce no output on stdout.  Results of all verifications are
+recorded in `reports/[COMMAND]`.
+    * `browsetopicslists` reports:
+        * `[BROWSE TOPICS LIST CATEGORY]-enm-missing-topics.json`: lists topics
+that are in TCT but not on ENM category page.
+        * `[BROWSE TOPICS LIST CATEGORY]-enm-extra-topics.json`: lists topics
+that are on the ENM category page but not in TCT.
+    * `solr` reports:
+        * `[LOCATION ID]-enm-missing-[FIELD].json`: lists field values that are
+in TCT but not in the ENM Solr doc for [LOCATION ID] (printed page).  [FIELD]
+refers to fields in the Solr doc (e.g. `authors`, `pageLocalId`, `topicNames`,).
+        * `[LOCATION ID]-enm-extra-[FIELD VALUES].json`: lists field values that
+are in the ENM Solr doc for [LOCATION ID] (printed page) but not in TCT.  [FIELD]
+refers to fields in the Solr doc (e.g. `authors`, `pageLocalId`, `topicNames`,).
+    * `topicpages` reports:
+        * `[TOPIC ID]-enm-missing-[DATA].json`: reports data present in TCT but
+    not on the ENM topic page.  [DATA]:
+            * topics
+            * authorPublishers
+            * epubs
+        * `[TOPIC ID]-enm-extra-[DATA].json`: reports data on the ENM topic page
+     but not in TCT.  [DATA]:
+            * topics
+            * authorPublishers
+            * epubs
+        * `[TOPIC ID]-occurrence-counts-discrepancies`: if
+`--count-related-topics-occurrences` is on, all related topics (or TOPIC ID) for
+which occurrence counts in ENM and TCT do not match are listed here, along with
+their counts in each system.
+
 #### Examples
 
 TBD
