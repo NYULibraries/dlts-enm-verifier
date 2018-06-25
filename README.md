@@ -114,7 +114,87 @@ their counts in each system.
 
 #### Examples
 
-TBD
+##### Browse topics lists
+
+Verify live prod ENM browse topics lists against live production TCT:
+
+```bash
+./ev browsetopicslists
+```
+
+Verify live dev ENM browse topics lists against live production TCT:
+
+```bash
+./ev browsetopicslists --enm-host=devweb1.dlib.nyu.edu
+```
+
+Verify local ENM browse topics lists against live production TCT:
+
+```bash
+./ev browsetopicslists --enm-local=/tmp/browsetopicslists
+```
+
+Verify live production ENM browse topics lists against local TCT files:
+
+```bash
+./ev browsetopicslists --tct-local=/tmp/tct-json-api-responses
+```
+
+##### Solr index
+
+Verify 5 docs in live prod ENM Solr index against live prod TCT:
+
+```bash
+./ev solr -- 44 31 65 84 112
+```
+
+Verify 1 doc in live dev ENM Solr index against live prod TCT:
+
+```bash
+./ev solr --enm-host=dev-discovery.dlib.nyu.edu -- 44
+```
+
+Verify the test sample 1,000 docs in live prod ENM Solr index against local TCT
+files:
+
+```bash
+./ev solr --tct-local=/tmp/tct-json-api-responses -- $( cat test/sample-location-ids.txt | tr '\n' ' ' )
+```
+
+Verify 10 locally saved docs from an ENM Solr index against live prod TCT:
+
+```bash
+./ev solr --enm-local=/tmp/solr -- 44 31 65 84 112 242 278 289 303 344
+```
+
+##### Topic pages
+
+Verify 5 topics in live prod ENM against live prod TCT, and do not verify
+occurrence counts:
+
+```bash
+./ev topicpages -- 36 62 826 885 2458
+```
+
+Verify 5 topics in live prod ENM against live prod TCT, and verify occurrence counts:
+
+```bash
+./ev topicpages --count-related-topics-occurrences -- 36 62 826 885 2458
+```
+
+Verify the test sample 16 ENM topic pages which have been saved locally
+against live prod TCT, and do not verify occurrence counts:
+
+```bash
+./ev topicpages --enm-local=test/enm/topicpages -- $( cat test/sample-topics-ids.txt | tr '\n' ' ' )
+```
+
+Verify 5 ENM topic pages which have been saved locally against saved TCT files,
+and verify occurrence counts:
+
+```bash
+./ev topicpages --count-related-topics-occurrences --enm-local=/tmp/topicpages --tct-local=/tmp/tct-json-api-responses -- $( cat test/sample-topics-ids.txt | tr '\n' ' ' )
+```
 
 ## Running the tests
 
