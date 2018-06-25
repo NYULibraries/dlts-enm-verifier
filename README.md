@@ -67,7 +67,7 @@ $ ./ev
       topicpages [options] [topicIds...]
 ```
 
-* All options are top-level and apply to all commands, with the exception of one
+* Options: all options are top-level and apply to all commands, with the exception of one
 extra option `--count-related-topics-occurrences`, which applies only to the
 `topicpages` command:
 
@@ -82,8 +82,19 @@ $ ./ev topicpages --help
       -h, --help                          output usage information
 ```
 
-* Verifications produce no output on stdout.  Results of all verifications are
-recorded in `reports/[COMMAND]`.
+* Caching: all responses from a live ENM or TCT host are automatically cached in
+`cache/enm/[COMMAND]/` and `cache/tct/[COMMAND]/`, respectively.  These files
+can be saved in directories that can later be used for future verifications via
+the `--enm-local` and `--tct-local` command line options.  Note that the cache for
+`[COMMAND]` is immediately cleared at the start of every run with corresponding
+`[COMMAND]`, so any cache files needed for future use should be copied out before
+the next run.
+
+* Reports: verifications produce no output on stdout.  Results of all verifications are
+recorded in `reports/[COMMAND]`.  Note that the `reports` directory for `[COMMAND]`
+is immediately cleared at the start of every run with corresponding `[COMMAND]`,
+so any reports files needed for future reference should be copied out before the
+next run.  Reports for each `[COMMAND]`:
     * `browsetopicslists` reports:
         * `[BROWSE TOPICS LIST CATEGORY]-enm-missing-topics.json`: lists topics
 that are in TCT but not on ENM category page.
