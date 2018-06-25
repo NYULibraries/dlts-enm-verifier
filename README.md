@@ -45,13 +45,42 @@ cd enm-verifier/
 yarn
 ```
 
-### Quickstart
-
-TBD
-
 ### Usage
 
-TBD
+```bash
+$ ./ev
+
+    Usage: ev [options] [command]
+
+    Options:
+
+      --enm-host [hostname]               ENM host (default varies by command: discovery1.dlib.nyu.edu, dlib.nyu.edu)
+      --tct-host [hostname]               TCT host (default: nyuapi.infoloom.nyc)
+      --enm-local [directory]             Use locally stored ENM files in <directory>
+      --tct-local [directory]             Use locally stored TCT files in <directory>
+      -h, --help                          output usage information
+
+    Commands:
+
+      browsetopicslists
+      solr [locationIds...]
+      topicpages [options] [topicIds...]
+```
+
+* All options are top-level and apply to all commands, with the exception of one
+extra option `--count-related-topics-occurrences`, which applies only to the
+`topicpages` command:
+
+```bash
+$ ./ev topicpages --help
+
+    Usage: topicpages [options] [topicIds...]
+
+    Options:
+
+      --count-related-topics-occurrences  Verify occurrence counts -- can be very network-intensive (default: false)
+      -h, --help                          output usage information
+```
 
 #### Examples
 
