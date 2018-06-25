@@ -27,7 +27,9 @@ function init( programArg, directoriesArg ) {
 
     program
         .command( `${ COMMAND_NAME } [topicIds...]` )
-        .option( '--count-related-topics-occurrences', 'Verify occurrence counts' )
+        .option(
+            '--count-related-topics-occurrences',
+            'Verify occurrence counts -- can be very network-intensive (default: false)')
         .action( verify );
 }
 
