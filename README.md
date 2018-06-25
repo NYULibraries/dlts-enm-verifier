@@ -6,7 +6,7 @@ the Topic Curation Toolkit (TCT).
 ## Overview
 
 `ev` (DLTS ENM Verifier) compares the data of ENM components against
-the TCT via its JSON API and reports any discrepancies in the `reports/[COMPONENT]/`
+the TCT via its JSON API and reports any discrepancies in the `reports/[COMMAND]/`
 directories.
 
 The ENM components that are verified:
