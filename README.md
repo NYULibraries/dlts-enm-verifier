@@ -113,11 +113,13 @@ refers to fields in the Solr doc (e.g. `authors`, `pageLocalId`, `topicNames`,).
             * topics
             * authorPublishers
             * epubs
+            * linkedData
         * `[TOPIC ID]-enm-extra-[DATA].json`: reports data on the ENM topic page
      but not in TCT.  [DATA]:
             * topics
             * authorPublishers
             * epubs
+            * linkedData
         * `[TOPIC ID]-occurrence-counts-discrepancies`: if
 `--count-related-topics-occurrences` is on, all related topics (or TOPIC ID) for
 which occurrence counts in ENM and TCT do not match are listed here, along with
