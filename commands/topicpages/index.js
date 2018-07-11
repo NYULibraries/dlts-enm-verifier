@@ -74,11 +74,13 @@ function compareTctAndEnm( topicId ) {
 function getEnmData( topicId, topicName ) {
     const enm = {};
 
-    let visualizationData;
+    let linkedData, visualizationData;
 
     enm.responseBody = getEnmResponseBody( topicId );
 
     enm.dom = new JSDOM( enm.responseBody );
+
+    enm.linkedData = getLinkedData( enm.dom );
 
     visualizationData = getVisualizationDataFromScript(
         enm.dom.window.document.querySelector( 'script' ).textContent
@@ -155,7 +157,20 @@ function getTctData( topicId ) {
         return `${ author }; ${ publisher }`;
     } ).sort();
 
+    tct.linkedData = []
+    tct.json.basket.weblinks.forEach( weblink => {
+        tct.linkedData.push( getLinkedDataItemFromTctWeblink( weblink ) );
+    } );
+
     return tct;
+}
+
+function getLinkedDataItemFromTctWeblink( weblink ) {
+    let found        = weblink.content.match( /^ *(.+) *(\([^()]+\))/ ),
+        vocabulary   = found[ 1 ].trim(),
+        relationship = found[ 2 ].trim();
+
+    return `${ vocabulary }: ${ weblink.url } ${ relationship }`;
 }
 
 function getEnmResponseBody( topicId ) {
@@ -213,6 +228,17 @@ function getEnmTopicPageUrl( id ) {
            zeroPaddedString + '.html';
 }
 
+function getLinkedData( dom ) {
+    let linkedData = [];
+
+    dom.window.document.querySelectorAll( '.enm-linked-data a' )
+        .forEach( linkedDataElement => {
+            linkedData.push( linkedDataElement.textContent.trim() );
+        } );
+
+    return linkedData;
+}
+
 function getVisualizationDataFromScript( script ) {
     return  JSON.parse( script.replace( /^var visualizationData = /, '' ) );
 }
@@ -228,6 +254,9 @@ function generateDiffs( tct, enm ) {
 
     diffs.authorPublisherInTctNotInEnm = _.difference( tct.authorPublishers, enm.authorPublishers );
     diffs.authorPublisherInEnmNotInTct = _.difference( enm.authorPublishers, tct.authorPublishers );
+
+    diffs.linkedDataInTctNotInEnm = _.difference( tct.linkedData, enm.linkedData );
+    diffs.linkedDataInEnmNotInTct = _.difference( enm.linkedData, tct.linkedData );
 
     if ( countRelatedTopicsOccurrences ) {
         diffs.topicOccurrenceCounts = getTopicOccurrenceCountsDifference(
@@ -288,6 +317,16 @@ function writeDiffReports( topicId, diffs ) {
     if ( diffs.authorPublisherInEnmNotInTct.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-authorPublishers.json`,
                           util.stableStringify( diffs.authorPublisherInEnmNotInTct ) );
+    }
+
+    if ( diffs.linkedDataInTctNotInEnm.length > 0 ) {
+        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-linkedData.json`,
+                          util.stableStringify( diffs.linkedDataInTctNotInEnm ) );
+    }
+
+    if ( diffs.linkedDataInEnmNotInTct.length > 0 ) {
+        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-linkedData.json`,
+                          util.stableStringify( diffs.linkedDataInEnmNotInTct ) );
     }
 
     if ( countRelatedTopicsOccurrences && diffs.topicOccurrenceCounts.length > 0 ) {
