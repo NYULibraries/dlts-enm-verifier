@@ -80,10 +80,7 @@ function getEnmData( topicId, topicName ) {
 
     enm.dom = new JSDOM( enm.responseBody );
 
-    linkedData = getLinkedData( enm.dom );
-    if ( linkedData.length > 0 ) {
-        enm.linkedData = linkedData;
-    }
+    enm.linkedData = getLinkedData( enm.dom );
 
     visualizationData = getVisualizationDataFromScript(
         enm.dom.window.document.querySelector( 'script' ).textContent
@@ -160,12 +157,10 @@ function getTctData( topicId ) {
         return `${ author }; ${ publisher }`;
     } ).sort();
 
-    if ( tct.json.basket.weblinks ) {
-        tct.linkedData = []
-        tct.json.basket.weblinks.forEach( weblink => {
-            tct.linkedData.push( getLinkedDataItemFromTctWeblink( weblink ) );
-        } );
-    }
+    tct.linkedData = []
+    tct.json.basket.weblinks.forEach( weblink => {
+        tct.linkedData.push( getLinkedDataItemFromTctWeblink( weblink ) );
+    } );
 
     return tct;
 }
