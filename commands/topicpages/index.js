@@ -167,8 +167,8 @@ function getTctData( topicId ) {
 
 function getLinkedDataItemFromTctWeblink( weblink ) {
     let found        = weblink.content.match( /^ *(.+) *(\([^()]+\))/ ),
-        vocabulary   = found[ 1 ],
-        relationship = found[ 2 ];
+        vocabulary   = found[ 1 ].trim(),
+        relationship = found[ 2 ].trim();
 
     return `${ vocabulary }: ${ weblink.url } ${ relationship }`;
 }
