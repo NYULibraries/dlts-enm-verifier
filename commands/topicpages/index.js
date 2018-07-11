@@ -160,7 +160,22 @@ function getTctData( topicId ) {
         return `${ author }; ${ publisher }`;
     } ).sort();
 
+    if ( tct.json.basket.weblinks ) {
+        tct.linkedData = []
+        tct.json.basket.weblinks.forEach( weblink => {
+            tct.linkedData.push( getLinkedDataItemFromTctWeblink( weblink ) );
+        } );
+    }
+
     return tct;
+}
+
+function getLinkedDataItemFromTctWeblink( weblink ) {
+    let found        = weblink.content.match( /^ *(.+) *(\([^()]+\))/ ),
+        vocabulary   = found[ 1 ],
+        relationship = found[ 2 ];
+
+    return `${ vocabulary }: ${ weblink.url } ${ relationship }`;
 }
 
 function getEnmResponseBody( topicId ) {
