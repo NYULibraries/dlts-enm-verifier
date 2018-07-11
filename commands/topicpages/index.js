@@ -255,6 +255,9 @@ function generateDiffs( tct, enm ) {
     diffs.authorPublisherInTctNotInEnm = _.difference( tct.authorPublishers, enm.authorPublishers );
     diffs.authorPublisherInEnmNotInTct = _.difference( enm.authorPublishers, tct.authorPublishers );
 
+    diffs.linkedDataInTctNotInEnm = _.difference( tct.linkedData, enm.linkedData );
+    diffs.linkedDataInEnmNotInTct = _.difference( enm.linkedData, tct.linkedData );
+
     if ( countRelatedTopicsOccurrences ) {
         diffs.topicOccurrenceCounts = getTopicOccurrenceCountsDifference(
             tct.topicOccurrenceCounts,
@@ -314,6 +317,16 @@ function writeDiffReports( topicId, diffs ) {
     if ( diffs.authorPublisherInEnmNotInTct.length > 0 ) {
         fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-authorPublishers.json`,
                           util.stableStringify( diffs.authorPublisherInEnmNotInTct ) );
+    }
+
+    if ( diffs.linkedDataInTctNotInEnm.length > 0 ) {
+        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-missing-linkedData.json`,
+                          util.stableStringify( diffs.linkedDataInTctNotInEnm ) );
+    }
+
+    if ( diffs.linkedDataInEnmNotInTct.length > 0 ) {
+        fs.writeFileSync( `${ reportsDir }/${ topicId }-enm-extra-linkedData.json`,
+                          util.stableStringify( diffs.linkedDataInEnmNotInTct ) );
     }
 
     if ( countRelatedTopicsOccurrences && diffs.topicOccurrenceCounts.length > 0 ) {
