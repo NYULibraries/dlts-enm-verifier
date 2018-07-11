@@ -74,11 +74,16 @@ function compareTctAndEnm( topicId ) {
 function getEnmData( topicId, topicName ) {
     const enm = {};
 
-    let visualizationData;
+    let linkedData, visualizationData;
 
     enm.responseBody = getEnmResponseBody( topicId );
 
     enm.dom = new JSDOM( enm.responseBody );
+
+    linkedData = getLinkedData( enm.dom );
+    if ( linkedData.length > 0 ) {
+        enm.linkedData = linkedData;
+    }
 
     visualizationData = getVisualizationDataFromScript(
         enm.dom.window.document.querySelector( 'script' ).textContent
@@ -211,6 +216,17 @@ function getEnmTopicPageUrl( id ) {
            zeroPaddedString.substring( 4, 6 ) + "/" +
            zeroPaddedString.substring( 6, 8 ) + "/" +
            zeroPaddedString + '.html';
+}
+
+function getLinkedData( dom ) {
+    let linkedData = [];
+
+    dom.window.document.querySelectorAll( '.enm-linked-data a' )
+        .forEach( linkedDataElement => {
+            linkedData.push( linkedDataElement.textContent.trim() );
+        } );
+
+    return linkedData;
 }
 
 function getVisualizationDataFromScript( script ) {
