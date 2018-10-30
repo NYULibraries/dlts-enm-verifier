@@ -179,7 +179,7 @@ function getEnmResponseBody( locationId ) {
     } else {
         responseBody = request(
             'GET',
-            `http://${ program.enmHost }:8983/solr/enm-pages/select?indent=on&q=id:${ locationId }&wt=json`
+            `http://${ program.enmHost }:${ program.enmHostPort }/solr/enm-pages/select?indent=on&q=id:${ locationId }&wt=json`
         ).getBody( 'utf8' );
 
         fs.writeFileSync( `${ enmCache }/${ locationId }.json`, responseBody );
