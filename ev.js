@@ -21,6 +21,9 @@ const directories = {
 program
     .option( '--enm-host [hostname]', 'ENM host (default varies by command: ' +
         util.getDefaultEnmHostHelpMessage() + ')' )
+    // See https://jira.nyu.edu/jira/browse/NYUP-477 for details on why we are
+    // using port 80 instead of 8983
+    .option( '--enm-host-port [port]', 'ENM host port', 80 )
     .option( '--tct-host [hostname]', 'TCT host', 'nyuapi.infoloom.nyc' )
     .option( '--enm-local [directory]', 'Use locally stored ENM files in <directory>', resolvedPath )
     .option( '--tct-local [directory]', 'Use locally stored TCT files in <directory>', resolvedPath );
